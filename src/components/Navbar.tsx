@@ -7,7 +7,7 @@ const Navbar = () => {
       <h2>iBuy</h2>
       <div className="nav-links">
         <Link to={"/"}>Home</Link>
-        <Link to={"/shop"}>Tech</Link>
+        <Link to={"/shop"}>Shop</Link>
         <Link to={"/favs"}>Favorites</Link>
       </div>
     </nav>

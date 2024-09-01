@@ -2,5 +2,12 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
+}
+.nav-links a {
+    margin: 1rem;
+    text-decoration: none;
+    color: white;
+}
+.nav-links a:hover {
+    color: #007bff;
 }
