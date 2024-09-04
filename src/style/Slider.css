@@ -3,15 +3,36 @@
   align-items: center;
   justify-content: center;
   width: 100%;
+  height: 30rem; 
   position: relative;
+  overflow: hidden; 
 }
 
-.slider img {
+.image-container {
+  width: 100%; 
+  height: 100%; 
+}
+
+.image-container img {
   width: 100%;
-  height: 100vh;
+  height: 100%; 
   object-fit: cover;
 }
 
+.image-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 4rem;
+  text-align: center;
+  /* background-color: rgba(0, 0, 0, 0.5); */
+  padding: 5rem;
+  border-radius: 1rem;
+}
+
+/* Buttons initial ausblenden */
 .slider button {
   background-color: #ffffff;
   border: none;
@@ -22,16 +43,20 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity 0.3s ease; /* Sanfter Übergang */
+}
+
+/* Buttons beim Hover über den Slider anzeigen */
+.slider:hover button {
+  opacity: 1;
 }
 
 .prevButton {
-  left: 10px;
+  left: 5rem;
 }
 
 .nextButton {
-  right: 10px;
+  right: 5rem;
 }
 
-.slider button:hover {
-  background-color: #dddddd;
-}

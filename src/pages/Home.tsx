@@ -1,22 +1,28 @@
-import ImageSlider from "../components/ImageSlider";
+import imagesData from "../data/images.json";
+import Slides from "../components/Slides";
+import ImageText from "../components/ImageText";
+import imageAndText from "../data/imageandtext.json";
+import "../index.css"
 
 const Home = () => {
-  const images = [
-    { url: "https://picsum.photos/1024/800?random=1", 
-      alt: "Random Image 1" },
-    { url: "https://picsum.photos/1024/800?random=2", 
-      alt: "Random Image 2" },
-    { url: "https://picsum.photos/1024/800?random=3", 
-      alt: "Random Image 3" },
-    { url: "https://picsum.photos/1024/800?random=4", 
-      alt: "Random Image 4" }
-  ];
+
+  const imageTextComponents = imageAndText.images.map((data, index) => {
+
+    const isReverse = index % 2 !== 0;
+    const className = isReverse ? "reverse" : "";
+
+    return (
+      <ImageText key={index} text={data.text} url={data.url} reverse={className}  />
+    );
+  });
 
   return (
-    <div className="home-container">
-      {/* TODO: Slider */}
-      <ImageSlider images={images.map(image => image.url)} />
-    </div>
+    <main className="home-container">
+      <Slides images={imagesData.images} interval={10000} />
+      <h2 className="home-h2">Special offers for members and free delivery for over 20 Euro orders! Sign up now!</h2>
+      {imageTextComponents}
+    </main>
   );
 };
+
 export default Home;

@@ -2,11 +2,11 @@ import { useState, useEffect } from 'react';
 import "../style/Slider.css";
 
 interface ImageSliderProps {
-  images: string[];
+  images: { url: string; alt: string }[]; 
   interval?: number;
 }
 
-const ImageSlider: React.FC<ImageSliderProps> = ({ images, interval = 20000 }) => {
+const ImageSlider: React.FC<ImageSliderProps> = ({ images, interval = 6000 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -30,7 +30,12 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images, interval = 20000 }) =
   return (
     <div className="slider">
       <button className='prevButton' onClick={goToPrevious}>⬅</button>
-      <img src={images[currentIndex]} alt={`Slide ${currentIndex}`} />
+      
+      <div className="image-container">
+        <img src={images[currentIndex].url} alt={images[currentIndex].alt} />
+        <div className="image-text">{images[currentIndex].alt}</div>
+      </div>
+
       <button className='nextButton' onClick={goToNext}>➡</button>
     </div>
   );

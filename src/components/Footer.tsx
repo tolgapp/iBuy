@@ -1,6 +1,11 @@
+import "../style/Footer.css"
+
 const Footer = () => {
   return (
-    <div>Footer</div>
-  )
-}
-export default Footer
+    <footer>
+      <h4>iBuy</h4>
+      
+    </footer>
+  );
+};
+export default Footer;

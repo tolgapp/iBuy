@@ -1,0 +1,37 @@
+.outter-container {
+    display: flex;
+    margin: 8rem;
+}
+
+.inner-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.inner-container.reverse {
+    flex-direction: row-reverse;
+}
+
+.inner-container img,
+.inner-container h2 {
+    flex: 1;
+    width: 50%;
+    max-width: 50%; 
+    box-sizing: border-box; 
+}
+.inner-container img {
+    height: auto;
+}
+
+.inner-container h2 {
+    padding-left: 3rem;
+    font-size: 4.1rem;
+    margin: 0; 
+}
+
+.inner-container.reverse h2 {
+    padding-left: 0;
+    padding-right: 3rem; 
+}
