@@ -3,7 +3,8 @@ footer {
   align-items: center;
   justify-content: center;
   height: fit-content;
-  margin: 5rem;
+  padding: 5rem;
+  background-color: darkolivegreen;
 }
 footer h4 {
   top: 0;
@@ -28,6 +29,8 @@ footer .footer-links .group {
 footer .footer-links .group .image-and-title  {
    display: flex;
    gap: 1rem;
+   margin-bottom: 1rem;
+   color: white;
 }
 footer .footer-links .group .image-and-title img {
     width: 2rem;

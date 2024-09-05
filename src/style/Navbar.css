@@ -1,43 +1,44 @@
 nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 6rem;
-    padding: 0 2rem; 
-    position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 6rem;
+  padding: 0 2rem;
+  position: relative;
 }
 .nav-links {
-    display: flex; 
-    flex: 1; 
-    gap: 1rem; 
+  display: flex;
+  flex: 1;
+  gap: 1rem;
 }
 .nav-links a {
-    text-decoration: none;
-    color: #fff;
+  text-decoration: none;
+  color: black;
 }
 .nav-links a:hover {
-    color: rgb(60, 206, 232);
+  color: rgb(60, 206, 232);
 }
 nav h2 {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    margin: 0;
-    cursor: pointer;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  cursor: pointer;
+  font-size: 2.4rem;
 }
 nav h2 a {
-    text-decoration: none;
-    color: #fff;
+  text-decoration: none;
+  color: black;
 }
 .signup {
-    padding: .8rem 1rem;
-    border-radius: .5rem;
-    border: none;
-    color: black;
-    font-size: .8rem;
-    font-weight: 800;
-    cursor: pointer;
+  padding: 0.8rem 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  color: black;
+  font-size: 0.8rem;
+  font-weight: 800;
+  cursor: pointer;
 }
 .signup:hover {
-    background-color: rgb(60, 206, 232);
+  background-color: rgb(60, 206, 232);
 }

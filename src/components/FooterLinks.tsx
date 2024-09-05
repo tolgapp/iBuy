@@ -1,16 +1,16 @@
+type FooterLinksProps = {
+    links: FooterLinkGroup[];
+};
+
 type FooterLinkGroup = {
     icon: string;
     title: string;
     links: {
         id: number;
         link: string;
+        text: string
     }[];
 };
-
-type FooterLinksProps = {
-    links: FooterLinkGroup[];
-};
-
 
 const FooterLinks: React.FC<FooterLinksProps> = ({ links }) => {
     return (
@@ -24,7 +24,7 @@ const FooterLinks: React.FC<FooterLinksProps> = ({ links }) => {
                     <ul>
                         {group.links.map((linkItem) => (
                             <li key={linkItem.id}>
-                                <a href={linkItem.link}>{linkItem.link}</a>
+                                <a href={linkItem.link}>{linkItem.text}</a>
                             </li>
                         ))}
                     </ul>

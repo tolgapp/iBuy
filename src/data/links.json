@@ -1,64 +1,64 @@
 [
     {
         "icon": "/images/icons/question.png",
-        "title": "Help & more..",
+        "title": "Help & more",
         "links": [
             {
                 "id": 1,
-                "link": "https://apple.com/de",
-                "text": "Apple 1"
+                "link": "http://localhost:5173",
+                "text": "Contact us"
             },
             {
                 "id": 2,
-                "link": "https://apple.com/de",
-                "text": "Apple 2"
+                "link": "http://localhost:5173",
+                "text": "Returns"
             },
             {
                 "id": 3,
-                "link": "https://apple.com/de",
-                "text": "Apple 3"
+                "link": "http://localhost:5173",
+                "text": "EU delivery"
             }
         ]
     },
     {
         "icon": "/images/icons/bag.png",
-        "title": "Gruppe 2",
+        "title": "Products",
         "links": [
             {
                 "id": 4,
-                "link": "https://apple.com/de",
-                "text": "Apple 4"
+                "link": "http://localhost:5173",
+                "text": "Casual"
             },
             {
                 "id": 5,
-                "link": "https://apple.com/de",
-                "text": "Apple 5"
+                "link": "http://localhost:5173",
+                "text": "Men"
             },
             {
                 "id": 6,
-                "link": "https://apple.com/de",
-                "text": "Apple 6"
+                "link": "http://localhost:5173",
+                "text": "Women"
             }
         ]
     },
     {
         "icon": "/images/icons/shop.png",
-        "title": "Gruppe 3",
+        "title": "iBuy Group",
         "links": [
             {
                 "id": 7,
-                "link": "https://apple.com/de",
-                "text": "Apple 7"
+                "link": "http://localhost:5173",
+                "text": "Career"
             },
             {
                 "id": 8,
-                "link": "https://apple.com/de",
-                "text": "Apple 8"
+                "link": "http://localhost:5173",
+                "text": "About us"
             },
             {
                 "id": 9,
-                "link": "https://apple.com/de",
-                "text": "Apple 9"
+                "link": "http://localhost:5173",
+                "text": "iBuy group international"
             }
         ]
     }

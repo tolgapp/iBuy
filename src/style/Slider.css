@@ -3,19 +3,19 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 30rem; 
+  height: 30rem;
   position: relative;
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 .image-container {
-  width: 100%; 
-  height: 100%; 
+  width: 100%;
+  height: 100%;
 }
 
 .image-container img {
   width: 100%;
-  height: 100%; 
+  height: 100%;
   object-fit: cover;
 }
 
@@ -27,9 +27,15 @@
   color: white;
   font-size: 4rem;
   text-align: center;
-  /* background-color: rgba(0, 0, 0, 0.5); */
   padding: 5rem;
   border-radius: 1rem;
+}
+.image-text h2 {
+  font-size: 4.5rem;
+
+}
+.image-text p {
+  font-size: 1.8rem;
 }
 
 /* Buttons initial ausblenden */
@@ -59,4 +65,3 @@
 .nextButton {
   right: 5rem;
 }
-

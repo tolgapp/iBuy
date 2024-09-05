@@ -18,7 +18,7 @@ const Home = () => {
 
   return (
     <main className="home-container">
-      <Slides images={imagesData.images} interval={10000} />
+      <Slides images={imagesData.images} interval={3000} />
       <h2 className="home-h2">Special offers for members and free delivery for over 20 Euro orders! Sign up now!</h2>
       {imageTextComponents}
     </main>

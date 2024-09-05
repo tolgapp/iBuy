@@ -1,0 +1,18 @@
+.payments {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+.payments h3 {
+    margin: 1rem 0;
+    color: white;
+}
+.payments .payment-icons  {
+    display: flex;
+    gap: 1rem;
+}
+.payments .payment-icons img {
+    width: 3rem;
+    box-shadow: .2rem .3rem .2rem;
+    color: goldenrod;
+}

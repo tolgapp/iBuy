@@ -2,22 +2,26 @@
     "images": [
       {
         "url": "https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "title": "Need some colors in your life?",
         "text": "Find the right color that suits you!",
         "alt": "unsplash fashion picture"
       },
       {
         "url": "https://plus.unsplash.com/premium_photo-1664202526559-e21e9c0fb46a?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "title": "No time for city shopping?",
         "text": "Save time and order everything directly to your home!",
         "alt": "unsplash fashion picture"
       },
       {
         "url": "https://images.unsplash.com/photo-1517502166878-35c93a0072f0?q=80&w=2462&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        "text": "You have free space in your wardrobe? Let's fill it with some memories.",
+        "title": "You have free space in your wardrobe?",
+        "text": "Let's fill it with some memories.",
         "alt": "unsplash fashion picture"
       },
       {
         "url": "https://images.unsplash.com/photo-1485518882345-15568b007407?q=80&w=3142&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        "text": "Sunday? Rainy? We are open 24 / 7. Welcome.",
+        "title": "Sunday? Rainy?",
+        "text": "We are 24/7 open. Welcome.",
         "alt": "unsplash fashion picture"
       }
     ]
