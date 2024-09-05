@@ -1,0 +1,65 @@
+[
+    {
+        "icon": "/images/icons/question.png",
+        "title": "Help & more..",
+        "links": [
+            {
+                "id": 1,
+                "link": "https://apple.com/de",
+                "text": "Apple 1"
+            },
+            {
+                "id": 2,
+                "link": "https://apple.com/de",
+                "text": "Apple 2"
+            },
+            {
+                "id": 3,
+                "link": "https://apple.com/de",
+                "text": "Apple 3"
+            }
+        ]
+    },
+    {
+        "icon": "/images/icons/bag.png",
+        "title": "Gruppe 2",
+        "links": [
+            {
+                "id": 4,
+                "link": "https://apple.com/de",
+                "text": "Apple 4"
+            },
+            {
+                "id": 5,
+                "link": "https://apple.com/de",
+                "text": "Apple 5"
+            },
+            {
+                "id": 6,
+                "link": "https://apple.com/de",
+                "text": "Apple 6"
+            }
+        ]
+    },
+    {
+        "icon": "/images/icons/shop.png",
+        "title": "Gruppe 3",
+        "links": [
+            {
+                "id": 7,
+                "link": "https://apple.com/de",
+                "text": "Apple 7"
+            },
+            {
+                "id": 8,
+                "link": "https://apple.com/de",
+                "text": "Apple 8"
+            },
+            {
+                "id": 9,
+                "link": "https://apple.com/de",
+                "text": "Apple 9"
+            }
+        ]
+    }
+]
