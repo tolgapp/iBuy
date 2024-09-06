@@ -4,17 +4,19 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Shop from "./pages/Shop";
 import "./index.css";
-
-{
-  /* TODO: Andere Routen nach und nach einfügen und zum Schluss stylen */
-}
-{
-  /* TODO:  Navbar (Font?) + Footer (e.g links) */
-}
+import NewsBar from "./components/NewsBar";
+import { useState } from "react";
 
 const App: React.FC = () => {
+  const [closeNews, setCloseNews] = useState(true);
+
+  function handleClick() {
+    setCloseNews(false);
+  }
+
   return (
     <>
+      {closeNews ? <NewsBar handleClick={handleClick} />  : ""}
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />

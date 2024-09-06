@@ -31,3 +31,31 @@ main .home-h2 {
   color: black;
   word-spacing: 1rem;
 }
+
+/* NewsBar.tsx */
+.news-bar {
+  display: flex;
+  justify-content: center; 
+  align-items: center;     
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  position: relative;
+  background-color: #242424;
+  color: white;
+}
+
+.news-bar h3 {
+  margin: 0;
+  flex-grow: 1; 
+  text-align: center;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  margin-left: auto;  
+  margin-right: 10px;
+}
+
