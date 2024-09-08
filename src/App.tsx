@@ -6,18 +6,28 @@ import Shop from "./pages/Shop";
 import "./index.css";
 import NewsBar from "./components/NewsBar";
 import { useState } from "react";
+import Search from "./components/Search";
 
 const App: React.FC = () => {
   const [closeNews, setCloseNews] = useState(true);
+  const [isSearchVisible, setIsSearchVisible] = useState(false);
 
   function handleClick() {
     setCloseNews(false);
   }
 
+  function showSearch() {
+    setIsSearchVisible((prev) => !prev);
+  }
+
+  // TODO: useContext for global Search
+  // TODO: Input (Search Component) adjust text position
+
   return (
     <>
-      {closeNews ? <NewsBar handleClick={handleClick} />  : ""}
-      <Navbar />
+      {closeNews ? <NewsBar handleClick={handleClick} /> : ""}
+      {isSearchVisible ? <Search showSearch={showSearch} /> : ""}
+      <Navbar showSearch={showSearch} />    
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/shop" element={<Shop />} />

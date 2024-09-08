@@ -5,6 +5,7 @@ nav {
   height: 6rem;
   padding: 0 2rem;
   position: relative;
+  z-index: 10;
 }
 .nav-links {
   display: flex;
@@ -16,7 +17,8 @@ nav {
   color: black;
 }
 .nav-links a:hover {
-  color: rgb(60, 206, 232);
+  text-decoration: underline;
+  text-underline-offset: .5rem;
 }
 nav h2 {
   position: absolute;
@@ -29,6 +31,16 @@ nav h2 {
 nav h2 a {
   text-decoration: none;
   color: black;
+}
+.search-and-signup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.search-and-signup img {
+  width: 1.5rem;
+  cursor: pointer;
 }
 .signup {
   padding: 0.8rem 1rem;
