@@ -1,13 +1,22 @@
 {
-    "images": [
-      {
-        "url": "https://picsum.photos/1024/800/?random=13&blur=2",
-        "text": "Get free delivery with our premium partner DHL for orders over 20 Euro!"
-      },
-      {
-        "url": "https://picsum.photos/1024/800/?random=24&blur=2",
-        "text": "Save the product for later and allow notifications for special offers for members!"
-      }
-    ]
-  }
-  
+  "products": [
+    {
+      "url": "https://picsum.photos/1024/800/?random=1&blur=2",
+      "brandName": "Calvin Klein",
+      "tagline": "Jeremy Allen White - An Original",
+      "description": "This season is free and relaxed. Discover the new styles."
+    },
+    {
+      "url": "https://picsum.photos/1024/800/?random=2&blur=2",
+      "brandName": "Tommy Hilfiger",
+      "tagline": "Classic American Cool",
+      "description": "Experience the timeless elegance of our latest collection."
+    },
+    {
+      "url": "https://picsum.photos/1024/800/?random=3&blur=2",
+      "brandName": "Ralph Lauren",
+      "tagline": "The Quintessential Lifestyle Brand",
+      "description": "Elevate your wardrobe with our sophisticated styles."
+    }
+  ]
+}

@@ -37,14 +37,13 @@ const Search: React.FC<SearchProps> = ({ showSearch }) => {
       <h2>
         <Link to={"/"}>iBuy</Link>
       </h2>
-
       <div className="input-container">
         <input
           type="text"
           placeholder="Search"
           name="search"
           id="search"
-          ref={inputRef} 
+          ref={inputRef}
         />
         <button onClick={showSearch} className="close-search">
           x

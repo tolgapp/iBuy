@@ -1,0 +1,56 @@
+[
+    {
+      "id": 1,
+      "url": "images/products/af1.webp",
+      "brand": "Nike",
+      "price": 120
+    },
+    {
+      "id": 2,
+      "url": "images/products/airpods-max-black.webp",
+      "brand": "Apple",
+      "price": 250
+    },
+    {
+      "id": 3,
+      "url": "images/products/bershka-blazer-black.webp",
+      "brand": "Bershka",
+      "price": 90
+    },
+    {
+      "id": 4,
+      "url": "images/products/homepod.webp",
+      "brand": "Apple",
+      "price": 200
+    },
+    {
+      "id": 5,
+      "url": "images/products/newbalance-uni-sneaker.webp",
+      "brand": "New Balance",
+      "price": 150
+    },
+    {
+      "id": 6,
+      "url": "images/products/ralph-lauren-jeansshirt.webp",
+      "brand": "Ralph Lauren",
+      "price": 100
+    },
+    {
+      "id": 7,
+      "url": "images/products/ralph-lauren-tshirt.webp",
+      "brand": "Ralph Lauren",
+      "price": 70
+    },
+    {
+      "id": 8,
+      "url": "images/products/rituals-hand-wash.webp",
+      "brand": "Rituals",
+      "price": 30
+    },
+    {
+      "id": 9,
+      "url": "images/products/rituals-home-perfum.webp",
+      "brand": "Rituals",
+      "price": 80
+    }
+  ]
