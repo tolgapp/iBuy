@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 30rem;
+  height: 36rem;
   position: relative;
   overflow: hidden;
 }
@@ -11,57 +11,83 @@
 .image-container {
   width: 100%;
   height: 100%;
+  position: relative;
+}
+
+.image-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.039); 
+  z-index: 1; 
 }
 
 .image-container img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  position: relative;
+  z-index: 0; 
+  transition: ease 800ms;
 }
 
 .image-text {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  bottom: 5%;
+  left: 2%;
   color: white;
-  font-size: 4rem;
   text-align: center;
-  padding: 5rem;
+  padding: 2.5rem;
   border-radius: 1rem;
+  z-index: 2;
+  text-align: left;
 }
-.image-text h2 {
-  font-size: 4.5rem;
 
+.image-text h2 {
+  font-size: 4.2rem;
+  font-weight: 600;
+  max-width: 37rem;
 }
+
 .image-text p {
   font-size: 1.8rem;
 }
 
-/* Buttons initial ausblenden */
-.slider button {
-  background-color: #ffffff;
-  border: none;
-  color: rgb(77, 77, 77);
-  padding: 10px;
-  cursor: pointer;
-  border-radius: 5px;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  opacity: 0;
-  transition: opacity 0.3s ease; /* Sanfter Übergang */
+.slider {
+  position: relative;
 }
 
-/* Buttons beim Hover über den Slider anzeigen */
+.slider button {
+  width: 1.85rem; 
+  height: 1.85rem; 
+  position: absolute;
+  bottom: 1%; 
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  cursor: pointer;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
 .slider:hover button {
   opacity: 1;
 }
 
 .prevButton {
-  left: 5rem;
+  right: 55px; /* Abstand von der rechten Seite */
 }
 
 .nextButton {
-  right: 5rem;
+  right: 20px; /* Abstand von der rechten Seite */
+}
+
+.slider .prevButton:hover,
+.slider .nextButton:hover {
+  background-color: rgba(0, 0, 0, 0.7);
 }

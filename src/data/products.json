@@ -1,56 +1,92 @@
 [
-    {
-      "id": 1,
-      "url": "images/products/af1.webp",
-      "brand": "Nike",
-      "price": 120
-    },
-    {
-      "id": 2,
-      "url": "images/products/airpods-max-black.webp",
-      "brand": "Apple",
-      "price": 250
-    },
-    {
-      "id": 3,
-      "url": "images/products/bershka-blazer-black.webp",
-      "brand": "Bershka",
-      "price": 90
-    },
-    {
-      "id": 4,
-      "url": "images/products/homepod.webp",
-      "brand": "Apple",
-      "price": 200
-    },
-    {
-      "id": 5,
-      "url": "images/products/newbalance-uni-sneaker.webp",
-      "brand": "New Balance",
-      "price": 150
-    },
-    {
-      "id": 6,
-      "url": "images/products/ralph-lauren-jeansshirt.webp",
-      "brand": "Ralph Lauren",
-      "price": 100
-    },
-    {
-      "id": 7,
-      "url": "images/products/ralph-lauren-tshirt.webp",
-      "brand": "Ralph Lauren",
-      "price": 70
-    },
-    {
-      "id": 8,
-      "url": "images/products/rituals-hand-wash.webp",
-      "brand": "Rituals",
-      "price": 30
-    },
-    {
-      "id": 9,
-      "url": "images/products/rituals-home-perfum.webp",
-      "brand": "Rituals",
-      "price": 80
-    }
-  ]
+  {
+    "id": 1,
+    "brand": "Nike",
+    "price": 120,
+    "images": [
+      "images/products/af1.webp",
+      "images/products/af1-second.webp"
+    ],
+    "description": "Classic Nike sneakers with a modern touch."
+  },
+  {
+    "id": 2,
+    "brand": "Apple",
+    "price": 250,
+    "images": [
+      "images/products/airpods-max-black.webp",
+      "images/products/airpods-max-black-second.webp"
+    ],
+    "description": "Premium over-ear headphones from Apple."
+  },
+  {
+    "id": 3,
+    "brand": "Bershka",
+    "price": 90,
+    "images": [
+      "images/products/bershka-blazer-black.webp",
+      "images/products/bershka-blazer-black-second.webp"
+    ],
+    "description": "Stylish black blazer from Bershka."
+  },
+  {
+    "id": 4,
+    "brand": "Apple",
+    "price": 200,
+    "images": [
+      "images/products/homepod.webp",
+      "images/products/homepod-standalone.webp"
+    ],
+    "description": "Apple's smart speaker & high-fidelity audio."
+  },
+  {
+    "id": 5,
+    "brand": "Rituals",
+    "price": 80,
+    "images": [
+      "images/products/rituals-home-perfum-second.webp",
+      "images/products/rituals-home-perfum.webp"
+    ],
+    "description": "Luxurious home perfume from Rituals."
+  },
+  {
+    "id": 6,
+    "brand": "Ralph Lauren",
+    "price": 100,
+    "images": [
+      "images/products/ralph-lauren-jeansshirt.webp",
+      "images/products/ralph-lauren-jeansshirt.webp"
+    ],
+    "description": "Casual denim shirt by Ralph Lauren."
+  },
+  {
+    "id": 7,
+    "brand": "Ralph Lauren",
+    "price": 70,
+    "images": [
+      "images/products/ralph-lauren-tshirt.webp",
+      "images/products/ralph-lauren-tshirt-second.webp"
+    ],
+    "description": "Classic t-shirt from Ralph Lauren."
+  },
+  {
+    "id": 8,
+    "brand": "Rituals",
+    "price": 30,
+    "images": [
+      "images/products/rituals-hand-wash.webp",
+      "images/products/rituals-hand-wash-second.webp"
+    ],
+    "description": "Gentle hand wash by Rituals."
+  },
+  {
+    "id": 9,
+    "brand": "New Balance",
+    "price": 150,
+    "images": [
+      "images/products/newbalance-uni-sneaker.webp",
+      "images/products/newbalance-uni-sneaker-second.webp"
+    ],
+    "description": "Versatile sneakers from New Balance."
+  }
+]

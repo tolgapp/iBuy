@@ -6,7 +6,7 @@ type SlideProps = {
   interval?: number;
 };
 
-const Slides: React.FC<SlideProps> = ({ images, interval = 5000 }) => {
+const Slides: React.FC<SlideProps> = ({ images, interval = 4000 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [slideInterval, setSlideInterval] = useState(interval);
 
@@ -29,16 +29,11 @@ const Slides: React.FC<SlideProps> = ({ images, interval = 5000 }) => {
   };
 
   const extendInterval = () => {
-    setSlideInterval((prevInterval) => prevInterval + 4000);
+    setSlideInterval((prevInterval) => prevInterval + 2000);
   };
 
   return (
     <div className="slider">
-      {currentIndex !== 0 && (
-        <button className="prevButton" onClick={prevButton}>
-          ⬅
-        </button>
-      )}
       <div className="image-container">
         <img src={images[currentIndex].url} alt={images[currentIndex].alt} />
         <div className="image-text">
@@ -46,6 +41,11 @@ const Slides: React.FC<SlideProps> = ({ images, interval = 5000 }) => {
           <p>{images[currentIndex].text}</p>
         </div>
       </div>
+      {currentIndex !== 0 && (
+        <button className="prevButton" onClick={prevButton}>
+          ⬅
+        </button>
+      )}
       {currentIndex !== images.length - 1 && (
         <button className="nextButton" onClick={nextButton}>
           ➡

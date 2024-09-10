@@ -10,22 +10,37 @@ type Product = {
 
 type ImageTextProps = {
   product: Product;
-  reverse?: string;
+  reverse?: boolean;
 };
 
 const ImageText: React.FC<ImageTextProps> = ({ product, reverse = false }) => {
   const [color, setColor] = useState('#fff');
 
   function generateColor() {
-    const randomColor = Math.floor(Math.random() * 16777215).toString(16);
+    let randomColor;
+    let brightness;
+
+    do {
+      randomColor = Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
+      brightness = calculateBrightness(randomColor);
+    } while (brightness > 200); // Schwellenwert für Helligkeit, um helle Farben zu vermeiden
+
     setColor('#' + randomColor);
+  }
+
+  function calculateBrightness(hexColor: string) {
+    const r = parseInt(hexColor.substring(0, 2), 16);
+    const g = parseInt(hexColor.substring(2, 4), 16);
+    const b = parseInt(hexColor.substring(4, 6), 16);
+
+    // Berechnung der Helligkeit
+    return (r * 299 + g * 587 + b * 114) / 1000;
   }
 
   useEffect(() => {
     generateColor();
   }, []);
 
-  
   const containerStyle = {
     backgroundColor: color
   };

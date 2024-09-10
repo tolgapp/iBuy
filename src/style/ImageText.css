@@ -1,6 +1,6 @@
 .outter-container {
     display: flex;
-    margin: 8rem;
+    margin: 1rem;
   }
   
   .inner-container {
@@ -24,14 +24,12 @@
   
   .text-container {
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
     flex: 1; 
-    padding-left: 3rem;
+    text-align: left;
     color: white;
-  }
-  
-  .inner-container.reverse .text-container {
-    padding-left: 3rem;
   }
   
   .text-container h2 {

@@ -23,7 +23,6 @@
 main {
   position: relative;
   background-color: white;
-  padding: 0 0 1rem 0;
 }
 main .home-h2 {
   margin: 3rem;
@@ -39,7 +38,7 @@ main .home-h2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px;
+  padding: 0.3rem;
   border-bottom: 1px solid #ddd;
   position: relative;
   background-color: #242424;
@@ -47,7 +46,6 @@ main .home-h2 {
 }
 
 .news-bar h3 {
-  margin: 0;
   flex-grow: 1;
   text-align: center;
 }
@@ -120,17 +118,125 @@ main .home-h2 {
   margin: 4.3rem 0 1rem 0;
   overflow-x: scroll;
 }
+
 .product-card {
   display: flex;
   flex-direction: column;
   margin: 2rem;
+  position: relative;
 }
+
 .product-card img {
-  border: .1rem solid rgb(245, 245, 245);
+  border: 0.1rem solid rgb(245, 245, 245);
   width: 20rem;
   border-radius: 1.1rem;
   margin-bottom: 0.3rem;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
-.product-card img:hover {
-  scale: 1.4rem;
+
+.product-card img:first-child {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.product-card img:last-child {
+  opacity: 0;
+}
+
+.product-card:hover img:last-child {
+  opacity: 1;
+}
+
+.product-card:hover img:first-child {
+  opacity: 0;
+}
+
+/* standalone h3 */
+.all {
+  font-size: 6rem;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  text-align: center;
+  margin: 2rem;
+}
+
+/* BackToTop.tsx */
+.back-to-top {
+  position: fixed; /* Stays in the same position when you scroll */
+  bottom: 1rem; /* Position it 30px from the bottom */
+  right: 1rem; /* Position it 30px from the right */
+  background-color: #000; /* Button background color */
+  color: white; /* Text color */
+  padding: 0.5rem 1rem; /* Button padding */
+  border: none; /* Remove default border */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 1.6rem; /* Increase font size */
+  z-index: 1000; /* Ensure it is above other elements */
+  opacity: 0.7; /* Slight transparency */
+  transition: opacity 0.3s ease; /* Smooth hover transition */
+}
+
+.back-to-top:hover {
+  opacity: 1; /* Full opacity on hover */
+}
+
+/* Favorites.tsx */
+.favorites {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50rem;
+  border: 0.1rem solid rgba(0, 0, 0, 0.1);
+}
+.text-container-favorites {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.text-container-favorites h2 {
+  font-size: 3rem;
+}
+.text-container-favorites h3 {
+  font-size: 2rem;
+}
+.form-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #000;
+  height: 50rem;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  text-align: left;
+  background-color: #000;
+  height: 50rem;
+}
+form label {
+  text-align: left;
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin: 0.4rem 0;
+}
+form input {
+  background-color: white;
+  padding: 0.5rem;
+  width: 25rem;
+  font-size: 1.5rem;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  color: #000;
+}
+form button {
+  padding: 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 1rem 0;
 }

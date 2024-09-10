@@ -2,7 +2,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 6rem;
+  height: 7rem;
   padding: 0 2rem;
   position: relative;
   z-index: 10;
@@ -52,5 +52,6 @@ nav h2 a {
   cursor: pointer;
 }
 .signup:hover {
-  background-color: rgb(60, 206, 232);
+  background-color: rgb(6, 106, 96);
+  color: white;
 }

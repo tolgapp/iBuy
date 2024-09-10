@@ -12,7 +12,7 @@ const Navbar: React.FC<Search> = ({showSearch}) => {
       <div className="nav-links">
         <Link to={"/"}>Home</Link>
         <Link to={"/shop"}>Shop</Link>
-        <Link to={"/favs"}>Favorites</Link>
+        <Link to={"/favorites"}>Favorites</Link>
       </div>
       <h2><Link to={"/"}>iBuy</Link></h2>
       <div className="search-and-signup">

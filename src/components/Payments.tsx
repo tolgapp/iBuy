@@ -6,8 +6,9 @@ const Payments = () => {
     <div className="payments">
       <h3>Payment methods</h3>
       <section className="payment-icons">
-        {payment.map((pay) => (
+        {payment.map((pay, index) => (
           <img
+          key={index}
             src={pay.svg}
             alt={pay.alt}
             title={pay.alt.replace("Logo", "")}

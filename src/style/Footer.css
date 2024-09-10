@@ -4,7 +4,8 @@ footer {
   justify-content: center;
   height: fit-content;
   padding: 5rem;
-  background-color: darkolivegreen;
+  background-color: teal;
+  ;
 }
 footer h4 {
   top: 0;

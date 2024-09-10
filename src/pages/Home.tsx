@@ -3,19 +3,19 @@ import Slides from "../components/Slides";
 import ImageText from "../components/ImageText";
 import imageAndText from "../data/imageandtext.json";
 import ProductCard from "../components/ProductCard";
-import products from "../data/products.json"
+import products from "../data/products.json";
+import BackToTop from "../components/BackToTop";
 import "../index.css";
 
 const Home = () => {
   const imageTextComponents = imageAndText.products.map((product, index) => {
     const isReverse = index % 2 !== 0;
-    const className = isReverse ? "reverse" : "";
 
     return (
       <ImageText
         key={index}
         product={product}
-        reverse={className}
+        reverse={isReverse}
       />
     );
   });
@@ -24,9 +24,13 @@ const Home = () => {
     <main className="home-container">
       <Slides images={imagesData.images} interval={5000} />
       <div className="product-container">
-        {products.map(product => <ProductCard product={product} />)}
+        {products.map((product) => (
+          <ProductCard product={product} />
+        ))}
       </div>
+        <h3 className="all">We have them all!</h3>
       {imageTextComponents}
+      <BackToTop />
     </main>
   );
 };

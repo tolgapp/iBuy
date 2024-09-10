@@ -7,6 +7,7 @@ import "./index.css";
 import NewsBar from "./components/NewsBar";
 import { useState } from "react";
 import Search from "./components/Search";
+import Favorites from "./components/Favorites";
 
 const App: React.FC = () => {
   const [closeNews, setCloseNews] = useState(true);
@@ -32,6 +33,7 @@ const App: React.FC = () => {
         <Route path="/" element={<Home />} />
         <Route path="/shop" element={<Shop />} />
         <Route path="/shop/:id" element={<Shop />} />
+        <Route path="/favorites" element={<Favorites />} />
       </Routes>
       <Footer />
     </>
