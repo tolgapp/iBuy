@@ -7,6 +7,9 @@ nav {
   position: relative;
   z-index: 10;
 }
+.underline {
+  border-bottom: .1rem solid rgb(175, 175, 175);
+}
 .nav-links {
   display: flex;
   flex: 1;
@@ -42,7 +45,7 @@ nav h2 a {
   width: 1.5rem;
   cursor: pointer;
 }
-.signup {
+.signup-button {
   padding: 0.8rem 1rem;
   border-radius: 0.5rem;
   border: none;
@@ -51,7 +54,13 @@ nav h2 a {
   font-weight: 800;
   cursor: pointer;
 }
-.signup:hover {
-  background-color: rgb(6, 106, 96);
+.signup-button a {
+  text-decoration: none;
+  color: black;
+}
+.signup-button:hover {
+  background-color: rgb(0, 143, 143);
+}
+.signup-button:hover a {
   color: white;
 }

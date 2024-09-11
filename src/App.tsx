@@ -7,7 +7,7 @@ import "./index.css";
 import NewsBar from "./components/NewsBar";
 import { useState } from "react";
 import Search from "./components/Search";
-import Favorites from "./components/Favorites";
+import Signup from "./components/Signup";
 
 const App: React.FC = () => {
   const [closeNews, setCloseNews] = useState(true);
@@ -33,7 +33,9 @@ const App: React.FC = () => {
         <Route path="/" element={<Home />} />
         <Route path="/shop" element={<Shop />} />
         <Route path="/shop/:id" element={<Shop />} />
-        <Route path="/favorites" element={<Favorites />} />
+        {/* Redirect to Signup -> Signup instead of Favorites*/}
+        <Route path="/favorites" element={<Signup />} />
+        <Route path="/signup" element={<Signup />} />
       </Routes>
       <Footer />
     </>

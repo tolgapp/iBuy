@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import "../style/Navbar.css"
 
 type Search = {
@@ -7,8 +7,13 @@ type Search = {
 
 const Navbar: React.FC<Search> = ({showSearch}) => {
 
+  const {pathname} = useLocation()
+
+  const isFavorites = pathname === "/favorites" || pathname === "/signup";
+
+
   return (
-    <nav>
+    <nav className={isFavorites ? "underline" : ""}>
       <div className="nav-links">
         <Link to={"/"}>Home</Link>
         <Link to={"/shop"}>Shop</Link>
@@ -17,7 +22,7 @@ const Navbar: React.FC<Search> = ({showSearch}) => {
       <h2><Link to={"/"}>iBuy</Link></h2>
       <div className="search-and-signup">
         <img src="/images/icons/search.png" alt="search icon" onClick={showSearch}/>
-      <button className="signup">Sign up</button>
+      <button className="signup-button"><Link to={"/signup"}>Sign up</Link></button>
       </div>
     </nav>
   )

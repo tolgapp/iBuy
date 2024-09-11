@@ -181,25 +181,24 @@ main .home-h2 {
   opacity: 1; /* Full opacity on hover */
 }
 
-/* Favorites.tsx */
-.favorites {
+/* Signup.tsx */
+.signup {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 50rem;
-  border: 0.1rem solid rgba(0, 0, 0, 0.1);
 }
-.text-container-favorites {
+.text-container-signup {
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 }
-.text-container-favorites h2 {
+.text-container-signup h2 {
   font-size: 3rem;
 }
-.text-container-favorites h3 {
+.text-container-signup h3 {
   font-size: 2rem;
 }
 .form-container {
