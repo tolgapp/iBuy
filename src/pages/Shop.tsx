@@ -1,31 +1,52 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import ShopDetail from "../components/ShopDetail";
+import products from "../data/products.json";
+import ProductCard from "../components/ProductCard";
+import ScrollingText from "../components/ScrollingText";
+import { Products } from "../components/ProductCard";
+import "../style/Shop.css";
+
 
 const Shop: React.FC = () => {
   const { id } = useParams<{ id: string }>();
 
-  // Example data
-  const items = [
-    { id: "1", name: "Artikel 1" },
-    { id: "2", name: "Artikel 2" },
-    { id: "3", name: "Artikel 3" },
-  ];
+  // Filter products by category
+  const womenProducts = products.filter((product: Products) =>
+    product.category.includes("Women")
+  );
+
+  const menProducts = products.filter((product: Products) =>
+    product.category.includes("Men")
+  );
+
+  const accessoriesProducts = products.filter(
+    (product: Products) => product.category === "Accessoires"
+  );
+
+  // Function to render product lists
+  const renderProductList = (productList: Products[]) => (
+    <div className="product-container">
+      {productList.map((product) => (
+        <ProductCard key={product.id} product={product} />
+      ))}
+    </div>
+  );
 
   return (
     <div>
       {id ? (
         <ShopDetail shopID={id} />
       ) : (
-        <div>
-          <h2>Willkommen im Shop</h2>
-          <ul>
-            {items.map((item) => (
-              <li key={item.id}>
-                <Link to={`/shop/${item.id}`}>{item.name}</Link>
-              </li>
-            ))}
-          </ul>
+        <div className="shop">
+          <ScrollingText text={"All products"} />
+          {renderProductList(products)}
+          <ScrollingText text={"Women"} />
+          {renderProductList(womenProducts)}
+          <ScrollingText text={"Men"} />
+          {renderProductList(menProducts)}
+          <ScrollingText text={"Accessoires"} />
+          {renderProductList(accessoriesProducts)}
         </div>
       )}
     </div>

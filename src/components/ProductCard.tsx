@@ -1,9 +1,11 @@
-type Products = {
+export type Products = {
   id: number;
   images: string[];
   brand: string;
   description: string;
   price: number;
+  info?: string;
+  category: string[] | string 
 };
 
 type Product = {
@@ -11,9 +13,11 @@ type Product = {
 };
 
 const ProductCard: React.FC<Product> = ({ product }) => {
+
   return (
     <div className="product-card">
       <img src={product.images[0]} alt={product.brand} />
+      {product.info && <p className="product-info">{product.info}</p>}
       {product.images[1] && (
         <img
           src={product.images[1]}

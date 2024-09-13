@@ -1,0 +1,28 @@
+.scrolling-text-container {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    height: 8rem;
+    display: flex;
+    align-items: center;
+    background-color: black;
+    margin: .5rem 0 0 0;
+  }
+  
+  .scrolling-text {
+    font-size: 4.8rem;
+    font-weight: 800;
+    animation: scroll-left 3s linear 1;
+    white-space: nowrap;
+    color: white;
+    padding-left: 2rem;
+  }
+  
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }

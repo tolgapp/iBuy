@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 type SearchProps = {
@@ -8,6 +8,7 @@ type SearchProps = {
 const Search: React.FC<SearchProps> = ({ showSearch }) => {
   const searchRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const [isOverlayVisible, setOverlayVisible] = useState(false);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -16,6 +17,7 @@ const Search: React.FC<SearchProps> = ({ showSearch }) => {
         !searchRef.current.contains(event.target as Node)
       ) {
         showSearch();
+        setOverlayVisible(false);
       }
     };
 
@@ -30,26 +32,36 @@ const Search: React.FC<SearchProps> = ({ showSearch }) => {
     if (inputRef.current) {
       inputRef.current.focus();
     }
+    setOverlayVisible(true); // Show overlay when search is focused
   }, []);
 
   return (
-    <div className="search" ref={searchRef}>
-      <h2>
-        <Link to={"/"}>iBuy</Link>
-      </h2>
-      <div className="input-container">
-        <input
-          type="text"
-          placeholder="Search"
-          name="search"
-          id="search"
-          ref={inputRef}
-        />
-        <button onClick={showSearch} className="close-search">
-          x
-        </button>
+    <>
+      {isOverlayVisible && <div className="overlay" />}
+      <div className="search" ref={searchRef}>
+        <h2>
+          <Link to={"/"}>iBuy</Link>
+        </h2>
+        <div className="input-container">
+          <input
+            type="text"
+            placeholder="Search"
+            name="search"
+            id="search"
+            ref={inputRef}
+          />
+          <button
+            onClick={() => {
+              showSearch();
+              setOverlayVisible(false);
+            }}
+            className="close-search"
+          >
+            x
+          </button>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

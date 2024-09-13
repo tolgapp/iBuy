@@ -22,7 +22,8 @@ const Navbar: React.FC<Search> = ({showSearch}) => {
       <h2><Link to={"/"}>iBuy</Link></h2>
       <div className="search-and-signup">
         <img src="/images/icons/search.png" alt="search icon" onClick={showSearch}/>
-      <button className="signup-button"><Link to={"/signup"}>Sign up</Link></button>
+        <Link to={"/login"}><img src="/images/icons/login-second.png" alt="login user icon"/></Link>
+        <Link to={"/signup"}><button className="signup-button">Sign up</button></Link>
       </div>
     </nav>
   )

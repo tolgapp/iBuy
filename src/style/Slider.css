@@ -36,24 +36,22 @@
 
 .image-text {
   position: absolute;
-  bottom: 5%;
-  left: 2%;
+  bottom: .5rem;
+  left: .5rem;
   color: white;
-  text-align: center;
-  padding: 2.5rem;
-  border-radius: 1rem;
+  padding: 2rem;
   z-index: 2;
   text-align: left;
+  max-width: 50rem;
 }
 
 .image-text h2 {
-  font-size: 4.2rem;
+  font-size: 5rem;
   font-weight: 600;
-  max-width: 37rem;
 }
 
 .image-text p {
-  font-size: 1.8rem;
+  font-size: 2rem;
 }
 
 .slider {

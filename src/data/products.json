@@ -4,10 +4,12 @@
     "brand": "Nike",
     "price": 120,
     "images": [
-      "images/products/af1.webp",
-      "images/products/af1-second.webp"
+      "images/products/af1-second.webp",
+      "images/products/af1.webp"
     ],
-    "description": "Classic Nike sneakers with a modern touch."
+    "description": "Classic Nike sneakers with a modern touch.",
+    "info": "Popular 🔥",
+    "category": ["Men", "Women"]
   },
   {
     "id": 2,
@@ -17,17 +19,19 @@
       "images/products/airpods-max-black.webp",
       "images/products/airpods-max-black-second.webp"
     ],
-    "description": "Premium over-ear headphones from Apple."
+    "description": "Premium over-ear headphones from Apple.",
+    "category": "Accessoires"
   },
   {
     "id": 3,
-    "brand": "Bershka",
-    "price": 90,
+    "brand": "New Look",
+    "price": 60,
     "images": [
-      "images/products/bershka-blazer-black.webp",
-      "images/products/bershka-blazer-black-second.webp"
+      "https://img01.ztat.net/article/spp-media-p1/f68cf95a85bf47ab98ebf8662c5fb8f9/298def6c90994208a72c6bce5a1a24bb.jpg?imwidth=1800&filter=packshot",
+      "https://img01.ztat.net/article/spp-media-p1/58e88a9071d74eaabdc791c7a484a408/ee9c137f7b994d3391820f00590ef3bc.jpg?imwidth=1800"
     ],
-    "description": "Stylish black blazer from Bershka."
+    "description": "Stylish dark grey jacket from New Look.",
+    "category": "Women"
   },
   {
     "id": 4,
@@ -37,7 +41,9 @@
       "images/products/homepod.webp",
       "images/products/homepod-standalone.webp"
     ],
-    "description": "Apple's smart speaker & high-fidelity audio."
+    "description": "Apple's smart speaker & high-fidelity audio.",
+    "info": "New",
+    "category": "Accessoires"
   },
   {
     "id": 5,
@@ -47,7 +53,9 @@
       "images/products/rituals-home-perfum-second.webp",
       "images/products/rituals-home-perfum.webp"
     ],
-    "description": "Luxurious home perfume from Rituals."
+    "description": "Luxurious home perfume from Rituals.",
+    "info": "Always fresh",
+    "category": "Accessoires"
   },
   {
     "id": 6,
@@ -57,7 +65,8 @@
       "images/products/ralph-lauren-jeansshirt.webp",
       "images/products/ralph-lauren-jeansshirt.webp"
     ],
-    "description": "Casual denim shirt by Ralph Lauren."
+    "description": "Casual denim shirt by Ralph Lauren.",
+    "category": "Men"
   },
   {
     "id": 7,
@@ -67,7 +76,8 @@
       "images/products/ralph-lauren-tshirt.webp",
       "images/products/ralph-lauren-tshirt-second.webp"
     ],
-    "description": "Classic t-shirt from Ralph Lauren."
+    "description": "Classic t-shirt from Ralph Lauren.",
+    "category": "Men"
   },
   {
     "id": 8,
@@ -77,7 +87,8 @@
       "images/products/rituals-hand-wash.webp",
       "images/products/rituals-hand-wash-second.webp"
     ],
-    "description": "Gentle hand wash by Rituals."
+    "description": "Gentle hand wash by Rituals.",
+    "category": "Accessoires"
   },
   {
     "id": 9,
@@ -87,6 +98,29 @@
       "images/products/newbalance-uni-sneaker.webp",
       "images/products/newbalance-uni-sneaker-second.webp"
     ],
-    "description": "Versatile sneakers from New Balance."
+    "description": "Versatile sneakers from New Balance.",
+    "category": "Men"
+  },
+  {
+    "id": 10,
+    "brand": "Calvin Klein",
+    "price": 35,
+    "images": [
+      "https://img01.ztat.net/article/spp-media-p1/17d3aa99595243e98e5b40fcedd39e5c/0425b904fd92420890a8b1e0703bd229.jpg?imwidth=1800&filter=packshot",
+      "https://img01.ztat.net/article/spp-media-p1/20a2677d934f4929bc5e768eeb32b981/70f3b1e466e945b1bd127f45c1cd0615.jpg?imwidth=1800"
+    ],
+    "description": "Essential t-shirt by CK.",
+    "category": "Women"
+  },
+  {
+    "id": 11,
+    "brand": "Tommy Hilfiger",
+    "price": 39,
+    "images": [
+      "https://img01.ztat.net/article/spp-media-p1/7a37a23a82294b5a89bd72e56bf0defb/528362440aa04b7e9e18bbbaf72411a9.jpg?imwidth=1800&filter=packshott",
+      "https://img01.ztat.net/article/spp-media-p1/f3ae8f4ae0d9403ca50391a82d8bac4c/c1be408efad4444cb58fded2b1314277.jpg?imwidth=1800"
+    ],
+    "description": "Essential t-shirt by Tommy.",
+    "category": "Women"
   }
 ]

@@ -110,19 +110,28 @@ main .home-h2 {
   font-size: 1.2rem;
   cursor: pointer;
 }
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  z-index: 99; 
+}
 
 /* ProductCard.tsx */
 .product-container {
   display: flex;
   gap: 0.4rem;
-  margin: 4.3rem 0 1rem 0;
+  margin: 4.3rem 0 1rem 1.5rem;
   overflow-x: scroll;
 }
 
 .product-card {
   display: flex;
   flex-direction: column;
-  margin: 2rem;
+  margin: 1rem;
   position: relative;
 }
 
@@ -151,6 +160,18 @@ main .home-h2 {
 .product-card:hover img:first-child {
   opacity: 0;
 }
+.product-card .product-info {
+  position: absolute;
+  padding: .4rem;
+  border-radius: .3rem;
+  top: 1rem;
+  left: 1rem;
+  background-color: #fff;
+  color: #000;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: 600;
+}
+
 
 /* standalone h3 */
 .all {
@@ -186,8 +207,9 @@ main .home-h2 {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 50rem;
+  height: 48rem;
 }
+
 .text-container-signup {
   flex: 1;
   display: flex;
@@ -195,19 +217,31 @@ main .home-h2 {
   justify-content: center;
   flex-direction: column;
 }
+
+.text-container-signup, .form-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .text-container-signup h2 {
   font-size: 3rem;
 }
+
 .text-container-signup h3 {
   font-size: 2rem;
 }
+
 .form-container {
   flex: 1;
   display: flex;
   flex-direction: column;
   background-color: #000;
-  height: 50rem;
+  height: 100%; /* Use full height of the parent */
 }
+
 form {
   display: flex;
   flex-direction: column;
@@ -215,8 +249,9 @@ form {
   margin: 0 auto;
   text-align: left;
   background-color: #000;
-  height: 50rem;
+  height: 100%; /* Use full height of the parent */
 }
+
 form label {
   text-align: left;
   color: white;
@@ -224,6 +259,7 @@ form label {
   font-weight: 500;
   margin: 0.4rem 0;
 }
+
 form input {
   background-color: white;
   padding: 0.5rem;
@@ -233,6 +269,7 @@ form input {
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   color: #000;
 }
+
 form button {
   padding: 1rem;
   font-size: 1rem;
