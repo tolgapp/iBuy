@@ -2,14 +2,15 @@ import { Link, useLocation } from "react-router-dom"
 import "../style/Navbar.css"
 
 type Search = {
+  isLoggedIn: boolean
   showSearch(): void
 }
 
-const Navbar: React.FC<Search> = ({showSearch}) => {
+const Navbar: React.FC<Search> = ({isLoggedIn, showSearch}) => {
 
   const {pathname} = useLocation()
 
-  const isFavorites = pathname === "/favorites" || pathname === "/signup";
+  const isFavorites = pathname === "/favorites" || pathname === "/signup" || pathname === "/login";
 
 
   return (
@@ -23,7 +24,7 @@ const Navbar: React.FC<Search> = ({showSearch}) => {
       <div className="search-and-signup">
         <img src="/images/icons/search.png" alt="search icon" onClick={showSearch}/>
         <Link to={"/login"}><img src="/images/icons/login-second.png" alt="login user icon"/></Link>
-        <Link to={"/signup"}><button className="signup-button">Sign up</button></Link>
+        {isLoggedIn ? "" : <Link to={"/signup"}><button className="signup-button">Sign up</button></Link>}
       </div>
     </nav>
   )

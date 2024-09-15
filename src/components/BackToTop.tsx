@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 const BackToTop: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -7,7 +7,7 @@ const BackToTop: React.FC = () => {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth", // Sanftes Scrollverhalten
+      behavior: "smooth", 
     });
   };
 

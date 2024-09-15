@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "../style/Signup.css";
 
 type FormData = {
   name: string;
@@ -9,7 +10,12 @@ type FormData = {
   verifyPassword: string;
 };
 
-const Signup: React.FC = () => {
+type SignupProps = {
+  setIsLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
+  setUserId: React.Dispatch<React.SetStateAction<string | null>>;
+};
+
+const Signup: React.FC<SignupProps> = () => {
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
@@ -22,12 +28,20 @@ const Signup: React.FC = () => {
 
   // Check for valid Data to sign up
   const validateFormData = () => {
+    if (formData.name?.length < 2) {
+      notify("Name is required for signup!");
+      return false;
+    }
     if (!formData.email.includes("@")) {
-      notify("Please enter valid data!");
+      notify("Please enter a valid email!");
+      return false;
+    }
+    if (formData.password.length === 0) {
+      notify("Password is required!");
       return false;
     }
     if (formData.password !== formData.verifyPassword) {
-      notify("Passwords do not match!");
+      notify("Passwords do not match!"); 
       return false;
     }
     return true;
@@ -36,16 +50,16 @@ const Signup: React.FC = () => {
   // Prevents the form from making dumb moves and returns nothing if data from formData is not valid
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-  
+
     if (!validateFormData()) {
       return;
     }
-  
+
     try {
-      const response = await fetch('http://localhost:3000/api/signup', {
-        method: 'POST',
+      const response = await fetch("http://localhost:3000/api/signup", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           name: formData.name,
@@ -53,19 +67,17 @@ const Signup: React.FC = () => {
           password: formData.password,
         }),
       });
-  
+
       if (response.ok) {
-        notify('Registrierung erfolgreich!');
+        notify("Registrierung erfolgreich!");
       } else {
-        notify('Fehler bei der Registrierung');
+        notify("Fehler bei der Registrierung");
       }
-      
     } catch (error) {
-      console.log(error)
-      notify('Netzwerkfehler');
+      console.log(error);
+      notify("Netzwerkfehler");
     }
   };
-
 
   // Updates the formData Object with the typed new Data
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -87,11 +99,23 @@ const Signup: React.FC = () => {
           <label htmlFor="name" className="name">
             Name:
           </label>
-          <input type="text" name="name" id="name" onChange={handleChange} />
+          <input
+            type="text"
+            name="name"
+            id="name"
+            // value={formData.name}
+            onChange={handleChange}
+          />
           <label htmlFor="email" className="email">
             Email:
           </label>
-          <input type="email" name="email" id="email" onChange={handleChange} />
+          <input
+            type="email"
+            name="email"
+            id="email"
+            // value={formData.email}
+            onChange={handleChange}
+          />
           <label htmlFor="password" className="password">
             Password:
           </label>
@@ -99,6 +123,7 @@ const Signup: React.FC = () => {
             type="password"
             name="password"
             id="password"
+            // value={formData.password}
             onChange={handleChange}
           />
           <label htmlFor="verifyPassword" className="password">
@@ -108,6 +133,7 @@ const Signup: React.FC = () => {
             type="password"
             name="verifyPassword"
             id="verifyPassword"
+              // value={formData.verifyPassword}
             onChange={handleChange}
           />
           <button type="submit">Sign up</button>

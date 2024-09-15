@@ -8,7 +8,7 @@ nav {
   z-index: 10;
 }
 .underline {
-  border-bottom: .1rem solid rgb(175, 175, 175);
+  border-bottom: 0.01rem solid black;;
 }
 .nav-links {
   display: flex;

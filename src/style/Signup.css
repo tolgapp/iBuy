@@ -1,0 +1,88 @@
+
+.signup {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 48rem;
+  }
+  
+  .text-container-signup {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  .text-container-signup, .form-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .text-container-signup h2 {
+    font-size: 3rem;
+  }
+  
+  .text-container-signup h3 {
+    font-size: 2rem;
+  }
+  
+  .form-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #000;
+    height: 100%; 
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    text-align: left;
+    background-color: #000;
+    height: 100%; 
+  }
+  .login-form-container input {
+    padding: 0.75rem;
+    font-size: 1rem; 
+    border: 1px solid #ccc;
+    margin-bottom: 1.25rem;
+  }
+  
+  .login-form-container input:focus {
+    outline: none;
+  }
+  
+  form label {
+    text-align: left;
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+  
+  form input {
+    background-color: white;
+    width: 25rem;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    color: #000;
+    padding: 0.75rem;
+    font-size: 1rem; 
+    border: 1px solid #ccc;
+    margin-bottom: 1.25rem;
+  }
+  
+  form button {
+    padding: 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    margin: 1rem 0;
+    background-color: #007bff;
+    border: none;
+  }

@@ -1,20 +1,24 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom"; // Importiere useNavigate
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "../style/Login.css";
 
 type LoginFormData = {
   email: string;
   password: string;
 };
 
-const Login: React.FC = () => {
+type LoginProps = {
+  setIsLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
+  setUserId: React.Dispatch<React.SetStateAction<string | null>>;
+};
+
+const Login: React.FC<LoginProps> = ({ setIsLoggedIn, setUserId }) => {
+
   const [formData, setFormData] = useState<LoginFormData>({
     email: "",
     password: "",
   });
-  
-  const navigate = useNavigate(); // Initialisiere useNavigate
 
   const notify = (message: string) => toast.info(message);
 
@@ -32,37 +36,38 @@ const Login: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-  
+
     if (!validateFormData()) {
       return;
     }
-  
+
     try {
-      const response = await fetch('http://localhost:3000/api/login', {
-        method: 'POST',
+      const response = await fetch("http://localhost:3000/api/login", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           email: formData.email,
           password: formData.password,
         }),
       });
-  
-      if (response.ok) {
 
-        notify('Login successful!');
-        setFormData({
-          email: "",
-          password: "",
-        });
+      // If the response is true, then the received userId is saved in localstorage for re-verify the user for e.g. profile updates 
+      if (response.ok) {
+        const data = await response.json();
+        console.log(data)
+        localStorage.setItem("userId", data.userId);
+        setUserId(data.userId); // Update userId state
+        setIsLoggedIn(true); // Update isLoggedIn state
+        notify("Login successful!");
+        setFormData({ email: "", password: "" });
       } else {
-        notify('Invalid credentials');
+        notify("Invalid credentials");
       }
-      
     } catch (error) {
       console.log(error);
-      notify('Network error');
+      notify("Network error");
     }
   };
 
@@ -77,18 +82,30 @@ const Login: React.FC = () => {
   return (
     <div className="login">
       <div className="text-container-login">
-        <h2>Login to your account</h2>
+        <h2>Welcome back!</h2>
       </div>
-      <div className="form-container">
+      <div className="login-form-container">
         <form onSubmit={handleSubmit}>
           <label htmlFor="email" className="email">
             Email:
           </label>
-          <input type="email" name="email" id="email" onChange={handleChange} />
+          <input
+            type="email"
+            name="email"
+            id="email"
+            // value={formData.email}
+            onChange={handleChange}
+          />
           <label htmlFor="password" className="password">
             Password:
           </label>
-          <input type="password" name="password" id="password" onChange={handleChange} />
+          <input
+            type="password"
+            name="password"
+            id="password"
+            // value={formData.password}
+            onChange={handleChange}
+          />
           <button type="submit">Login</button>
           <ToastContainer
             position="bottom-right"
