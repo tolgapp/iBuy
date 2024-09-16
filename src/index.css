@@ -6,7 +6,6 @@
 }
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
@@ -32,147 +31,6 @@ main .home-h2 {
   word-spacing: 1rem;
 }
 
-/* NewsBar.tsx */
-.news-bar {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0.3rem;
-  border-bottom: 1px solid #ddd;
-  position: relative;
-  background-color: #242424;
-  color: white;
-}
-
-.news-bar h3 {
-  flex-grow: 1;
-  text-align: center;
-}
-
-.close-button {
-  background: none;
-  border: none;
-  font-size: 20px;
-  cursor: pointer;
-  margin-left: auto;
-  margin-right: 10px;
-}
-
-/* Search.tsx */
-.search {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
-  background-color: white;
-  padding: 10px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  background-color: white;
-  height: 14rem;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-}
-.search h2 {
-  cursor: pointer;
-  font-size: 2.4rem;
-}
-.search h2 a {
-  text-decoration: none;
-  color: black;
-}
-.search input {
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  font-size: 1.4rem;
-  color: black;
-  background-color: white;
-  border-radius: 0.2rem;
-  margin-right: 0.5rem;
-  padding: 0.2rem;
-  padding-left: 0.9rem;
-  width: 42rem;
-  line-height: 0.1rem;
-  border: 0.1rem solid rgb(43, 43, 43);
-  outline: none;
-}
-.search input::placeholder {
-  font-size: 1.2rem;
-}
-.search button {
-  border: none;
-  background-color: white;
-  color: black;
-  font-size: 1.2rem;
-  cursor: pointer;
-}
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); 
-  z-index: 99; 
-}
-
-/* ProductCard.tsx */
-.product-container {
-  display: flex;
-  gap: 0.4rem;
-  margin: 4.3rem 0 1rem 1.5rem;
-  overflow-x: scroll;
-}
-
-.product-card {
-  display: flex;
-  flex-direction: column;
-  margin: 1rem;
-  position: relative;
-}
-
-.product-card img {
-  border: 0.1rem solid rgb(245, 245, 245);
-  width: 20rem;
-  border-radius: 1.1rem;
-  margin-bottom: 0.3rem;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.product-card img:first-child {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.product-card img:last-child {
-  opacity: 0;
-}
-
-.product-card:hover img:last-child {
-  opacity: 1;
-}
-
-.product-card:hover img:first-child {
-  opacity: 0;
-}
-.product-card .product-info {
-  position: absolute;
-  padding: .4rem;
-  border-radius: .3rem;
-  top: 1rem;
-  left: 1rem;
-  background-color: #fff;
-  color: #000;
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-weight: 600;
-}
-
-
 /* standalone h3 */
 .all {
   font-size: 6rem;
@@ -180,24 +38,4 @@ main .home-h2 {
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   text-align: center;
   margin: 2rem;
-}
-
-/* BackToTop.tsx */
-.back-to-top {
-  position: fixed; /* Stays in the same position when you scroll */
-  bottom: 1rem; /* Position it 30px from the bottom */
-  right: 1rem; /* Position it 30px from the right */
-  background-color: #000; /* Button background color */
-  color: white; /* Text color */
-  padding: 0.5rem 1rem; /* Button padding */
-  border: none; /* Remove default border */
-  cursor: pointer; /* Pointer cursor on hover */
-  font-size: 1.6rem; /* Increase font size */
-  z-index: 1000; /* Ensure it is above other elements */
-  opacity: 0.7; /* Slight transparency */
-  transition: opacity 0.3s ease; /* Smooth hover transition */
-}
-
-.back-to-top:hover {
-  opacity: 1; /* Full opacity on hover */
 }

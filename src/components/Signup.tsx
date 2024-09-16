@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "../style/Signup.css";
+import { Link } from "react-router-dom";
 
 type FormData = {
   name: string;
@@ -41,7 +42,7 @@ const Signup: React.FC<SignupProps> = () => {
       return false;
     }
     if (formData.password !== formData.verifyPassword) {
-      notify("Passwords do not match!"); 
+      notify("Passwords do not match!");
       return false;
     }
     return true;
@@ -54,6 +55,7 @@ const Signup: React.FC<SignupProps> = () => {
     if (!validateFormData()) {
       return;
     }
+
 
     try {
       const response = await fetch("http://localhost:3000/api/signup", {
@@ -69,7 +71,15 @@ const Signup: React.FC<SignupProps> = () => {
       });
 
       if (response.ok) {
+        setFormData({
+          name: "",
+          email: "",
+          password: "",
+          verifyPassword: "",
+        });
         notify("Registrierung erfolgreich!");
+      } else if (response.status === 400) {
+        notify("User already exists")
       } else {
         notify("Fehler bei der Registrierung");
       }
@@ -103,7 +113,7 @@ const Signup: React.FC<SignupProps> = () => {
             type="text"
             name="name"
             id="name"
-            // value={formData.name}
+            value={formData.name}
             onChange={handleChange}
           />
           <label htmlFor="email" className="email">
@@ -113,7 +123,7 @@ const Signup: React.FC<SignupProps> = () => {
             type="email"
             name="email"
             id="email"
-            // value={formData.email}
+            value={formData.email}
             onChange={handleChange}
           />
           <label htmlFor="password" className="password">
@@ -123,7 +133,7 @@ const Signup: React.FC<SignupProps> = () => {
             type="password"
             name="password"
             id="password"
-            // value={formData.password}
+            value={formData.password}
             onChange={handleChange}
           />
           <label htmlFor="verifyPassword" className="password">
@@ -133,7 +143,7 @@ const Signup: React.FC<SignupProps> = () => {
             type="password"
             name="verifyPassword"
             id="verifyPassword"
-              // value={formData.verifyPassword}
+            value={formData.verifyPassword}
             onChange={handleChange}
           />
           <button type="submit">Sign up</button>
@@ -149,6 +159,7 @@ const Signup: React.FC<SignupProps> = () => {
             pauseOnHover
             theme="light"
           />
+        <Link to={"/login"}>Member?</Link>
         </form>
       </div>
     </div>

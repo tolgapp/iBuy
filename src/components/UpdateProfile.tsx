@@ -41,6 +41,38 @@ const UpdateProfileForm: React.FC<UpdateProfileProps> = ({
     }
   }, [userId, navigate]);
 
+  useEffect(() => {
+    const fetchUserData = async () => {
+      if (!userId) {
+        toast.info("Benutzer-ID fehlt. Bitte melden Sie sich erneut an.");
+        navigate("/login");
+        return;
+      }
+  
+      try {
+        const response = await fetch(`http://localhost:3000/api/user/profile/${userId}`);
+        
+        if (response.ok) {
+          const data = await response.json();
+          console.log(response.json())
+          setFormData((prevData) => ({
+            ...prevData,
+            name: data.name,
+            email: data.email,
+          }));
+        } else {
+          const errorText = await response.text();
+          notify(`Fehler: ${errorText}`);
+        }
+      } catch (error) {
+        console.error("Fehler beim Abrufen der Benutzerdaten:", error);
+        notify("Es gab ein Problem beim Abrufen der Benutzerdaten");
+      }
+    };
+  
+    fetchUserData();
+  }, [userId, navigate]);
+
   const notify = (message: string) => toast.info(message);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {

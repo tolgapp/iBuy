@@ -24,6 +24,12 @@ app.post("/api/signup", async (req, res) => {
   try {
     const { name, email, password } = req.body;
 
+    const userExist = await User.exists({ email });
+
+    if (userExist) {
+      return res.status(400).send({ message: "User already exists" });
+    }
+
     const hashedPassword = await bcrypt.hash(password, 10);
     const newUser = new User({ name, email, password: hashedPassword });
     const savedUser = await newUser.save();
@@ -32,7 +38,6 @@ app.post("/api/signup", async (req, res) => {
       message: "Benutzer erfolgreich registriert",
       userId: savedUser._id,
     });
-
   } catch (error) {
     console.error("Registrierungsfehler:", error);
     res.status(500).send("Fehler bei der Registrierung");
@@ -40,7 +45,6 @@ app.post("/api/signup", async (req, res) => {
 });
 
 app.post("/api/login", async (req, res) => {
-  console.log(req.body);
   try {
     const { email, password } = req.body;
     const user = await User.findOne({ email });
@@ -57,7 +61,7 @@ app.post("/api/login", async (req, res) => {
     // Send back the userId (_id) to the frontend
     res
       .status(200)
-      .json({ message: "Anmeldung erfolgreich", userId: user._id });
+      .json({ message: "Anmeldung erfolgreich", userId: user._id, name: user.name, email: user.email });
   } catch (error) {
     console.error("Login-Fehler:", error);
     res.status(500).send("Fehler bei der Anmeldung");
@@ -67,21 +71,19 @@ app.post("/api/login", async (req, res) => {
 app.post("/api/update-profile", async (req, res) => {
   try {
     const { userId, name, email } = req.body;
-    console.log(req)
 
     if (!userId) {
-      return res.status(400).send("Benutzer-ID fehlt oder ist ungültig 👎🏻");
+      return res.status(400).send("Benutzer-ID fehlt oder ist ungültig");
     }
 
     if (!mongoose.Types.ObjectId.isValid(userId)) {
-      return res.status(400).send("Ungültige Benutzer-ID 👎🏻");
+      return res.status(400).send("Ungültige Benutzer-ID");
     }
 
     const user = await User.findById(userId);
-    console.log(user);
 
     if (!user) {
-      return res.status(404).send("Benutzer nicht gefunden 👎🏻");
+      return res.status(404).send("Benutzer nicht gefunden");
     }
 
     if (name) user.name = name;
@@ -95,6 +97,26 @@ app.post("/api/update-profile", async (req, res) => {
   }
 });
 
+app.get("/api/user/profile/:userId", async (req, res) => {
+  try {
+    const { userId } = req.params;
+
+    if (!mongoose.Types.ObjectId.isValid(userId)) {
+      return res.status(400).send("Ungültige Benutzer-ID");
+    }
+
+    const user = await User.findById(userId, "name email"); // Select only name and email
+
+    if (!user) {
+      return res.status(404).send("Benutzer nicht gefunden");
+    }
+
+    res.status(200).json(user);
+  } catch (error) {
+    console.error("Fehler beim Abrufen des Benutzerprofils:", error);
+    res.status(500).send("Fehler beim Abrufen des Profils");
+  }
+});
 
 app.listen(3000, () => {
   console.log("Server läuft auf Port 3000");

@@ -1,3 +1,6 @@
+import { useState } from "react";
+import "../style/ProductCard.css";
+
 export type Products = {
   id: number;
   images: string[];
@@ -5,7 +8,7 @@ export type Products = {
   description: string;
   price: number;
   info?: string;
-  category: string[] | string 
+  category: string[] | string;
 };
 
 type Product = {
@@ -13,6 +16,11 @@ type Product = {
 };
 
 const ProductCard: React.FC<Product> = ({ product }) => {
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  const favoriteProduct = () => {
+    setIsFavorite((prev) => !prev);
+  };
 
   return (
     <div className="product-card">
@@ -25,6 +33,19 @@ const ProductCard: React.FC<Product> = ({ product }) => {
           className="product-image-hover"
         />
       )}
+      {isFavorite ? (
+        <img
+          src="/images/icons/star-filled.png"
+          alt="empty star"
+          onClick={favoriteProduct}
+        />
+      ) : (
+        <img
+          src="/images/icons/star.png"
+          alt="empty star"
+          onClick={favoriteProduct}
+        />
+      )}{" "}
       <h3 className="product-name">{product.brand}</h3>
       <p className="product-description">{product.description}</p>
       <p className="product-card-price">{product.price} €</p>

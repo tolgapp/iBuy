@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "../style/Login.css";
+import { Link } from "react-router-dom";
 
 type LoginFormData = {
   email: string;
@@ -56,10 +57,9 @@ const Login: React.FC<LoginProps> = ({ setIsLoggedIn, setUserId }) => {
       // If the response is true, then the received userId is saved in localstorage for re-verify the user for e.g. profile updates 
       if (response.ok) {
         const data = await response.json();
-        console.log(data)
         localStorage.setItem("userId", data.userId);
-        setUserId(data.userId); // Update userId state
-        setIsLoggedIn(true); // Update isLoggedIn state
+        setUserId(data.userId); 
+        setIsLoggedIn(true); 
         notify("Login successful!");
         setFormData({ email: "", password: "" });
       } else {
@@ -70,6 +70,14 @@ const Login: React.FC<LoginProps> = ({ setIsLoggedIn, setUserId }) => {
       notify("Network error");
     }
   };
+
+    useEffect(() => {
+    const storedUserId = localStorage.getItem("userId");
+    if (storedUserId) {
+      setUserId(storedUserId);
+      setIsLoggedIn(true);
+    }
+  }, [setIsLoggedIn, setUserId]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -119,6 +127,8 @@ const Login: React.FC<LoginProps> = ({ setIsLoggedIn, setUserId }) => {
             pauseOnHover
             theme="light"
           />
+                  <Link to={"/signup"}>Registration</Link>
+
         </form>
       </div>
     </div>

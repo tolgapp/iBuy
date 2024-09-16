@@ -1,5 +1,5 @@
 // App.tsx
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Routes, Route, useNavigate, Navigate } from "react-router-dom";
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
@@ -11,6 +11,7 @@ import Signup from "./components/Signup";
 import UpdateProfile from "./components/UpdateProfile";
 import Login from "./components/Login";
 import "./index.css";
+import Favorites from "./components/Favorites";
 
 const App: React.FC = () => {
   const [closeNews, setCloseNews] = useState(true);
@@ -20,6 +21,14 @@ const App: React.FC = () => {
 
   const navigate = useNavigate();
 
+  useEffect(() => {
+    const storedUserId = localStorage.getItem("userId");
+    if (storedUserId) {
+      setUserId(storedUserId);
+      setIsLoggedIn(true);
+    }
+  }, []);
+  
   function handleClick() {
     setCloseNews(false);
   }
@@ -35,6 +44,7 @@ const App: React.FC = () => {
     navigate("/login");
   };
 
+
   return (
     <>
       {closeNews && <NewsBar handleClick={handleClick} />}
@@ -46,20 +56,28 @@ const App: React.FC = () => {
         <Route
           path="/favorites"
           element={
-            <Signup setIsLoggedIn={setIsLoggedIn} setUserId={setUserId} />
+            userId ? (
+              <Favorites />
+            ) : (
+              <Signup setIsLoggedIn={setIsLoggedIn} setUserId={setUserId} />
+            )
           }
         />
         <Route
           path="/signup"
           element={
-            <Signup setIsLoggedIn={setIsLoggedIn} setUserId={setUserId} />
+            userId ? (
+              <UpdateProfile userId={userId} onLogout={handleLogout} />
+            ) : (
+              <Signup setIsLoggedIn={setIsLoggedIn} setUserId={setUserId} />
+            )
           }
         />
         <Route
           path="/login"
           element={
-            isLoggedIn ? (
-              <Navigate to="/update-profile" replace />
+            userId ? (
+              <Navigate to={"/favorites"} replace />
             ) : (
               <Login setIsLoggedIn={setIsLoggedIn} setUserId={setUserId} />
             )

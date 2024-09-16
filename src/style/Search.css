@@ -1,0 +1,59 @@
+.search {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background-color: white;
+    padding: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    height: 14rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  .search h2 {
+    cursor: pointer;
+    font-size: 2.4rem;
+  }
+  .search h2 a {
+    text-decoration: none;
+    color: black;
+  }
+  .search input {
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    font-size: 1.4rem;
+    color: black;
+    background-color: white;
+    border-radius: 0.2rem;
+    margin-right: 0.5rem;
+    padding: 0.2rem;
+    padding-left: 0.9rem;
+    width: 42rem;
+    line-height: 0.1rem;
+    border: 0.1rem solid rgb(43, 43, 43);
+    outline: none;
+  }
+  .search input::placeholder {
+    font-size: 1.2rem;
+  }
+  .search button {
+    border: none;
+    background-color: white;
+    color: black;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 99; 
+  }

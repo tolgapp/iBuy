@@ -1,3 +1,5 @@
+import "../style/NewsBar.css"
+
 type NewsBarProps = {
     handleClick: () => void; 
 };
