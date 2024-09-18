@@ -5,17 +5,18 @@ import "../style/Favorites.css";
 
 type FavoriteProps = {
   favoriteProducts: number[];
+  isLoggedIn: boolean
   onToggleFavorite: (productId: number) => void;
 };
 
 const Favorites: React.FC<FavoriteProps> = ({
   favoriteProducts,
   onToggleFavorite,
+  isLoggedIn
 }) => {
   const favProducts = products.filter((product) =>
     favoriteProducts.includes(product.id)
   );
-
 
   const containerStyle: React.CSSProperties = {
     minHeight: favProducts.length === 0 ? "45rem" : "auto",
@@ -25,20 +26,19 @@ const Favorites: React.FC<FavoriteProps> = ({
     justifyContent: favProducts.length === 0 ? "center" : "flex-start",
   };
 
-  // Function to handle favorite toggling
-
   return (
     <div style={containerStyle} className="favorites-container">
       <h1>Favorites Page</h1>
       {favProducts.length === 0 ? (
         <p>No favorites selected.</p>
       ) : (
-        <div className="products-con">
+        <div className="favorite-products-container">
           {favProducts.map((product) => (
             <ProductCard
               key={product.id}
               product={product}
-              isFavorite={true}
+              isLoggedIn={isLoggedIn}
+              isFavorite={favoriteProducts.includes(product.id)}
               onToggleFavorite={onToggleFavorite}
             />
           ))}

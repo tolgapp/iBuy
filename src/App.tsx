@@ -10,7 +10,7 @@ import Search from "./components/Search";
 import Signup from "./components/Signup";
 import UpdateProfile from "./components/UpdateProfile";
 import Login from "./components/Login";
-import Favorites from "./pages/Favorites"
+import Favorites from "./pages/Favorites";
 import "./index.css";
 
 const App: React.FC = () => {
@@ -39,20 +39,19 @@ const App: React.FC = () => {
   }
 
   const handleLogout = () => {
-    localStorage.removeItem("userId");
+    localStorage.clear();
+    setFavoriteProducts([])
     setUserId(null);
     setIsLoggedIn(false);
     navigate("/login");
   };
 
   const toggleFavorite = (productId: number) => {
-   
-      setFavoriteProducts((prevFavorites) =>
-        prevFavorites.includes(productId)
-          ? prevFavorites.filter((id) => id !== productId)
-          : [...prevFavorites, productId]
-      );
-    
+    setFavoriteProducts((prevFavorites) =>
+      prevFavorites.includes(productId)
+        ? prevFavorites.filter((id) => id !== productId)
+        : [...prevFavorites, productId]
+    );
   };
 
   return (
@@ -88,6 +87,7 @@ const App: React.FC = () => {
               <Favorites
                 favoriteProducts={favoriteProducts}
                 onToggleFavorite={toggleFavorite}
+                isLoggedIn={isLoggedIn}
               />
             ) : (
               <Signup setIsLoggedIn={setIsLoggedIn} setUserId={setUserId} />
@@ -108,7 +108,7 @@ const App: React.FC = () => {
           path="/login"
           element={
             userId ? (
-              <Navigate to={"/favorites"} replace />
+              <Navigate to={"/"} replace />
             ) : (
               <Login setIsLoggedIn={setIsLoggedIn} setUserId={setUserId} />
             )

@@ -14,15 +14,21 @@ export type Products = {
 
 type ProductProps = {
   product: Products;
-  isFavorite: boolean;
+  isFavorite?: boolean;
   onToggleFavorite: (id: number) => void;
   isLoggedIn?: boolean;
 };
 
-const ProductCard: React.FC<ProductProps> = ({ product, isFavorite, onToggleFavorite, isLoggedIn }) => {
+const ProductCard: React.FC<ProductProps> = ({
+  product,
+  isFavorite,
+  onToggleFavorite,
+  isLoggedIn,
+}) => {
   const navigate = useNavigate();
 
   const handleStarClick = () => {
+    console.log(`Star clicked for product ID: ${product.id}`);
     if (isLoggedIn) {
       onToggleFavorite(product.id);
     } else {
@@ -42,9 +48,14 @@ const ProductCard: React.FC<ProductProps> = ({ product, isFavorite, onToggleFavo
         />
       )}
       <img
-        src={isFavorite ? "/images/icons/star-filled.png" : "/images/icons/star.png"}
+        src={
+          isFavorite
+            ? "/images/icons/star-filled.png"
+            : "/images/icons/star.png"
+        }
         alt={isFavorite ? "filled yellow star" : "empty star"}
         onClick={handleStarClick}
+        style={{ cursor: 'pointer' }}
       />
       <h3 className="product-name">{product.brand}</h3>
       <p className="product-description">{product.description}</p>

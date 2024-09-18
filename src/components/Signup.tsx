@@ -80,9 +80,9 @@ const Signup: React.FC<SignupProps> = () => {
           verifyPassword: "",
         });
         notify("Registrierung erfolgreich!");
-        // setTimeout(() => {
-        //   navigate("/login")
-        // }, 2800)
+        setTimeout(() => {
+          navigate("/login")
+        }, 2800)
       } else if (response.status === 400) {
         notify("User already exists")
       } else {
