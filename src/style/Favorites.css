@@ -1,19 +1,12 @@
 .favorites-container {
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
   flex-wrap: wrap;
-  padding: 1rem;
+  height: 45rem;
+  justify-content: center;
 }
-.favorites-container h2 {
-  padding: 2rem;
-}
-.favorites-container .products-con {
-  display: flex;
-  overflow-y: hidden;
-  overflow-x: auto;
-  height: auto;
-  justify-content: flex-start;
+.favorites-container p {
+  text-align: center;
+  font-size: 2rem;
 }
 .favorite-products-container {
   padding: 2rem;
@@ -21,4 +14,5 @@
   align-items: center;
   justify-content: flex-start;
   flex-wrap: wrap;
+  line-height: 1.7rem;
 }
