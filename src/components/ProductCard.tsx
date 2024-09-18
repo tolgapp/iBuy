@@ -1,4 +1,5 @@
-import { useState } from "react";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 import "../style/ProductCard.css";
 
 export type Products = {
@@ -11,15 +12,22 @@ export type Products = {
   category: string[] | string;
 };
 
-type Product = {
+type ProductProps = {
   product: Products;
+  isFavorite: boolean;
+  onToggleFavorite: (id: number) => void;
+  isLoggedIn?: boolean;
 };
 
-const ProductCard: React.FC<Product> = ({ product }) => {
-  const [isFavorite, setIsFavorite] = useState(false);
+const ProductCard: React.FC<ProductProps> = ({ product, isFavorite, onToggleFavorite, isLoggedIn }) => {
+  const navigate = useNavigate();
 
-  const favoriteProduct = () => {
-    setIsFavorite((prev) => !prev);
+  const handleStarClick = () => {
+    if (isLoggedIn) {
+      onToggleFavorite(product.id);
+    } else {
+      navigate("/login");
+    }
   };
 
   return (
@@ -33,23 +41,16 @@ const ProductCard: React.FC<Product> = ({ product }) => {
           className="product-image-hover"
         />
       )}
-      {isFavorite ? (
-        <img
-          src="/images/icons/star-filled.png"
-          alt="empty star"
-          onClick={favoriteProduct}
-        />
-      ) : (
-        <img
-          src="/images/icons/star.png"
-          alt="empty star"
-          onClick={favoriteProduct}
-        />
-      )}{" "}
+      <img
+        src={isFavorite ? "/images/icons/star-filled.png" : "/images/icons/star.png"}
+        alt={isFavorite ? "filled yellow star" : "empty star"}
+        onClick={handleStarClick}
+      />
       <h3 className="product-name">{product.brand}</h3>
       <p className="product-description">{product.description}</p>
       <p className="product-card-price">{product.price} €</p>
     </div>
   );
 };
+
 export default ProductCard;

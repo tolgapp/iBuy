@@ -10,14 +10,15 @@ import Search from "./components/Search";
 import Signup from "./components/Signup";
 import UpdateProfile from "./components/UpdateProfile";
 import Login from "./components/Login";
+import Favorites from "./pages/Favorites"
 import "./index.css";
-import Favorites from "./components/Favorites";
 
 const App: React.FC = () => {
   const [closeNews, setCloseNews] = useState(true);
   const [isSearchVisible, setIsSearchVisible] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
   const [userId, setUserId] = useState<string | null>(null);
+  const [favoriteProducts, setFavoriteProducts] = useState<number[]>([]);
 
   const navigate = useNavigate();
 
@@ -28,7 +29,7 @@ const App: React.FC = () => {
       setIsLoggedIn(true);
     }
   }, []);
-  
+
   function handleClick() {
     setCloseNews(false);
   }
@@ -44,6 +45,15 @@ const App: React.FC = () => {
     navigate("/login");
   };
 
+  const toggleFavorite = (productId: number) => {
+   
+      setFavoriteProducts((prevFavorites) =>
+        prevFavorites.includes(productId)
+          ? prevFavorites.filter((id) => id !== productId)
+          : [...prevFavorites, productId]
+      );
+    
+  };
 
   return (
     <>
@@ -51,13 +61,34 @@ const App: React.FC = () => {
       {isSearchVisible && <Search showSearch={showSearch} />}
       <Navbar showSearch={showSearch} isLoggedIn={isLoggedIn} />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/shop" element={<Shop />} />
+        <Route
+          path="/"
+          element={
+            <Home
+              favoriteProducts={favoriteProducts}
+              onToggleFavorite={toggleFavorite}
+              isLoggedIn={isLoggedIn}
+            />
+          }
+        />
+        <Route
+          path="/shop"
+          element={
+            <Shop
+              favoriteProducts={favoriteProducts}
+              onToggleFavorite={toggleFavorite}
+              isLoggedIn={isLoggedIn}
+            />
+          }
+        />
         <Route
           path="/favorites"
           element={
             userId ? (
-              <Favorites />
+              <Favorites
+                favoriteProducts={favoriteProducts}
+                onToggleFavorite={toggleFavorite}
+              />
             ) : (
               <Signup setIsLoggedIn={setIsLoggedIn} setUserId={setUserId} />
             )

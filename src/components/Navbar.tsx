@@ -12,7 +12,7 @@ const Navbar: React.FC<Search> = ({ isLoggedIn, showSearch }) => {
   const isFavorites =
     pathname === "/favorites" ||
     pathname === "/signup" ||
-    pathname === "/login";
+    pathname === "/login" || pathname === "/update-profile";
 
   return (
     <nav className={isFavorites ? "underline" : ""}>
@@ -35,7 +35,7 @@ const Navbar: React.FC<Search> = ({ isLoggedIn, showSearch }) => {
         </Link>}
         {isLoggedIn ? (
           <Link to={"/update-profile"}>
-            <img src="/images/icons/login-second.png" alt="login user icon" />
+            <img src="/images/icons/login-second.png" title="Profile / Logout" alt="login user icon" />
           </Link>
         ) : (
           <Link to={"/signup"}>

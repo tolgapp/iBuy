@@ -7,8 +7,13 @@ import ScrollingText from "../components/ScrollingText";
 import { Products } from "../components/ProductCard";
 import "../style/Shop.css";
 
+type ShopProps = {
+  favoriteProducts: number[];
+  isLoggedIn: boolean
+  onToggleFavorite: (productId: number) => void;
+}
 
-const Shop: React.FC = () => {
+const Shop: React.FC<ShopProps> = ({favoriteProducts, onToggleFavorite, isLoggedIn}) => {
   const { id } = useParams<{ id: string }>();
 
   // Filter products by category
@@ -28,7 +33,12 @@ const Shop: React.FC = () => {
   const renderProductList = (productList: Products[]) => (
     <div className="product-container">
       {productList.map((product) => (
-        <ProductCard key={product.id} product={product} />
+        <ProductCard
+          key={product.id}
+          product={product}
+          isFavorite={favoriteProducts.includes(product.id)}          onToggleFavorite={onToggleFavorite}
+          isLoggedIn={isLoggedIn}
+        />
       ))}
     </div>
   );

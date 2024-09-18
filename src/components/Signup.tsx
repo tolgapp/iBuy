@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "../style/Signup.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 type FormData = {
   name: string;
@@ -23,6 +23,8 @@ const Signup: React.FC<SignupProps> = () => {
     password: "",
     verifyPassword: "",
   });
+
+  const navigate = useNavigate();
 
   // toastify package -> info setting
   const notify = (message: string) => toast.info(message);
@@ -78,6 +80,9 @@ const Signup: React.FC<SignupProps> = () => {
           verifyPassword: "",
         });
         notify("Registrierung erfolgreich!");
+        // setTimeout(() => {
+        //   navigate("/login")
+        // }, 2800)
       } else if (response.status === 400) {
         notify("User already exists")
       } else {
@@ -149,7 +154,7 @@ const Signup: React.FC<SignupProps> = () => {
           <button type="submit">Sign up</button>
           <ToastContainer
             position="bottom-right"
-            autoClose={3200}
+            autoClose={2700}
             hideProgressBar={false}
             newestOnTop={false}
             closeOnClick
@@ -159,7 +164,7 @@ const Signup: React.FC<SignupProps> = () => {
             pauseOnHover
             theme="light"
           />
-        <Link to={"/login"}>Member?</Link>
+        <Link to={"/login"}>Login</Link>
         </form>
       </div>
     </div>
