@@ -54,7 +54,6 @@ const UpdateProfileForm: React.FC<UpdateProfileProps> = ({
         
         if (response.ok) {
           const data = await response.json();
-          console.log(response.json())
           setFormData((prevData) => ({
             ...prevData,
             name: data.name,

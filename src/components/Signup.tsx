@@ -1,8 +1,8 @@
 import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "../style/Signup.css";
-import { Link, useNavigate } from "react-router-dom";
 
 type FormData = {
   name: string;
@@ -58,7 +58,6 @@ const Signup: React.FC<SignupProps> = () => {
       return;
     }
 
-
     try {
       const response = await fetch("http://localhost:3000/api/signup", {
         method: "POST",
@@ -81,10 +80,10 @@ const Signup: React.FC<SignupProps> = () => {
         });
         notify("Registrierung erfolgreich!");
         setTimeout(() => {
-          navigate("/login")
-        }, 2800)
+          navigate("/login");
+        }, 2800);
       } else if (response.status === 400) {
-        notify("User already exists")
+        notify("User already exists");
       } else {
         notify("Fehler bei der Registrierung");
       }
@@ -164,7 +163,7 @@ const Signup: React.FC<SignupProps> = () => {
             pauseOnHover
             theme="light"
           />
-        <Link to={"/login"}>Login</Link>
+          <Link to={"/login"}>Login</Link>
         </form>
       </div>
     </div>

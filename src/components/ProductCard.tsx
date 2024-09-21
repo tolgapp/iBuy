@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../style/ProductCard.css";
 
 export type Products = {
@@ -36,6 +36,7 @@ const ProductCard: React.FC<ProductProps> = ({
     }
   };
 
+
   return (
     <div className="product-card">
       <img src={product.images[0]} alt={product.brand} />
@@ -57,9 +58,11 @@ const ProductCard: React.FC<ProductProps> = ({
         onClick={handleStarClick}
         style={{ cursor: 'pointer' }}
       />
+      <Link to={`/shop/${product.id}`}>
       <h3 className="product-name">{product.brand}</h3>
       <p className="product-description">{product.description}</p>
       <p className="product-card-price">{product.price} €</p>
+      </Link>
     </div>
   );
 };

@@ -1,6 +1,5 @@
-import {useRef, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import "../style/Search.css"
+import { useRef, useEffect, useState } from "react";
+import "../style/Search.css";
 
 type SearchProps = {
   showSearch(): void;
@@ -33,16 +32,13 @@ const Search: React.FC<SearchProps> = ({ showSearch }) => {
     if (inputRef.current) {
       inputRef.current.focus();
     }
-    setOverlayVisible(true); // Show overlay when search is focused
+    setOverlayVisible(true);
   }, []);
 
   return (
     <>
       {isOverlayVisible && <div className="overlay" />}
       <div className="search" ref={searchRef}>
-        <h2>
-          <Link to={"/"}>iBuy</Link>
-        </h2>
         <div className="input-container">
           <input
             type="text"

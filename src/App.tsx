@@ -1,4 +1,3 @@
-// App.tsx
 import { useEffect, useState } from "react";
 import { Routes, Route, useNavigate, Navigate } from "react-router-dom";
 import Home from "./pages/Home";
@@ -12,9 +11,10 @@ import UpdateProfile from "./components/UpdateProfile";
 import Login from "./components/Login";
 import Favorites from "./pages/Favorites";
 import "./index.css";
+import ProductDetail from "./components/ProductDetail";
 
 const App: React.FC = () => {
-  const [closeNews, setCloseNews] = useState(true);
+  const [closeNews, setCloseNews] = useState(false);
   const [isSearchVisible, setIsSearchVisible] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
   const [userId, setUserId] = useState<string | null>(null);
@@ -22,16 +22,28 @@ const App: React.FC = () => {
 
   const navigate = useNavigate();
 
+  // Beim ersten Laden der App die Favoriten aus dem localStorage laden
   useEffect(() => {
     const storedUserId = localStorage.getItem("userId");
+    const storedFavorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+
     if (storedUserId) {
       setUserId(storedUserId);
       setIsLoggedIn(true);
     }
+
+    if (storedFavorites.length > 0) {
+      setFavoriteProducts(storedFavorites);
+    }
   }, []);
 
+  // Speichern der Favoriten in localStorage, wenn sich favoriteProducts ändert
+  useEffect(() => {
+    localStorage.setItem("favorites", JSON.stringify(favoriteProducts));
+  }, [favoriteProducts]);
+
   function handleClick() {
-    setCloseNews(false);
+    setCloseNews(true);
   }
 
   function showSearch() {
@@ -40,10 +52,10 @@ const App: React.FC = () => {
 
   const handleLogout = () => {
     localStorage.clear();
-    setFavoriteProducts([])
+    setFavoriteProducts([]);
     setUserId(null);
     setIsLoggedIn(false);
-    navigate("/login");
+    navigate("/");
   };
 
   const toggleFavorite = (productId: number) => {
@@ -80,6 +92,7 @@ const App: React.FC = () => {
             />
           }
         />
+        <Route path="/shop/:id" element={<ProductDetail />} />
         <Route
           path="/favorites"
           element={

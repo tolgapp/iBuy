@@ -1,10 +1,10 @@
 .favorites-container {
   display: flex;
   flex-wrap: wrap;
-  height: 45rem;
   justify-content: center;
+  margin-bottom: 3rem;
 }
-.favorites-container p {
+.favorites-container .no-favorites-text {
   text-align: center;
   font-size: 2rem;
 }
@@ -15,4 +15,5 @@
   justify-content: flex-start;
   flex-wrap: wrap;
   line-height: 1.7rem;
+  margin-top: 2rem;
 }
