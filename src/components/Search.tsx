@@ -12,8 +12,7 @@ const Search: React.FC<SearchProps> = ({ showSearch, handleSearchChange, searchQ
   const searchRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const [isOverlayVisible, setOverlayVisible] = useState(false);
-  const navigate = useNavigate(); // Navigation-Funktion
-
+  const navigate = useNavigate(); 
   const handleClickOutside = useCallback((event: MouseEvent) => {
     if (
       searchRef.current &&
@@ -46,9 +45,9 @@ const Search: React.FC<SearchProps> = ({ showSearch, handleSearchChange, searchQ
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') {
       if (searchQuery.trim() !== "") {
-        showSearch();  // Schließe die Suche
-        navigate(`/search?query=${searchQuery}`);  // Navigiere zu den Suchergebnissen
-      }
+        showSearch(); 
+        navigate(`/search?query=${searchQuery}`);  
+      } 
     }
   };
 
@@ -65,7 +64,7 @@ const Search: React.FC<SearchProps> = ({ showSearch, handleSearchChange, searchQ
             ref={inputRef}
             value={searchQuery}
             onChange={handleInputChange}
-            onKeyDown={handleKeyDown}  // Hinzufügen des onKeyDown-Events
+            onKeyDown={handleKeyDown}  
           />
           <button
             onClick={() => {

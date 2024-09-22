@@ -2,6 +2,7 @@ import React from "react";
 import products from "../data/products.json";
 import ProductCard from "./ProductCard";
 import "../style/SearchResults.css"
+import { Navigate } from "react-router-dom";
 
 type SearchResultsProps = {
   searchQuery: string;
@@ -38,11 +39,11 @@ const SearchResults: React.FC<SearchResultsProps> = ({
             ))}
           </div>
         ) : (
-          <p>No results found for "{searchQuery}"</p>
+          <div className="no-results-found">
+            <p>No results found for "{searchQuery}"</p>
+          </div>
         )
-      ) : (
-        <p>Please enter a search term.</p>
-      )}
+      ) : <Navigate to={"/"} replace />}
     </div>
   );
 };

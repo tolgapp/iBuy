@@ -2,4 +2,15 @@
     display: flex;
     margin: 2rem;
     gap: 2rem;
+    overflow-x: scroll;
+}
+.no-results-found {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 47rem;
+}
+.no-results-found p {
+    font-size: 3rem;
+    font-weight: 700;
 }

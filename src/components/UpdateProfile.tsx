@@ -48,10 +48,12 @@ const UpdateProfileForm: React.FC<UpdateProfileProps> = ({
         navigate("/login");
         return;
       }
-  
+
       try {
-        const response = await fetch(`http://localhost:3000/api/user/profile/${userId}`);
-        
+        const response = await fetch(
+          `http://localhost:3000/api/user/profile/${userId}`
+        );
+
         if (response.ok) {
           const data = await response.json();
           setFormData((prevData) => ({
@@ -68,7 +70,7 @@ const UpdateProfileForm: React.FC<UpdateProfileProps> = ({
         notify("Es gab ein Problem beim Abrufen der Benutzerdaten");
       }
     };
-  
+
     fetchUserData();
   }, [userId, navigate]);
 
@@ -115,10 +117,10 @@ const UpdateProfileForm: React.FC<UpdateProfileProps> = ({
         </button>
       </div>
       <div className="update-container">
-        <h2>Update your data</h2>
+        <h2>Account Management</h2>
         <form onSubmit={handleSubmit}>
           <div>
-            <label>Name:</label>
+            <label>Update your name:</label>
             <input
               type="text"
               name="name"
@@ -127,7 +129,7 @@ const UpdateProfileForm: React.FC<UpdateProfileProps> = ({
             />
           </div>
           <div>
-            <label>Email:</label>
+            <label>Update your email:</label>
             <input
               type="email"
               name="email"
@@ -136,7 +138,7 @@ const UpdateProfileForm: React.FC<UpdateProfileProps> = ({
             />
           </div>
           <div>
-            <label htmlFor="password">Password:</label>
+            <label htmlFor="password"> Update your password:</label>
             <input
               type="password"
               name="password"
@@ -145,7 +147,7 @@ const UpdateProfileForm: React.FC<UpdateProfileProps> = ({
               onChange={handleInputChange}
             />
           </div>
-          <button type="submit">Profil aktualisieren</button>
+          <button type="submit">Update profile</button>
         </form>
         <ToastContainer
           position="bottom-right"

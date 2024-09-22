@@ -150,7 +150,6 @@ const App: React.FC = () => {
             )
           }
         />
-        {/* Neue Route für die Suchergebnisse */}
         <Route
           path="/search"
           element={
