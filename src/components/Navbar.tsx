@@ -1,12 +1,12 @@
 import { Link, useLocation } from "react-router-dom";
 import "../style/Navbar.css";
 
-type Search = {
+type NavbarProps = {
   isLoggedIn: boolean;
-  showSearch(): void;
+  showSearch: () => void;
 };
 
-const Navbar: React.FC<Search> = ({ isLoggedIn, showSearch }) => {
+const Navbar: React.FC<NavbarProps> = ({ isLoggedIn, showSearch }) => {
   const { pathname } = useLocation();
 
   const isFavorites =

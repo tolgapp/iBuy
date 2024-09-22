@@ -12,6 +12,7 @@ import Login from "./components/Login";
 import Favorites from "./pages/Favorites";
 import "./index.css";
 import ProductDetail from "./components/ProductDetail";
+import SearchResults from "./components/SearchResults"; // Importiere die Suchergebnisse
 
 const App: React.FC = () => {
   const [closeNews, setCloseNews] = useState(false);
@@ -22,10 +23,17 @@ const App: React.FC = () => {
 
   const navigate = useNavigate();
 
-  // Beim ersten Laden der App die Favoriten aus dem localStorage laden
+  const [searchQuery, setSearchQuery] = useState<string>("");
+
+  const handleSearchChange = (query: string) => {
+    setSearchQuery(query);
+  };
+
   useEffect(() => {
     const storedUserId = localStorage.getItem("userId");
-    const storedFavorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+    const storedFavorites = JSON.parse(
+      localStorage.getItem("favorites") || "[]"
+    );
 
     if (storedUserId) {
       setUserId(storedUserId);
@@ -37,7 +45,6 @@ const App: React.FC = () => {
     }
   }, []);
 
-  // Speichern der Favoriten in localStorage, wenn sich favoriteProducts ändert
   useEffect(() => {
     localStorage.setItem("favorites", JSON.stringify(favoriteProducts));
   }, [favoriteProducts]);
@@ -69,7 +76,13 @@ const App: React.FC = () => {
   return (
     <>
       {closeNews && <NewsBar handleClick={handleClick} />}
-      {isSearchVisible && <Search showSearch={showSearch} />}
+      {isSearchVisible && (
+        <Search
+          showSearch={showSearch}
+          searchQuery={searchQuery}
+          handleSearchChange={handleSearchChange}
+        />
+      )}
       <Navbar showSearch={showSearch} isLoggedIn={isLoggedIn} />
       <Routes>
         <Route
@@ -135,6 +148,18 @@ const App: React.FC = () => {
             ) : (
               <Navigate to="/" replace />
             )
+          }
+        />
+        {/* Neue Route für die Suchergebnisse */}
+        <Route
+          path="/search"
+          element={
+            <SearchResults
+              searchQuery={searchQuery}
+              onToggleFavorite={toggleFavorite}
+              isLoggedIn={isLoggedIn}
+              favoriteProducts={favoriteProducts}
+            />
           }
         />
       </Routes>

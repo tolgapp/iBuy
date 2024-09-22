@@ -17,12 +17,16 @@ const Favorites: React.FC<FavoriteProps> = ({
   isLoggedIn,
 }) => {
 
+  const style = {
+    height: favoriteProducts.length > 0 ? "auto" : "45rem"
+  }
+
   const favProducts = productsData.filter((product) =>
     favoriteProducts.includes(product.id)
   );
 
   return (
-    <div className="favorites-container">
+    <div style={style} className="favorites-container">
       <ScrollingText text={"Your favorites"} />
       {favProducts.length === 0 ? (
         <p className="no-favorites-text">No favorites selected.</p>
