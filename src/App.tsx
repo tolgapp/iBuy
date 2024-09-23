@@ -20,10 +20,9 @@ const App: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
   const [userId, setUserId] = useState<string | null>(null);
   const [favoriteProducts, setFavoriteProducts] = useState<number[]>([]);
+  const [searchQuery, setSearchQuery] = useState<string>("");
 
   const navigate = useNavigate();
-
-  const [searchQuery, setSearchQuery] = useState<string>("");
 
   const handleSearchChange = (query: string) => {
     setSearchQuery(query);
@@ -75,7 +74,7 @@ const App: React.FC = () => {
 
   return (
     <>
-      {closeNews && <NewsBar handleClick={handleClick} />}
+      {!closeNews && <NewsBar handleClick={handleClick} />}
       {isSearchVisible && (
         <Search
           showSearch={showSearch}

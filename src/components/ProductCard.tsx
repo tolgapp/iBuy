@@ -28,14 +28,12 @@ const ProductCard: React.FC<ProductProps> = ({
   const navigate = useNavigate();
 
   const handleStarClick = () => {
-    console.log(`Star clicked for product ID: ${product.id}`);
     if (isLoggedIn) {
       onToggleFavorite(product.id);
     } else {
       navigate("/login");
     }
   };
-
 
   return (
     <div className="product-card">
@@ -56,12 +54,12 @@ const ProductCard: React.FC<ProductProps> = ({
         }
         alt={isFavorite ? "filled yellow star" : "empty star"}
         onClick={handleStarClick}
-        style={{ cursor: 'pointer' }}
+        style={{ cursor: "pointer" }}
       />
       <Link to={`/shop/${product.id}`}>
-      <h3 className="product-name">{product.brand}</h3>
-      <p className="product-description">{product.description}</p>
-      <p className="product-card-price">{product.price} €</p>
+        <h3 className="product-name">{product.brand}</h3>
+        <p className="product-description">{product.description}</p>
+        <p className="product-card-price">{product.price} €</p>
       </Link>
     </div>
   );
