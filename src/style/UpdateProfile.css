@@ -24,7 +24,7 @@
     cursor: pointer;
 }
 .logout-container button:hover {
-  background-color: #950303;
+  background-color: #af0000;
 }
 .update-container {
     flex: 1;

@@ -8,7 +8,7 @@ nav {
   z-index: 10;
 }
 .underline {
-  border-bottom: 0.01rem solid black;;
+  border-bottom: 0.01rem solid black;
 }
 .nav-links {
   display: flex;
@@ -21,7 +21,10 @@ nav {
 }
 .nav-links a:hover {
   text-decoration: underline;
-  text-underline-offset: .5rem;
+  text-underline-offset: 0.5rem;
+}
+.mobile-menu-icon {
+  display: none;
 }
 nav h2 {
   position: absolute;
@@ -72,4 +75,82 @@ a .signup-button {
 }
 .signup-button:hover a {
   color: white;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+
+}
+
+
+@media only screen and (min-width: 390px) and (max-width: 393px) and (orientation: portrait) {
+
+  nav {
+    height: 4rem;
+    align-items: center;
+    padding: 0 1rem;
+    position: relative;
+  }
+
+  /* Mobile Menü Icon sichtbar */
+  .mobile-menu-icon {
+    display: block;
+    cursor: pointer;
+  }
+  .mobile-menu-icon img {
+    height: 1.6rem;
+  }
+  /* Mobile Menü ausgeblendet standardmäßig */
+  .nav-links {
+    display: none;
+  }
+  .nav-links.mobile-active {
+    display: block;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 7.6rem; 
+    left: 0;
+    width: 100%;
+    background-color: #f0f0f0;
+    text-align: center;
+    padding: 10px 0;
+    z-index: 100;
+    overflow-y: auto;
+  }
+  .nav-links img {
+    height: 1.8rem;
+  }
+  .nav-links.mobile-links-container {
+    flex: 1;
+  }
+  .nav-links.mobile-active.shifted {
+    top: 4rem; 
+  }
+
+  /* Links im mobilen Menü */
+  .nav-links.mobile-active a {
+    display: block;
+    color: black;
+    padding: 1.5rem 0;
+    text-decoration: none;
+    font-size: 1.5rem;
+  }
+
+  /* Titel bleibt zentriert */
+  nav h2 {
+    position: absolute;
+    font-size: 2.1rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  nav h2 a {
+    text-decoration: none;
+    color: black;
+  }
+
+  /* Verberge die Suche und Sign-Up für mobiles Menü */
+  .search-and-signup {
+    display: none;
+  }
 }

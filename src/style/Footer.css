@@ -26,15 +26,43 @@ footer .footer-links .group {
   display: flex;
   flex-direction: column;
 }
-footer .footer-links .group .image-and-title  {
-   display: flex;
-   gap: 1rem;
-   margin-bottom: 1rem;
-   color: white;
+footer .footer-links .group .image-and-title {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  color: white;
 }
 footer .footer-links .group .image-and-title img {
-    width: 2rem;
+  width: 2rem;
 }
 footer .footer-links .group ul {
   list-style-type: none;
+}
+
+footer {
+    flex-direction: column;
+  }
+  footer h4 {
+    margin-bottom: 3rem;
+  }
+  footer .footer-links .group ul li a {
+    font-size: 0.8rem;
+  }
+}
+
+@media only screen and (min-width: 390px) and (max-width: 393px) and (orientation: portrait) {
+  footer {
+    flex-direction: column;
+  }
+  footer h4 {
+    margin-bottom: 3rem;
+  }
+  footer .footer-links .group ul li a {
+    font-size: 0.8rem;
+  }
+
+  footer .links-and-payments .footer-links {
+    display: flex;
+    flex-direction: column;
+  }
 }

@@ -1,59 +1,166 @@
 .outter-container {
-    display: flex;
+  display: flex;
+  flex-direction: column; /* Standard: mobil (vertikal) */
+  height: 100vh; /* Container füllt die gesamte Höhe */
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Bild und Text nehmen jeweils 50% des Platzes ein */
+.outter-container img {
+  flex: 1;
+  width: 100%;
+  height: 50%; /* Mobil: Nimmt 50% der Höhe ein */
+  object-fit: cover; /* Bild füllt den Container */
+}
+
+.text-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background-color: #yourBackgroundColor; /* Hier deine Hintergrundfarbe */
+  color: white;
+  height: 50%; /* Mobil: Nimmt 50% der Höhe ein */
+}
+
+.text-container h2, 
+.text-container h3, 
+.text-container p {
+  margin: 0.5rem 0;
+}
+
+/* Button Styling */
+.text-container button {
+  padding: 0.7rem 1.5rem;
+  border: 1px solid white;
+  background-color: transparent;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.text-container button:hover {
+  opacity: 0.7;
+}
+
+/* Media Query für Tablets/Desktops im Hochformat */
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+  .outter-container {
+    flex-direction: row; /* Elemente nebeneinander */
     margin: 1rem;
-  }
-  
-  .inner-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-  }
-  
-  .inner-container.reverse {
-    flex-direction: row-reverse;
-  }
-  
-  .inner-container img {
-    flex: 1;
-    width: 50%;
-    max-width: 50%;
-    box-sizing: border-box;
     height: auto;
   }
-  
-  .text-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    flex: 1; 
-    text-align: left;
-    color: white;
+
+  .outter-container img {
+    width: 50%; /* Bild füllt 50% der Breite */
+    height: auto;
   }
-  
+
+  .text-container {
+    width: 50%; /* Text füllt 50% der Breite */
+    padding: 2rem;
+    text-align: left;
+  }
+
   .text-container h2 {
-    font-size: 4.1rem;
+    font-size: 2rem; /* Größere Schrift für Tablets */
+  }
+
+  .text-container h3 {
+    font-size: 1rem;
+  }
+
+  .text-container p {
+    font-size: 0.9rem;
   }
 
   .text-container button {
-    position: relative;
-    width: 30rem;
-    padding: 0.5rem 1rem;
-    border: 1px solid white;
-    background-color: transparent;
-    color: white;
-    text-align: center;
-    border-radius: 0.3rem;
-    cursor: pointer;
+    padding: 0.7rem 1.5rem;
     font-size: 1rem;
-    overflow: hidden;
-    transition: color 0.3s ease;
-    margin: 1.9rem 0;
   }
-  
-  .text-container button:hover{
-   color: white;
-   opacity: .5;
+}
+
+/* Media Query für kleinere Mobilgeräte (iPhone 14 Pro z.B.) */
+@media only screen and (min-width: 390px) and (max-width: 393px) and (orientation: portrait) {
+
+  .outter-container {
+    flex-direction: column;
+    height: auto;
+    padding: 1rem;
   }
-  
+
+  .outter-container.reverse {
+    flex-direction: column; /* Bild unter dem Text */
+  }
+
+  .outter-container img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .text-container {
+    padding: 1rem;
+    box-sizing: border-box;
+    text-align: center;
+  }
+
+  .text-container h2 {
+    font-size: 1.8rem;
+  }
+
+  .text-container h3 {
+    font-size: 0.8rem;
+  }
+
+  .text-container p {
+    font-size: 0.6rem;
+  }
+
+  .text-container button {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    margin: 1.5rem 0;
+  }
+}
+
+/* Media Query für größere Bildschirme/Desktops */
+@media only screen and (min-width: 1025px) {
+  .outter-container {
+    flex-direction: row; /* Desktop: Bild und Text nebeneinander */
+    height: 100vh; /* Füllt die gesamte Bildschirmhöhe */
+  }
+
+  .outter-container img,
+  .text-container {
+    height: 100%; /* Beide Container füllen die volle Höhe */
+    width: 50%; /* Jeder Container füllt 50% der Breite */
+  }
+
+  .text-container {
+    padding: 2rem;
+    text-align: left;
+  }
+
+  .text-container h2 {
+    font-size: 2.5rem;
+  }
+
+  .text-container h3 {
+    font-size: 1.2rem;
+  }
+
+  .text-container p {
+    font-size: 1rem;
+  }
+
+  .text-container button {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+  }
+}

@@ -14,18 +14,20 @@ type ImageTextProps = {
 };
 
 const ImageText: React.FC<ImageTextProps> = ({ product, reverse = false }) => {
-  const [color, setColor] = useState('#fff');
+  const [color, setColor] = useState("#fff");
 
   function generateColor() {
     let randomColor;
     let brightness;
 
     do {
-      randomColor = Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
+      randomColor = Math.floor(Math.random() * 16777215)
+        .toString(16)
+        .padStart(6, "0");
       brightness = calculateBrightness(randomColor);
     } while (brightness > 200); // Schwellenwert für Helligkeit, um helle Farben zu vermeiden
 
-    setColor('#' + randomColor);
+    setColor("#" + randomColor);
   }
 
   function calculateBrightness(hexColor: string) {
@@ -33,7 +35,6 @@ const ImageText: React.FC<ImageTextProps> = ({ product, reverse = false }) => {
     const g = parseInt(hexColor.substring(2, 4), 16);
     const b = parseInt(hexColor.substring(4, 6), 16);
 
-    // Berechnung der Helligkeit
     return (r * 299 + g * 587 + b * 114) / 1000;
   }
 
@@ -42,19 +43,17 @@ const ImageText: React.FC<ImageTextProps> = ({ product, reverse = false }) => {
   }, []);
 
   const containerStyle = {
-    backgroundColor: color
+    backgroundColor: color,
   };
 
   return (
-    <div className="outter-container">
-      <div style={containerStyle} className={`inner-container ${reverse ? "reverse" : ""}`}>
-        <img src={product.url} alt={`${product.brandName} image`} />
-        <div className="text-container">
-          <h2>{product.brandName}</h2>
-          <h3>{product.tagline}</h3>
-          <p>{product.description}</p>
-          <button style={containerStyle}>Discover {product.brandName}</button>
-        </div>
+    <div style={containerStyle}  className={`outter-container ${reverse ? "reverse" : ""}`}>
+      <img src={product.url} alt={`${product.brandName} image`} />
+      <div className="text-container">
+        <h2>{product.brandName}</h2>
+        <h3>{product.tagline}</h3>
+        <p>{product.description}</p>
+        <button style={containerStyle}>Discover {product.brandName}</button>
       </div>
     </div>
   );

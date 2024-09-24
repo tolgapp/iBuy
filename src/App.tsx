@@ -49,7 +49,7 @@ const App: React.FC = () => {
   }, [favoriteProducts]);
 
   function handleClick() {
-    setCloseNews(true);
+    setCloseNews(!closeNews);
   }
 
   function showSearch() {
@@ -82,7 +82,7 @@ const App: React.FC = () => {
           handleSearchChange={handleSearchChange}
         />
       )}
-      <Navbar showSearch={showSearch} isLoggedIn={isLoggedIn} />
+      <Navbar showSearch={showSearch} isLoggedIn={isLoggedIn} closeNews={closeNews}/>
       <Routes>
         <Route
           path="/"

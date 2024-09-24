@@ -40,7 +40,7 @@ const ProductDetail = () => {
         <img src={bigImage} alt={product.description} />
       </div>
 
-      <div className="product-info">
+      <div className="product-detail-info">
         <h2>{product.brand}</h2>
         <h3>{product.description}</h3>
         <h4>{product.price} €</h4>
