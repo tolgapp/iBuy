@@ -25,3 +25,27 @@
       transform: translateX(-100%);
     }
   }
+
+  @media only screen and (min-width: 390px) and (max-width: 393px) and (orientation: portrait) {
+  
+    .scrolling-text-container {
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      height: 5rem;
+      display: flex;
+      align-items: center;
+      background-color: black;
+    }
+    
+    .scrolling-text {
+      font-size: 2.8rem;
+      font-weight: 800;
+      animation: scroll-left 3s linear 1;
+      white-space: nowrap;
+      color: white;
+      padding-left: 1.6rem;
+    }
+    
+
+  }

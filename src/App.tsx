@@ -12,7 +12,7 @@ import Login from "./components/Login";
 import Favorites from "./pages/Favorites";
 import "./index.css";
 import ProductDetail from "./components/ProductDetail";
-import SearchResults from "./components/SearchResults"; // Importiere die Suchergebnisse
+import SearchResults from "./components/SearchResults"; 
 
 const App: React.FC = () => {
   const [closeNews, setCloseNews] = useState(false);
@@ -21,6 +21,12 @@ const App: React.FC = () => {
   const [userId, setUserId] = useState<string | null>(null);
   const [favoriteProducts, setFavoriteProducts] = useState<number[]>([]);
   const [searchQuery, setSearchQuery] = useState<string>("");
+  const [isMobile, setIsMobile] = useState(false);
+
+  const handleMobileMenu = () => {
+    setIsMobile(!isMobile);
+    document.body.classList.toggle("no-scroll", !isMobile);
+  };
 
   const navigate = useNavigate();
 
@@ -82,7 +88,13 @@ const App: React.FC = () => {
           handleSearchChange={handleSearchChange}
         />
       )}
-      <Navbar showSearch={showSearch} isLoggedIn={isLoggedIn} closeNews={closeNews}/>
+      <Navbar
+        showSearch={showSearch}
+        isLoggedIn={isLoggedIn}
+        closeNews={closeNews}
+        isMobile={isMobile}
+        handleMobileMenu={handleMobileMenu}
+      />
       <Routes>
         <Route
           path="/"
@@ -161,7 +173,7 @@ const App: React.FC = () => {
           }
         />
       </Routes>
-      <Footer />
+      <Footer  />
     </>
   );
 };

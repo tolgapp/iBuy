@@ -45,7 +45,7 @@
   right: 1rem;
   position: absolute;
   border: none;
-  z-index: 10;
+  z-index: 9;
 }
 .product-card .product-info {
   position: absolute;
@@ -62,4 +62,21 @@
 .product-card a {
   text-decoration: none;
   color: #000;
+}
+
+@media only screen and (min-width: 390px) and (max-width: 393px) and (orientation: portrait) {
+  
+  .product-card img {
+    width: 13rem;
+  }
+  
+  .product-card img[alt="empty star"],
+  .product-card img[alt="filled yellow star"] {
+    width: 1.5rem;
+  }
+  .product-card .product-info {
+    padding: 0.3rem;
+  }
+
+
 }

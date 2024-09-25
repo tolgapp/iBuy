@@ -1,18 +1,24 @@
 import { Link, useLocation } from "react-router-dom";
-import "../style/Navbar.css";
 import menuIcon from "/images/icons/menu.png";
 import closeIcon from "/images/icons/close.png";
-import { useState } from "react";
+import "../style/Navbar.css";
 
 type NavbarProps = {
   isLoggedIn: boolean;
+  isMobile: boolean;
   closeNews: boolean;
+  handleMobileMenu: () => void;
   showSearch: () => void;
 };
 
-const Navbar: React.FC<NavbarProps> = ({ isLoggedIn, showSearch, closeNews }) => {
+const Navbar: React.FC<NavbarProps> = ({
+  isLoggedIn,
+  showSearch,
+  closeNews,
+  isMobile,
+  handleMobileMenu,
+}) => {
   const { pathname } = useLocation();
-  const [mobile, setMobile] = useState(false);
 
   const isFavorites =
     pathname === "/favorites" ||
@@ -20,27 +26,67 @@ const Navbar: React.FC<NavbarProps> = ({ isLoggedIn, showSearch, closeNews }) =>
     pathname === "/login" ||
     pathname === "/update-profile";
 
-  const handleMobileMenu = () => {
-    setMobile(!mobile);
-    document.body.classList.toggle("no-scroll", !mobile);
+  const handleLinkClick = () => {
+    if (isMobile) {
+      handleMobileMenu();
+    }
   };
 
   return (
     <nav className={isFavorites ? "underline" : ""}>
       <div className="mobile-menu-icon" onClick={handleMobileMenu}>
-      {mobile ? (
+        {isMobile ? (
           <img onClick={handleMobileMenu} src={closeIcon} alt="close icon" />
         ) : (
           <img src={menuIcon} alt="menu icon" className="menu-icon" />
         )}
       </div>
-      <div className={`nav-links ${mobile ? "mobile-active" : ""}  ${closeNews ? "shifted" : ""}`}>
-        <Link to={"/"}>Home</Link>
-        <Link to={"/shop"}>Shop</Link>
-        <Link to={"/favorites"}>Favorites</Link>
+      <div
+        className={`nav-links ${isMobile ? "mobile-active" : ""}  ${
+          closeNews ? "shifted" : ""
+        }`}
+      >
+        <Link onClick={handleLinkClick} to={"/"}>
+          Home
+        </Link>
+        <Link onClick={handleLinkClick} to={"/shop"}>
+          Shop
+        </Link>
+        <Link onClick={handleLinkClick} to={"/favorites"}>
+          Favorites
+        </Link>
+        {!isLoggedIn ? (
+          <>
+            {/* Wenn der Benutzer nicht eingeloggt ist */}
+            {isMobile && (
+              <Link onClick={handleLinkClick} to={"/login"}>
+                <img
+                  src="/images/icons/login-second.png"
+                  alt="login user icon"
+                />
+              </Link>
+            )}
+            {isMobile && (
+              <Link onClick={handleLinkClick} to={"/signup"}>
+                <button className="signup-button">Sign up</button>
+              </Link>
+            )}
+          </>
+        ) : (
+          // Wenn der Benutzer eingeloggt ist
+          <Link onClick={handleLinkClick} to={"/update-profile"}>
+            <img
+              src="/images/icons/login-second.png"
+              title="Profile / Logout"
+              alt="login user icon"
+            />
+          </Link>
+        )}
       </div>
       <h2>
-        <Link to={"/"}>iBuy</Link>
+        <Link onClick={handleLinkClick} to={"/"}>
+          iBuy
+        </Link>
       </h2>
       <div className="search-and-signup">
         <img
@@ -48,15 +94,13 @@ const Navbar: React.FC<NavbarProps> = ({ isLoggedIn, showSearch, closeNews }) =>
           alt="search icon"
           onClick={showSearch}
         />
-        {isLoggedIn ? (
-          ""
-        ) : (
-          <Link to={"/login"}>
+        {!isLoggedIn && (
+          <Link onClick={handleLinkClick} to={"/login"}>
             <img src="/images/icons/login-second.png" alt="login user icon" />
           </Link>
         )}
         {isLoggedIn ? (
-          <Link to={"/update-profile"}>
+          <Link onClick={handleLinkClick} to={"/update-profile"}>
             <img
               src="/images/icons/login-second.png"
               title="Profile / Logout"
@@ -64,7 +108,7 @@ const Navbar: React.FC<NavbarProps> = ({ isLoggedIn, showSearch, closeNews }) =>
             />
           </Link>
         ) : (
-          <Link to={"/signup"}>
+          <Link onClick={handleLinkClick} to={"/signup"}>
             <button className="signup-button">Sign up</button>
           </Link>
         )}
@@ -72,4 +116,5 @@ const Navbar: React.FC<NavbarProps> = ({ isLoggedIn, showSearch, closeNews }) =>
     </nav>
   );
 };
+
 export default Navbar;

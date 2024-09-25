@@ -5,35 +5,35 @@
   height: 45rem;
 }
 .logout-container {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 .logout-container h2 {
-    font-size: 4.4rem;
+  font-size: 4.4rem;
 }
 .logout-container button {
-    padding: 1rem 4rem;
-    font-size: 1.5rem;
-    background-color: #000;
-    color: white;
-    border: none;
-    border-radius: .2rem;
-    cursor: pointer;
+  padding: 1rem 4rem;
+  font-size: 1.5rem;
+  background-color: #000;
+  color: white;
+  border: none;
+  border-radius: 0.2rem;
+  cursor: pointer;
 }
 .logout-container button:hover {
   background-color: #af0000;
 }
 .update-container {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #000;
-    height: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
+  height: 100%;
 }
 .update-container h2 {
   font-size: 2.5rem;
@@ -45,8 +45,70 @@
   flex-direction: column;
 }
 .update-container form div input {
-    border-radius: .2rem;
+  border-radius: 0.2rem;
 }
 .update-container form button {
-    border-radius: .2rem;
+  border-radius: 0.2rem;
+}
+
+@media only screen and (min-width: 390px) and (max-width: 393px) and (orientation: portrait) {
+  .update-profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    flex-direction: column-reverse;
+  }
+  .logout-container {
+    flex: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 20rem;
+  }
+  .logout-container h2 {
+    font-size: 3.3rem;
+    padding: 2rem 0;
+    text-align: center;
+  }
+  .logout-container button {
+    padding: 1rem 4rem;
+    font-size: 1.5rem;
+    background-color: #000;
+    color: white;
+    border: none;
+    border-radius: 0.2rem;
+    cursor: pointer;
+  }
+  .logout-container button:hover {
+    background-color: #af0000;
+  }
+  .update-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #000;
+    height: 100%;
+    width: 100%;
+  }
+  .update-container h2 {
+    font-size: 2.2rem;
+    padding: 1.4rem;
+  }
+  .update-container form {
+    width: 22rem;
+  }
+  .update-container form div {
+    display: flex;
+    flex-direction: column;
+  }
+  .update-container form div input {
+    border-radius: 0.2rem;
+  }
+  .update-container form button {
+    border-radius: 0.2rem;
+  }
 }
