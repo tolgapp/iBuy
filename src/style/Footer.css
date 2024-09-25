@@ -72,5 +72,6 @@ footer .footer-links .group ul li a {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    overflow-x: scroll;
   }
 }

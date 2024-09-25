@@ -13,7 +13,6 @@
   flex-direction: column;
 }
 
-.text-container-signup,
 .form-container {
   flex: 1;
   display: flex;
@@ -82,32 +81,37 @@ form button {
 @media only screen and (min-width: 390px) and (max-width: 393px) and (orientation: portrait) {
   .signup {
     flex-direction: column;
-    height: 70vh;
+    height: auto;
   }
-
   .text-container-signup {
-    display: none;
+    /* height: 28rem; */
+    align-items: center;
+    justify-content: center;
+    flex: none;
+    padding: 10rem 0;
+    height: auto;
   }
-
+  .text-container-signup h2 {
+    font-size: 3rem;
+    text-align: center;
+  }
   .form-container {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: auto;
   }
-
   .form-container {
-    padding: 1rem;
     background-color: #000;
   }
-
   form {
+    padding: 2rem;
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
-
   form input {
     width: 100%;
   }
