@@ -4,7 +4,6 @@ import ImageText from "../components/ImageText";
 import imageAndText from "../data/imageandtext.json";
 import ProductCard from "../components/ProductCard";
 import products from "../data/products.json";
-import BackToTop from "../components/BackToTop";
 import "../index.css";
 
 type HomeProps = {
@@ -40,7 +39,6 @@ const Home: React.FC<HomeProps> = ({favoriteProducts, onToggleFavorite, isLogged
       </div>
       <h3 className="all">We have them all!</h3>
       {imageTextComponents}
-      <BackToTop />
     </main>
   );
 };

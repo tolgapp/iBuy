@@ -4,11 +4,10 @@ import ProductCard from "../components/ProductCard";
 import "../style/Favorites.css";
 import ScrollingText from "../components/ScrollingText";
 
-// Typdefinition für die Props, die an Favorites übergeben werden
 type FavoriteProps = {
-  favoriteProducts: number[]; // Liste der IDs der favorisierten Produkte
-  isLoggedIn: boolean; // Ob der Benutzer eingeloggt ist
-  onToggleFavorite: (productId: number) => void; // Funktion zum Hinzufügen/Entfernen eines Favoriten
+  favoriteProducts: number[];
+  isLoggedIn: boolean;
+  onToggleFavorite: (productId: number) => void;
 };
 
 const Favorites: React.FC<FavoriteProps> = ({
@@ -16,10 +15,9 @@ const Favorites: React.FC<FavoriteProps> = ({
   onToggleFavorite,
   isLoggedIn,
 }) => {
-
   const style = {
-    height: favoriteProducts.length > 0 ? "auto" : "45rem"
-  }
+    height: favoriteProducts.length > 0 ? "auto" : "45rem",
+  };
 
   const favProducts = productsData.filter((product) =>
     favoriteProducts.includes(product.id)

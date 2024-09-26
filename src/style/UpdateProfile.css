@@ -57,14 +57,16 @@
     flex-direction: column-reverse;
     justify-content: center;
     align-items: center;
-    height: 45rem;
+    height: 85rem;
   }
   .logout-container {
-    flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    height: 100%;
+    width: 100%;
+    gap: 2rem;
   }
   .logout-container h2 {
     font-size: 4.4rem;
@@ -82,13 +84,13 @@
     background-color: #af0000;
   }
   .update-container {
-    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: #000;
     height: 100%;
+    width: 100%;
   }
   .update-container h2 {
     font-size: 2.5rem;

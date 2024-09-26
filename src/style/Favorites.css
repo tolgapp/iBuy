@@ -17,3 +17,9 @@
   line-height: 1.7rem;
   margin-top: 2rem;
 }
+
+@media only screen and (min-width: 390px) and (max-width: 445px) and (orientation: portrait) {
+  .favorite-products-container {
+    justify-content: center;
+  }
+}

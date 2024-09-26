@@ -11,6 +11,7 @@
   flex-direction: column;
   margin: 1rem;
   position: relative;
+  width: 20rem;
 }
 
 .product-card img {
@@ -64,8 +65,11 @@
   color: #000;
 }
 
-@media only screen and (min-width: 390px) and (max-width: 393px) and (orientation: portrait) {
-  
+@media only screen and (min-width: 390px) and (max-width: 445px) and (orientation: portrait) {
+
+ .product-card {
+  width: 13rem;
+ }
   .product-card img {
     width: 13rem;
   }
@@ -77,6 +81,6 @@
   .product-card .product-info {
     padding: 0.3rem;
   }
-
+  
 
 }
