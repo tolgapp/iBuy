@@ -15,7 +15,6 @@ type LoginProps = {
 };
 
 const Login: React.FC<LoginProps> = ({ setIsLoggedIn, setUserId }) => {
-
   const [formData, setFormData] = useState<LoginFormData>({
     email: "",
     password: "",
@@ -54,12 +53,12 @@ const Login: React.FC<LoginProps> = ({ setIsLoggedIn, setUserId }) => {
         }),
       });
 
-      // If the response is true, then the received userId is saved in localstorage for re-verify the user for e.g. profile updates 
+      // If the response is true, then the received userId is saved in localstorage for re-verify the user for e.g. profile updates
       if (response.ok) {
         const data = await response.json();
         localStorage.setItem("userId", data.userId);
-        setUserId(data.userId); 
-        setIsLoggedIn(true); 
+        setUserId(data.userId);
+        setIsLoggedIn(true);
         notify("Login successful!");
         setFormData({ email: "", password: "" });
       } else {
@@ -71,7 +70,7 @@ const Login: React.FC<LoginProps> = ({ setIsLoggedIn, setUserId }) => {
     }
   };
 
-    useEffect(() => {
+  useEffect(() => {
     const storedUserId = localStorage.getItem("userId");
     if (storedUserId) {
       setUserId(storedUserId);
@@ -127,8 +126,7 @@ const Login: React.FC<LoginProps> = ({ setIsLoggedIn, setUserId }) => {
             pauseOnHover
             theme="light"
           />
-                  <Link to={"/signup"}>Registration</Link>
-
+          <Link to={"/signup"}>Registration</Link>
         </form>
       </div>
     </div>

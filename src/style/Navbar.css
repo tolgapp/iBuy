@@ -76,13 +76,20 @@ a .signup-button {
 .signup-button:hover a {
   color: white;
 }
+.mobile-search-icon {
+  display: none;
+}
 
 @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+
+  .mobile-search-icon {
+    display: none;
+  }
 
 }
 
 
-@media only screen and (min-width: 390px) and (max-width: 393px) and (orientation: portrait) {
+@media only screen and (min-width: 390px) and (max-width: 445px) and (orientation: portrait) {
 
   nav {
     height: 4rem;
@@ -146,5 +153,10 @@ a .signup-button {
   }
   .search-and-signup {
     display: none;
+  }
+  .mobile-search-icon {
+    width: 1.6rem;
+    display: flex;
+    cursor: pointer;
   }
 }

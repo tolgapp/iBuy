@@ -48,3 +48,26 @@
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 99;
 }
+
+
+@media only screen and (min-width: 500px) and (max-width: 1024px) and (orientation: portrait) {
+
+  .search {
+    width: 80%;
+  }
+  .search input {
+    width: 35rem;
+  }
+
+}
+
+@media only screen and (min-width: 390px) and (max-width: 445px) and (orientation: portrait) {
+
+  .search {
+    width: 90%;
+  }
+  .search input {
+    width: 18rem;
+  }
+
+}

@@ -1,18 +1,17 @@
 .outter-container {
   display: flex;
-  flex-direction: column; /* Standard: mobil (vertikal) */
-  height: 100vh; /* Container füllt die gesamte Höhe */
+  flex-direction: column; 
+  height: 100vh; 
   width: 100%;
   align-items: center;
   justify-content: center;
 }
 
-/* Bild und Text nehmen jeweils 50% des Platzes ein */
 .outter-container img {
   flex: 1;
   width: 100%;
-  height: 50%; /* Mobil: Nimmt 50% der Höhe ein */
-  object-fit: cover; /* Bild füllt den Container */
+  height: 50%; 
+  object-fit: cover; 
 }
 
 .text-container {
@@ -22,9 +21,8 @@
   justify-content: center;
   align-items: center;
   padding: 1rem;
-  background-color: #yourBackgroundColor; /* Hier deine Hintergrundfarbe */
   color: white;
-  height: 50%; /* Mobil: Nimmt 50% der Höhe ein */
+  height: 50%; 
 }
 
 .text-container h2, 
@@ -48,29 +46,26 @@
   opacity: 0.7;
 }
 
-/* Media Query für Tablets/Desktops im Hochformat */
 @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
   .outter-container {
-    flex-direction: row; /* Elemente nebeneinander */
-    margin: 1rem;
+    flex-direction: row; 
     height: auto;
   }
 
   .outter-container img {
-    width: 50%; /* Bild füllt 50% der Breite */
+    width: 50%; 
     height: auto;
   }
 
   .text-container {
-    width: 50%; /* Text füllt 50% der Breite */
+    width: 50%; 
     padding: 2rem;
     text-align: left;
   }
 
   .text-container h2 {
-    font-size: 2rem; /* Größere Schrift für Tablets */
+    font-size: 2rem; 
   }
-
   .text-container h3 {
     font-size: 1rem;
   }
@@ -85,7 +80,7 @@
   }
 }
 
-/* Media Query für kleinere Mobilgeräte (iPhone 14 Pro z.B.) */
+
 @media only screen and (min-width: 390px) and (max-width: 393px) and (orientation: portrait) {
 
   .outter-container {
@@ -95,7 +90,7 @@
   }
 
   .outter-container.reverse {
-    flex-direction: column; /* Bild unter dem Text */
+    flex-direction: column;
   }
 
   .outter-container img {

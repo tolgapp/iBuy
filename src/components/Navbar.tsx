@@ -57,7 +57,6 @@ const Navbar: React.FC<NavbarProps> = ({
         </Link>
         {!isLoggedIn ? (
           <>
-            {/* Wenn der Benutzer nicht eingeloggt ist */}
             {isMobile && (
               <Link onClick={handleLinkClick} to={"/login"}>
                 <img
@@ -73,14 +72,15 @@ const Navbar: React.FC<NavbarProps> = ({
             )}
           </>
         ) : (
-          // Wenn der Benutzer eingeloggt ist
-          <Link onClick={handleLinkClick} to={"/update-profile"}>
-            <img
-              src="/images/icons/login-second.png"
-              title="Profile / Logout"
-              alt="login user icon"
-            />
-          </Link>
+          isMobile && (
+            <Link onClick={handleLinkClick} to={"/update-profile"}>
+              <img
+                src="/images/icons/login-second.png"
+                title="Profile / Logout"
+                alt="login user icon"
+              />
+            </Link>
+          )
         )}
       </div>
       <h2>
@@ -108,11 +108,19 @@ const Navbar: React.FC<NavbarProps> = ({
             />
           </Link>
         ) : (
-          <Link onClick={handleLinkClick} to={"/signup"}>
-            <button className="signup-button">Sign up</button>
-          </Link>
+          !isLoggedIn && (
+            <Link onClick={handleLinkClick} to={"/signup"}>
+              <button className="signup-button">Sign up</button>
+            </Link>
+          )
         )}
       </div>
+      <img
+          src="/images/icons/search.png"
+          alt="search icon"
+          onClick={showSearch}
+          className="mobile-search-icon"
+        />
     </nav>
   );
 };

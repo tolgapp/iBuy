@@ -22,7 +22,8 @@
 }
 
 .text-container-signup h2 {
-  font-size: 3rem;
+  font-size: 4rem;
+  text-align: center;
 }
 
 .text-container-signup h3 {
@@ -76,6 +77,47 @@ form button {
   background-color: #007bff;
   border: none;
   border-radius: 0.2rem;
+}
+
+@media only screen and (min-width: 500px) and (max-width: 1024px) and (orientation: portrait) {
+  .signup {
+    flex-direction: column;
+    height: auto;
+  }
+  .text-container-signup {
+    align-items: center;
+    justify-content: center;
+    flex: none;
+    padding: 10rem 0;
+    height: auto;
+  }
+  .text-container-signup h2 {
+    font-size: 3rem;
+    text-align: center;
+  }
+  .form-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+  }
+  .form-container {
+    background-color: #000;
+  }
+  form {
+    padding: 2rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  form input {
+    width: 100%;
+  }
+  form button {
+    width: 100%;
+  }
 }
 
 @media only screen and (min-width: 390px) and (max-width: 393px) and (orientation: portrait) {

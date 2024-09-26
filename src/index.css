@@ -52,3 +52,22 @@ main .home-h2 {
   }
 
 }
+
+@media only screen and (min-width: 390px) and (max-width: 393px) and (orientation: portrait) {
+  .Toastify__toast {
+    font-size: 1.1rem;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .Toastify__close-button.Toastify__close-button--light {
+    width: 3rem;
+    height: 3rem;
+    background-color: #3498db;
+  }
+  .Toastify__close-button > svg {
+    width: 5rem;
+    height: 6rem;
+  }
+}
