@@ -1,5 +1,6 @@
 footer {
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   height: fit-content;
@@ -38,16 +39,19 @@ footer .footer-links .group .image-and-title img {
 footer .footer-links .group ul {
   list-style-type: none;
 }
-
-footer {
-  flex-direction: column;
-}
 footer h4 {
   margin-bottom: 3rem;
 }
 footer .footer-links .group ul li a {
   font-size: 0.8rem;
 }
+
+@media only screen and (min-width: 394px) and (max-width: 885px) and (orientation: portrait) {
+  footer {
+    flex-direction: column;
+  }
+}
+
 
 @media only screen and (min-width: 390px) and (max-width: 393px) and (orientation: portrait) {
   footer {

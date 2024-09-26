@@ -24,7 +24,7 @@
   margin-right: 0.5rem;
   padding: 0.2rem;
   padding-left: 0.9rem;
-  width: 42rem;
+  width: 30rem;
   line-height: 0.1rem;
   border: 0.1rem solid rgb(94, 94, 94);
   outline: none;
@@ -50,13 +50,16 @@
 }
 
 
-@media only screen and (min-width: 500px) and (max-width: 1024px) and (orientation: portrait) {
+@media only screen and (min-width: 446px) and (max-width: 1055px) and (orientation: portrait) {
 
   .search {
-    width: 80%;
+    width: 95%;
+  }
+  .search .input-container {
+    width: 95%;
   }
   .search input {
-    width: 35rem;
+    width: 95%;
   }
 
 }
@@ -64,10 +67,13 @@
 @media only screen and (min-width: 390px) and (max-width: 445px) and (orientation: portrait) {
 
   .search {
-    width: 90%;
+    width: 95%;
   }
-  .search input {
-    width: 18rem;
+  .search .input-container {
+    width: 92%;
+  }
+  .search .input-container input {
+    width: 90%;
   }
 
 }
