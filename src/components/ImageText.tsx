@@ -25,7 +25,7 @@ const ImageText: React.FC<ImageTextProps> = ({ product, reverse = false }) => {
         .toString(16)
         .padStart(6, "0");
       brightness = calculateBrightness(randomColor);
-    } while (brightness > 200); // Schwellenwert für Helligkeit, um helle Farben zu vermeiden
+    } while (brightness > 200); 
 
     setColor("#" + randomColor);
   }

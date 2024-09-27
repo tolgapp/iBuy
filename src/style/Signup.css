@@ -79,7 +79,7 @@ form button {
   border-radius: 0.2rem;
 }
 
-@media only screen and (min-width: 500px) and (max-width: 1024px) and (orientation: portrait) {
+@media only screen and (min-width: 431px) and (max-width: 1024px) and (orientation: portrait) {
   .signup {
     flex-direction: column;
     height: auto;
@@ -120,7 +120,7 @@ form button {
   }
 }
 
-@media only screen and (min-width: 390px) and (max-width: 393px) and (orientation: portrait) {
+@media only screen and (min-width: 300px) and (max-width: 430px) and (orientation: portrait) {
   .signup {
     flex-direction: column;
     height: auto;

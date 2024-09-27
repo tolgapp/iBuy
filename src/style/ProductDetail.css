@@ -5,6 +5,10 @@
   max-width: 80rem;
   margin: 0 auto;
 }
+.web-container {
+  display: flex;
+  gap: 2rem;
+}
 
 .product-thumbnails {
   display: flex;
@@ -54,4 +58,63 @@
 .product-info h4 {
   font-size: 2rem;
   color: #000;
+}
+
+
+@media only screen and (min-width: 446px) and (max-width: 890px) and (orientation: portrait) {
+
+  .product-detail {
+    display: flex;
+    gap: 1rem;
+    padding: 1.25rem;
+    max-width: 80rem;
+    margin: 0 auto;
+    flex-direction: column;
+  }
+  .image-container {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .product-thumbnails {
+    display: flex;
+    flex-direction: row;
+    width: 40%;
+    gap: 2rem;
+    object-fit: cover;
+  }
+  .big-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .big-image img {
+    max-width: 23.5rem;
+    height: auto;
+    object-fit: cover;
+    border: 0.0625rem solid #ddd;
+    padding: 0.3125rem;
+  }
+  .thumbnail {
+    width: 3.25rem;
+    cursor: pointer;
+    border: 0.0625rem solid #ddd;
+    padding: 0.3125rem;
+  }
+  .product-detail-info {
+    display: flex;
+    max-width: 60rem;
+    margin: 3rem auto;
+  }
+}
+
+@media only screen and (min-width: 300px) and (max-width: 445px) and (orientation: portrait) {
+  .product-detail {
+    margin: 0 auto;
+    flex-direction: column;
+  }
+  .image-container {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
 }

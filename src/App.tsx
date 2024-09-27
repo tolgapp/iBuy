@@ -14,6 +14,7 @@ import "./index.css";
 import ProductDetail from "./components/ProductDetail";
 import SearchResults from "./components/SearchResults"; 
 import BackToTop from "./components/BackToTop";
+import ScreenSizeWarning from "./components/ScreenSizeWarning";
 
 const App: React.FC = () => {
   const [closeNews, setCloseNews] = useState(false);
@@ -176,6 +177,7 @@ const App: React.FC = () => {
       </Routes>
       <Footer  />
       <BackToTop />
+      <ScreenSizeWarning /> 
     </>
   );
 };

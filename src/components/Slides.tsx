@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "../style/Slider.css";
 
 type SlideProps = {
-  images: { url: string; text: string; alt: string; title: string }[];
+  images: { url: string; text?: string; alt: string; title?: string }[];
   interval?: number;
 };
 

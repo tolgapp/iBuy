@@ -10,11 +10,14 @@ type HomeProps = {
   favoriteProducts: number[];
   isLoggedIn: boolean;
   onToggleFavorite: (productId: number) => void;
-}
+};
 
-const Home: React.FC<HomeProps> = ({favoriteProducts, onToggleFavorite, isLoggedIn}) => {
-
-
+const Home: React.FC<HomeProps> = ({
+  favoriteProducts,
+  onToggleFavorite,
+  isLoggedIn,
+}) => {
+  
   const imageTextComponents = imageAndText.products.map((product, index) => {
     const isReverse = index % 2 !== 0;
     return <ImageText key={index} product={product} reverse={isReverse} />;
