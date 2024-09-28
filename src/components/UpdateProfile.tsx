@@ -51,7 +51,7 @@ const UpdateProfileForm: React.FC<UpdateProfileProps> = ({
 
       try {
         const response = await fetch(
-          `http://localhost:3000/api/user/profile/${userId}`
+          `${import.meta.env.VITE_API_URL}/api/user/profile/${userId}`
         );
 
         if (response.ok) {

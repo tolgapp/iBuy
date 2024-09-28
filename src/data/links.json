@@ -5,17 +5,17 @@
         "links": [
             {
                 "id": 1,
-                "link": "http://localhost:5173",
+                "link": "https://ibuy-iota.vercel.app",
                 "text": "Contact us"
             },
             {
                 "id": 2,
-                "link": "http://localhost:5173",
+                "link": "https://ibuy-iota.vercel.app",
                 "text": "Returns"
             },
             {
                 "id": 3,
-                "link": "http://localhost:5173",
+                "link": "https://ibuy-iota.vercel.app",
                 "text": "EU delivery"
             }
         ]
@@ -26,17 +26,17 @@
         "links": [
             {
                 "id": 4,
-                "link": "http://localhost:5173",
+                "link": "https://ibuy-iota.vercel.app",
                 "text": "Casual"
             },
             {
                 "id": 5,
-                "link": "http://localhost:5173",
+                "link": "https://ibuy-iota.vercel.app",
                 "text": "Men"
             },
             {
                 "id": 6,
-                "link": "http://localhost:5173",
+                "link": "https://ibuy-iota.vercel.app",
                 "text": "Women"
             }
         ]
@@ -47,17 +47,17 @@
         "links": [
             {
                 "id": 7,
-                "link": "http://localhost:5173",
+                "link": "https://ibuy-iota.vercel.app",
                 "text": "Career"
             },
             {
                 "id": 8,
-                "link": "http://localhost:5173",
+                "link": "https://ibuy-iota.vercel.app",
                 "text": "About us"
             },
             {
                 "id": 9,
-                "link": "http://localhost:5173",
+                "link": "https://ibuy-iota.vercel.app",
                 "text": "iBuy group international"
             }
         ]
