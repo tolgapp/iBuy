@@ -6,3 +6,8 @@
     background-color: #fff;
     cursor: pointer;
 }
+
+.add-to-cart:hover {
+    background-color: #000;
+    color: #fff;
+}
