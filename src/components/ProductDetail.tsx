@@ -13,7 +13,12 @@ const resolveImagePath = (imagePath: string) => {
 };
 
 const ProductDetail = () => {
+  const { id } = useParams<{ id: string }>();
   const [mobileStyle, setMobileStyle] = useState(false);
+  const [amount, setAmount] = useState<number>(0);
+  const [bigImage, setBigImage] = useState<string>("");
+  
+  const product = id ? products.find((product) => product.id === parseInt(id)) : null;
 
   useEffect(() => {
     const handleResize = () => {
@@ -26,19 +31,12 @@ const ProductDetail = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const { id } = useParams<{ id: string }>();
-
-  const product = id ? products.find((product) => product.id === parseInt(id)) : null;
-
-  const [bigImage, setBigImage] = useState<string>("");
-
   useEffect(() => {
     if (product) {
       setBigImage(resolveImagePath(product.images[0]));
     }
   }, [product]);
 
-  const [amount, setAmount] = useState<number>(0);
 
   if (!product) {
     return <div>Product not found</div>;
