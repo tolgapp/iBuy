@@ -4,6 +4,7 @@ import "react-toastify/dist/ReactToastify.css";
 import "../style/Login.css";
 import { Link } from "react-router-dom";
 
+
 type LoginFormData = {
   email: string;
   password: string;
@@ -19,6 +20,8 @@ const Login: React.FC<LoginProps> = ({ setIsLoggedIn, setUserId }) => {
     email: "",
     password: "",
   });
+
+  const VITE_API_URL = import.meta.env.VITE_API_URL
 
   const notify = (message: string) => toast.info(message);
 
@@ -42,7 +45,7 @@ const Login: React.FC<LoginProps> = ({ setIsLoggedIn, setUserId }) => {
     }
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/login`, {
+      const response = await fetch(`${VITE_API_URL}/api/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

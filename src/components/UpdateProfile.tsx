@@ -27,6 +27,7 @@ const UpdateProfileForm: React.FC<UpdateProfileProps> = ({
     password: "",
   });
 
+  const VITE_API_URL = import.meta.env.VITE_API_URL
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -51,7 +52,7 @@ const UpdateProfileForm: React.FC<UpdateProfileProps> = ({
 
       try {
         const response = await fetch(
-          `${import.meta.env.VITE_API_URL}/api/user/profile/${userId}`
+          `${VITE_API_URL}/api/user/profile/${userId}`
         );
 
 

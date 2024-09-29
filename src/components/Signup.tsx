@@ -24,8 +24,8 @@ const Signup: React.FC<SignupProps> = () => {
     verifyPassword: "",
   });
 
+  const VITE_API_URL = import.meta.env.VITE_API_URL
   const navigate = useNavigate();
-
   const notify = (message: string) => toast.info(message);
 
   const validateFormData = () => {
@@ -56,7 +56,7 @@ const Signup: React.FC<SignupProps> = () => {
     }
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/signup`, {
+      const response = await fetch(`${VITE_API_URL}/api/signup`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
