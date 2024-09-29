@@ -53,7 +53,6 @@ const Login: React.FC<LoginProps> = ({ setIsLoggedIn, setUserId }) => {
         }),
       });
 
-      // If the response is true, then the received userId is saved in localstorage for re-verify the user for e.g. profile updates
       if (response.ok) {
         const data = await response.json();
         localStorage.setItem("userId", data.userId);

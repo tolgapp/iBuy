@@ -26,10 +26,8 @@ const Signup: React.FC<SignupProps> = () => {
 
   const navigate = useNavigate();
 
-  // toastify package -> info setting
   const notify = (message: string) => toast.info(message);
 
-  // Check for valid Data to sign up
   const validateFormData = () => {
     if (formData.name?.length < 2) {
       notify("Name is required for signup!");
@@ -50,7 +48,6 @@ const Signup: React.FC<SignupProps> = () => {
     return true;
   };
 
-  // Prevents the form from making dumb moves and returns nothing if data from formData is not valid
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -93,7 +90,6 @@ const Signup: React.FC<SignupProps> = () => {
     }
   };
 
-  // Updates the formData Object with the typed new Data
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({

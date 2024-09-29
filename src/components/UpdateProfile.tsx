@@ -54,6 +54,7 @@ const UpdateProfileForm: React.FC<UpdateProfileProps> = ({
           `${import.meta.env.VITE_API_URL}/api/user/profile/${userId}`
         );
 
+
         if (response.ok) {
           const data = await response.json();
           setFormData((prevData) => ({
