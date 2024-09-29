@@ -27,7 +27,7 @@ const UpdateProfileForm: React.FC<UpdateProfileProps> = ({
     password: "",
   });
 
-  const VITE_API_URL = import.meta.env.VITE_API_URL
+  const VITE_API_URL = import.meta.env.VITE_API_URL;
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -54,7 +54,6 @@ const UpdateProfileForm: React.FC<UpdateProfileProps> = ({
         const response = await fetch(
           `${VITE_API_URL}/api/user/profile/${userId}`
         );
-
 
         if (response.ok) {
           const data = await response.json();
@@ -90,7 +89,7 @@ const UpdateProfileForm: React.FC<UpdateProfileProps> = ({
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:3000/api/update-profile", {
+      const response = await fetch(`${VITE_API_URL}/api/update-profile`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
