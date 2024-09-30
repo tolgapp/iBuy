@@ -116,11 +116,11 @@ const Navbar: React.FC<NavbarProps> = ({
         )}
       </div>
       <img
-          src="/images/icons/search.png"
-          alt="search icon"
-          onClick={showSearch}
-          className="mobile-search-icon"
-        />
+        src="/images/icons/search.png"
+        alt="search icon"
+        onClick={showSearch}
+        className="mobile-search-icon"
+      />
     </nav>
   );
 };
