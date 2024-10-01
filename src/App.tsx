@@ -15,6 +15,7 @@ import ProductDetail from "./components/ProductDetail";
 import SearchResults from "./components/SearchResults"; 
 import BackToTop from "./components/BackToTop";
 import ScreenSizeWarning from "./components/ScreenSizeWarning";
+import RenderInfo from "./components/RenderInfo";
 
 const App: React.FC = () => {
   const [closeNews, setCloseNews] = useState(false);
@@ -82,6 +83,7 @@ const App: React.FC = () => {
 
   return (
     <>
+    <RenderInfo />
       {!closeNews && <NewsBar handleClick={handleClick} />}
       {isSearchVisible && (
         <Search
