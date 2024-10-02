@@ -43,12 +43,12 @@ const Slides: React.FC<SlideProps> = ({ images, interval = 4000 }) => {
       </div>
       {currentIndex !== 0 && (
         <button className="prevButton" onClick={prevButton}>
-          ⬅
+          <img src="/images/icons/arrow-left.png" alt="arrow left icon" />
         </button>
       )}
       {currentIndex !== images.length - 1 && (
         <button className="nextButton" onClick={nextButton}>
-          ➡
+          <img src="/images/icons/arrow-right.png" alt="arrow right icon" />
         </button>
       )}
     </div>

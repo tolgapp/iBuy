@@ -4,7 +4,7 @@ import Amount from "./Amount";
 import { useEffect, useState } from "react";
 import AddToCartButton from "./AddToCartButton";
 import "../style/ProductDetail.css";
-import Slides from "./Slides";
+import Slides from "./Slider";
 
 const resolveImagePath = (imagePath: string) => {
   return imagePath.startsWith("http://") || imagePath.startsWith("https://")
@@ -17,15 +17,17 @@ const ProductDetail = () => {
   const [mobileStyle, setMobileStyle] = useState(false);
   const [amount, setAmount] = useState<number>(0);
   const [bigImage, setBigImage] = useState<string>("");
-  
-  const product = id ? products.find((product) => product.id === parseInt(id)) : null;
+
+  const product = id
+    ? products.find((product) => product.id === parseInt(id))
+    : null;
 
   useEffect(() => {
     const handleResize = () => {
       setMobileStyle(window.innerWidth <= 884);
     };
 
-    handleResize(); 
+    handleResize();
     window.addEventListener("resize", handleResize);
 
     return () => window.removeEventListener("resize", handleResize);
@@ -36,7 +38,6 @@ const ProductDetail = () => {
       setBigImage(resolveImagePath(product.images[0]));
     }
   }, [product]);
-
 
   if (!product) {
     return <div>Product not found</div>;

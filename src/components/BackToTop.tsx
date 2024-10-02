@@ -33,7 +33,7 @@ const BackToTop: React.FC = () => {
     <>
       {isVisible && (
         <button onClick={scrollToTop} className="back-to-top">
-          ↑
+          <img src="/images/icons/arrow-left.png" alt="arrow top icon" />
         </button>
       )}
     </>

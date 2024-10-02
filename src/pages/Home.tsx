@@ -1,5 +1,5 @@
 import imagesData from "../data/images.json";
-import Slides from "../components/Slides";
+import Slides from "../components/Slider";
 import ImageText from "../components/ImageText";
 import imageAndText from "../data/imageandtext.json";
 import ProductCard from "../components/ProductCard";
@@ -17,7 +17,6 @@ const Home: React.FC<HomeProps> = ({
   onToggleFavorite,
   isLoggedIn,
 }) => {
-  
   const imageTextComponents = imageAndText.products.map((product, index) => {
     const isReverse = index % 2 !== 0;
     return <ImageText key={index} product={product} reverse={isReverse} />;
