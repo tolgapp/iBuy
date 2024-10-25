@@ -14,6 +14,12 @@
   flex: 1 1 50%;
   max-width: 50%;
 }
+.outter-container img {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 .text-container {
   flex: 1;
   display: flex;
@@ -56,11 +62,6 @@
   .outter-container img {
     width: 50%;
     height: auto;
-  }
-  .outter-container img,
-  .text-container {
-    flex: 0;
-    max-width: 100%;
   }
   .text-container {
     width: 50%;
