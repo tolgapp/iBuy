@@ -16,7 +16,6 @@ type ShopProps = {
 const Shop: React.FC<ShopProps> = ({favoriteProducts, onToggleFavorite, isLoggedIn}) => {
   const { id } = useParams<{ id: string }>();
 
-  // Filter products by category
   const womenProducts = products.filter((product: Products) =>
     product.category.includes("Women")
   );
@@ -29,7 +28,6 @@ const Shop: React.FC<ShopProps> = ({favoriteProducts, onToggleFavorite, isLogged
     (product: Products) => product.category === "Accessoires"
   );
 
-  // Function to render product lists
   const renderProductList = (productList: Products[]) => (
     <div className="product-container">
       {productList.map((product) => (

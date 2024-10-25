@@ -12,7 +12,7 @@ import Login from "./components/Login";
 import Favorites from "./pages/Favorites";
 import "./index.css";
 import ProductDetail from "./components/ProductDetail";
-import SearchResults from "./components/SearchResults"; 
+import SearchResults from "./components/SearchResults";
 import BackToTop from "./components/BackToTop";
 import ScreenSizeWarning from "./components/ScreenSizeWarning";
 import RenderInfo from "./components/RenderInfo";
@@ -83,7 +83,7 @@ const App: React.FC = () => {
 
   return (
     <>
-    <RenderInfo />
+      <RenderInfo />
       {!closeNews && <NewsBar handleClick={handleClick} />}
       {isSearchVisible && (
         <Search
@@ -177,9 +177,9 @@ const App: React.FC = () => {
           }
         />
       </Routes>
-      <Footer  />
+      <Footer />
       <BackToTop />
-      <ScreenSizeWarning /> 
+      <ScreenSizeWarning />
     </>
   );
 };

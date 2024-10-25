@@ -7,8 +7,8 @@ import { Navigate } from "react-router-dom";
 type SearchResultsProps = {
   searchQuery: string;
   onToggleFavorite: (productId: number) => void;
-  favoriteProducts: number[];  // Liste der Lieblingsprodukte
-  isLoggedIn: boolean;         // Status, ob der Nutzer eingeloggt ist
+  favoriteProducts: number[];  
+  isLoggedIn: boolean;         
 };
 
 const SearchResults: React.FC<SearchResultsProps> = ({
@@ -18,7 +18,6 @@ const SearchResults: React.FC<SearchResultsProps> = ({
   isLoggedIn,
 }) => {
 
-  // Filtere die Produkte basierend auf der Suchanfrage
   const filteredProducts = products.filter((product) =>
     product.description.toLowerCase().includes(searchQuery.toLowerCase())
   );

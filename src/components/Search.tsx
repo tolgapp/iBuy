@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState, useCallback } from "react";
 import "../style/Search.css";
-import { useNavigate } from "react-router-dom"; // Importiere useNavigate
+import { useNavigate } from "react-router-dom"; 
 
 type SearchProps = {
   showSearch: () => void;
