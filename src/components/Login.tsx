@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
+import { Link } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import "../style/Login.css";
-import { Link } from "react-router-dom";
 
 
 type LoginFormData = {
@@ -102,7 +102,7 @@ const Login: React.FC<LoginProps> = ({ setIsLoggedIn, setUserId }) => {
             type="email"
             name="email"
             id="email"
-            // value={formData.email}
+            value={formData.email}
             onChange={handleChange}
           />
           <label htmlFor="password" className="password">
@@ -112,7 +112,7 @@ const Login: React.FC<LoginProps> = ({ setIsLoggedIn, setUserId }) => {
             type="password"
             name="password"
             id="password"
-            // value={formData.password}
+            value={formData.password}
             onChange={handleChange}
           />
           <button type="submit">Login</button>

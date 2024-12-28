@@ -2,10 +2,15 @@
   display: flex;
   gap: 0.4rem;
   margin: 4.3rem 0 1rem 1.5rem;
+  padding-bottom: 2rem;
   overflow-x: scroll;
   line-height: 1.6;
+  -ms-overflow-style: none; 
+  scrollbar-width: none;  
 }
-
+.project-container::-webkit-scrollbar { 
+  display: none;
+}
 .product-card {
   display: flex;
   flex-direction: column;

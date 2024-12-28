@@ -4,7 +4,7 @@ footer {
   align-items: center;
   justify-content: center;
   height: fit-content;
-  padding: 5rem;
+  padding: 5rem 2.5rem;
   background-color: teal;
 }
 footer h4 {
@@ -50,6 +50,13 @@ footer .footer-links .group ul li a {
   footer {
     flex-direction: column;
   }
+  footer .footer-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 5rem;
+  }
 }
 
 
@@ -61,6 +68,10 @@ footer .footer-links .group ul li a {
     margin-bottom: 3rem;
   }
   footer .footer-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
     gap: 3rem;
   }
   footer .footer-links .group {

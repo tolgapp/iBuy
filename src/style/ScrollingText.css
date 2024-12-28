@@ -14,7 +14,7 @@
     animation: scroll-left 3s linear 1;
     white-space: nowrap;
     color: white;
-    padding-left: 2rem;
+    padding-left: 3rem;
   }
   
   @keyframes scroll-left {

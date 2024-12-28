@@ -10,12 +10,13 @@ import Signup from "./components/Signup";
 import UpdateProfile from "./components/UpdateProfile";
 import Login from "./components/Login";
 import Favorites from "./pages/Favorites";
-import "./index.css";
 import ProductDetail from "./components/ProductDetail";
 import SearchResults from "./components/SearchResults";
 import BackToTop from "./components/BackToTop";
 import ScreenSizeWarning from "./components/ScreenSizeWarning";
 import RenderInfo from "./components/RenderInfo";
+import { Analytics } from "@vercel/analytics/react";
+import "./index.css";
 
 const App: React.FC = () => {
   const [closeNews, setCloseNews] = useState(false);
@@ -83,6 +84,7 @@ const App: React.FC = () => {
 
   return (
     <>
+      <Analytics />
       <RenderInfo />
       {!closeNews && <NewsBar handleClick={handleClick} />}
       {isSearchVisible && (
