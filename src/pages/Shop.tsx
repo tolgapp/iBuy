@@ -34,7 +34,8 @@ const Shop: React.FC<ShopProps> = ({favoriteProducts, onToggleFavorite, isLogged
         <ProductCard
           key={product.id}
           product={product}
-          isFavorite={favoriteProducts.includes(product.id)}          onToggleFavorite={onToggleFavorite}
+          isFavorite={favoriteProducts.includes(product.id)}          
+          onToggleFavorite={onToggleFavorite}
           isLoggedIn={isLoggedIn}
         />
       ))}

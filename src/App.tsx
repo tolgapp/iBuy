@@ -14,7 +14,6 @@ import ProductDetail from "./components/ProductDetail";
 import SearchResults from "./components/SearchResults";
 import BackToTop from "./components/BackToTop";
 import ScreenSizeWarning from "./components/ScreenSizeWarning";
-import RenderInfo from "./components/RenderInfo";
 import { Analytics } from "@vercel/analytics/react";
 import "./index.css";
 
@@ -85,7 +84,6 @@ const App: React.FC = () => {
   return (
     <>
       <Analytics />
-      <RenderInfo />
       {!closeNews && <NewsBar handleClick={handleClick} />}
       {isSearchVisible && (
         <Search

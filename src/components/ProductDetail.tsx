@@ -3,8 +3,8 @@ import products from "../data/products.json";
 import Amount from "./Amount";
 import { useEffect, useState } from "react";
 import AddToCartButton from "./AddToCartButton";
-import "../style/ProductDetail.css";
 import Slides from "./Slider";
+import "../style/ProductDetail.css";
 
 const resolveImagePath = (imagePath: string) => {
   return imagePath.startsWith("http://") || imagePath.startsWith("https://")
