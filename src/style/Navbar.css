@@ -1,32 +1,17 @@
-nav {
+header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  height: 7rem;
-  padding: 0 3rem;
+  height: 5rem;
   position: relative;
   z-index: 10;
+  width: 100%;
 }
-.underline {
-  border-bottom: 0.01rem solid black;
-}
-.nav-links {
+header .container {
   display: flex;
-  flex: 1;
-  gap: 1rem;
+  align-items: center;
+  width: 100%; 
 }
-.nav-links a {
-  text-decoration: none;
-  color: black;
-}
-.nav-links a:hover {
-  text-decoration: underline;
-  text-underline-offset: 0.5rem;
-}
-.mobile-menu-icon {
-  display: none;
-}
-nav h2 {
+header > .container > h1 {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -34,29 +19,74 @@ nav h2 {
   cursor: pointer;
   font-size: 2.4rem;
 }
-nav h2 a {
+header > .container > h1 > a{
+  text-decoration: none;
+  color: #000;
+}
+header > .container > nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 3rem;
+  width: 100%;
+}
+
+header .container ul {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li a {
+  position: relative;
   text-decoration: none;
   color: black;
+  font-size: 1.1rem;
+  padding-bottom: 5px; /* Platz für die Linie */
+}
+
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background-color: black;
+  transition: width 0.3s ease-in-out;
+}
+
+nav ul li a:hover::after,
+nav ul li a:focus::after {
+  width: 100%;
+}
+
+nav ul li a:active::after {
+  width: 100%;
+  background-color: rgb(0, 143, 143); /* Farbe für aktiven Zustand */
+}
+.underline {
+  height: 5rem;
+  border-bottom: 0.01rem solid black;
 }
 .search-and-signup {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  margin: 0;
-  padding: 0;
+  background-color: transparent;
+}
+.search-button {
+  background-color: transparent;
+  border: none;
 }
 .search-and-signup img {
+  background-color: transparent;
   width: 1.65rem;
   cursor: pointer;
 }
-
-.search-and-signup a img {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 .signup-button {
   padding: 0.8rem 1rem;
   border-radius: 0.5rem;
@@ -81,16 +111,18 @@ a .signup-button {
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
-
   .mobile-search-icon {
     display: none;
   }
-
 }
 
-
-@media only screen and (min-width: 300px) and (max-width: 714px) and (orientation: portrait) {
-
+@media only screen and (min-width: 300px) and (max-width: 714px) {
+  header {
+    height: 3.5rem;
+  }
+  header > h2 {
+    font-size: 1.7rem;
+  }
   nav {
     height: 4rem;
     align-items: center;
@@ -103,53 +135,6 @@ a .signup-button {
   }
   .mobile-menu-icon img {
     height: 1.6rem;
-  }
-  .nav-links {
-    display: none;
-  }
-  .nav-links.mobile-active {
-    display: block;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    top: 7.6rem; 
-    left: 0;
-    width: 100%;
-    background-color: #f0f0f0;
-    text-align: center;
-    padding: 1rem 0;
-    z-index: 9999;
-    overflow-y: auto;
-  }
-  .nav-links img {
-    height: 1.8rem;
-  }
-  .nav-links.mobile-links-container {
-    flex: 1;
-  }
-  .nav-links.mobile-active.shifted {
-    top: 4rem; 
-    z-index: 99;
-  }
-  .nav-links.mobile-active a {
-    display: block;
-    color: black;
-    padding: 1.5rem 0;
-    text-decoration: none;
-    font-size: 1.5rem;
-  }
-  .nav-links.mobile-active a:hover {
-    text-decoration: underline;
-  }
-  nav h2 {
-    position: absolute;
-    font-size: 2.1rem;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  nav h2 a {
-    text-decoration: none;
-    color: black;
   }
   .search-and-signup {
     display: none;

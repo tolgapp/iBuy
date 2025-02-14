@@ -4,10 +4,16 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="#" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>iBuy © 2024</title>
+    <title id="title">iBuy © </title>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      const date = new Date();
+      const newYear = date.getFullYear();
+
+      document.title = `iBuy © ${newYear}`;
+    </script>
   </body>
 </html>

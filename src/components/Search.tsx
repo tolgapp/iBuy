@@ -58,7 +58,7 @@ const Search: React.FC<SearchProps> = ({ showSearch, handleSearchChange, searchQ
         <div className="input-container">
           <input
             type="text"
-            placeholder="Search"
+            placeholder="Search - e.g. Apple"
             name="search"
             id="search"
             ref={inputRef}

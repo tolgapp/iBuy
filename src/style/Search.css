@@ -4,40 +4,49 @@
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 100;
-  background-color: white;
-  padding: 10px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  height: 4rem;
+  height: 2.7rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
-  border-radius: 0.25rem;
+  justify-content: center;
+  width: 60%;
+}
+.search .input-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
 .search input {
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-family: "Verdana";
   font-size: 1.4rem;
   color: black;
   background-color: white;
   border-radius: 0.2rem;
-  margin-right: 0.5rem;
-  padding: 0.2rem;
-  padding-left: 0.9rem;
-  width: 30rem;
+  padding: 0.6rem;
+  padding-left: 0.4rem;
   line-height: 0.1rem;
   border: 0.1rem solid rgb(94, 94, 94);
   outline: none;
+  transform: translateX(.51rem);
+  width: 100%;
 }
 .search input::placeholder {
   font-size: 1.2rem;
+  width: 100%;
 }
 .search button {
   border: none;
-  background-color: white;
-  color: black;
+  background-color: black;
+  color: white;
+  height: 2.95rem;
+  width: 3rem;
   font-size: 1.6rem;
   cursor: pointer;
+  transform: translateX(-2.4rem); 
+  border-top-right-radius: 0.15rem;
+  border-bottom-right-radius: 0.15rem;
 }
 .overlay {
   position: fixed;
@@ -53,6 +62,7 @@
 @media only screen and (min-width: 446px) and (max-width: 1055px) and (orientation: portrait) {
 
   .search {
+    transform: translate(-45%, -50%);
     width: 95%;
   }
   .search .input-container {
@@ -61,31 +71,20 @@
   .search input {
     width: 95%;
   }
+  
+} 
 
-}
-
-@media only screen and (min-width: 446px) and (orientation: landscape) {
+ @media only screen and (min-width: 390px) and (max-width: 445px) {
+  
   .search {
+    transform: translate(-45%, -50%);
     width: 95%;
   }
   .search .input-container {
     width: 95%;
-  }
-  .search input {
-    width: 95%;
-  }
-}
-
-@media only screen and (min-width: 390px) and (max-width: 445px) and (orientation: portrait) {
-
-  .search {
-    width: 95%;
-  }
-  .search .input-container {
-    width: 92%;
   }
   .search .input-container input {
-    width: 90%;
+    width: 95%;
   }
 
-}
+} 
