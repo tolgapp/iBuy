@@ -44,7 +44,7 @@ nav ul li a {
   text-decoration: none;
   color: black;
   font-size: 1.1rem;
-  padding-bottom: 5px; /* Platz für die Linie */
+  padding-bottom: 5px; 
 }
 
 nav ul li a::after {
@@ -65,7 +65,7 @@ nav ul li a:focus::after {
 
 nav ul li a:active::after {
   width: 100%;
-  background-color: rgb(0, 143, 143); /* Farbe für aktiven Zustand */
+  background-color: rgb(0, 143, 143); 
 }
 .underline {
   height: 5rem;
