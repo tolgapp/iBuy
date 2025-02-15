@@ -73,11 +73,30 @@ form input {
 form button {
   padding: 1rem;
   font-size: 1rem;
+  font-weight: 700;
   cursor: pointer;
   margin: 1rem 0;
   background-color: #007bff;
   border: none;
   border-radius: 0.2rem;
+}
+
+.redirect-to-login-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.redirect-to-login-container .redirect-text {
+  color: #fff;
+  font-size: 1.1rem;
+}
+
+.redirect-to-login-container a {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: 800;
+  font-size: 1.2rem;
 }
 
 @media only screen and (min-width: 431px) and (max-width: 1024px) and (orientation: portrait) {

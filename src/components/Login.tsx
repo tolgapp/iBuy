@@ -128,7 +128,10 @@ const Login: React.FC<LoginProps> = ({ setIsLoggedIn, setUserId }) => {
             pauseOnHover
             theme="light"
           />
+          <div className="redirect-registration-container">
+          <p className="redirect-text">New @iBuy? Sign up and save.</p>
           <Link to={"/signup"}>Registration</Link>
+          </div>
         </form>
       </div>
     </div>

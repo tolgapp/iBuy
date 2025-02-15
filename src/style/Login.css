@@ -59,6 +59,24 @@
   background-color: #0056b3;
 }
 
+.redirect-registration-container {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.redirect-registration-container .redirect-text {
+  color: #fff;
+  font-size: 1.1rem;
+}
+
+.redirect-registration-container a {
+  color: #007bff;
+  font-size: 1.1rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
 
 @media only screen and (min-width: 431px) and (max-width: 1024px) and (orientation: portrait) {
   .login {

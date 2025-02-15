@@ -96,8 +96,6 @@ const App: React.FC = () => {
         showSearch={showSearch}
         isLoggedIn={isLoggedIn}
         closeNews={closeNews}
-        isMobile={isMobile}
-        handleMobileMenu={handleMobileMenu}
       />
       <Routes>
         <Route

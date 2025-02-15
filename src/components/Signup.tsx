@@ -159,7 +159,10 @@ const Signup: React.FC<SignupProps> = () => {
             pauseOnHover
             theme="light"
           />
+          <div className="redirect-to-login-container">
+          <p className="redirect-text">Already have an account? Log in here. </p>
           <Link to={"/login"}>Login</Link>
+          </div>
         </form>
       </div>
     </div>

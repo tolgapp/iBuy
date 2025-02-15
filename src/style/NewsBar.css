@@ -6,7 +6,7 @@
   padding: 0.6rem;
   border-bottom: 1px solid #ddd;
   position: relative;
-  background-color: #242424;
+  background-color: #ff793b;
 }
 .news-bar h3 {
   flex-grow: 1;
@@ -23,9 +23,10 @@
   color: #fff;
 }
 
-@media only screen and (min-width: 300px) and (max-width: 393px) and (orientation: portrait) {
+@media only screen and (min-width: 350px) and (max-width: 860px) and (orientation: portrait) {
   .news-bar h3 {
-    text-align: left;
-    font-size: 1rem;
+    text-align: center;
+    font-size: .9rem;
+    padding: 0 3rem;
   }
 }
