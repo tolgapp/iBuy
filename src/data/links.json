@@ -1,0 +1,65 @@
+[
+    {
+        "icon": "/images/icons/question.png",
+        "title": "Help",
+        "links": [
+            {
+                "id": 1,
+                "link": "https://ibuy-iota.vercel.app",
+                "text": "Contact us"
+            },
+            {
+                "id": 2,
+                "link": "https://ibuy-iota.vercel.app",
+                "text": "Returns"
+            },
+            {
+                "id": 3,
+                "link": "https://ibuy-iota.vercel.app",
+                "text": "EU delivery"
+            }
+        ]
+    },
+    {
+        "icon": "/images/icons/bag.png",
+        "title": "Products",
+        "links": [
+            {
+                "id": 4,
+                "link": "https://ibuy-iota.vercel.app",
+                "text": "Casual"
+            },
+            {
+                "id": 5,
+                "link": "https://ibuy-iota.vercel.app",
+                "text": "Men"
+            },
+            {
+                "id": 6,
+                "link": "https://ibuy-iota.vercel.app",
+                "text": "Women"
+            }
+        ]
+    },
+    {
+        "icon": "/images/icons/shop.png",
+        "title": "iBuy Group",
+        "links": [
+            {
+                "id": 7,
+                "link": "https://ibuy-iota.vercel.app",
+                "text": "Career"
+            },
+            {
+                "id": 8,
+                "link": "https://ibuy-iota.vercel.app",
+                "text": "About us"
+            },
+            {
+                "id": 9,
+                "link": "https://ibuy-iota.vercel.app",
+                "text": "iBuy group international"
+            }
+        ]
+    }
+]

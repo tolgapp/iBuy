@@ -1,0 +1,90 @@
+.search {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  height: 2.7rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+}
+.search .input-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.search input {
+  font-family: "Verdana";
+  font-size: 1.4rem;
+  color: black;
+  background-color: white;
+  border-radius: 0.2rem;
+  padding: 0.6rem;
+  padding-left: 0.4rem;
+  line-height: 0.1rem;
+  border: 0.1rem solid rgb(94, 94, 94);
+  outline: none;
+  transform: translateX(.51rem);
+  width: 100%;
+}
+.search input::placeholder {
+  font-size: 1.2rem;
+  width: 100%;
+}
+.search button {
+  border: none;
+  background-color: black;
+  color: white;
+  height: 2.95rem;
+  width: 3rem;
+  font-size: 1.6rem;
+  cursor: pointer;
+  transform: translateX(-2.4rem); 
+  border-top-right-radius: 0.15rem;
+  border-bottom-right-radius: 0.15rem;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+}
+
+
+@media only screen and (min-width: 446px) and (max-width: 1055px) and (orientation: portrait) {
+
+  .search {
+    transform: translate(-45%, -50%);
+    width: 95%;
+  }
+  .search .input-container {
+    width: 95%;
+  }
+  .search input {
+    width: 95%;
+  }
+  
+} 
+
+ @media only screen and (min-width: 390px) and (max-width: 445px) {
+  
+  .search {
+    transform: translate(-45%, -50%);
+    width: 95%;
+  }
+  .search .input-container {
+    width: 95%;
+  }
+  .search .input-container input {
+    width: 95%;
+  }
+
+} 

@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "svg": "/images/payment/amex.svg",
+    "alt": "American Express Logo"
+  },
+  {
+    "id": 2,
+    "svg": "/images/payment/apple-pay.svg",
+    "alt": "Apple Pay Logo"
+  },
+  {
+    "id": 3,
+    "svg": "/images/payment/google-pay.svg",
+    "alt": "Google Pay Logo"
+  },
+  {
+    "id": 4,
+    "svg": "/images/payment/maestro.svg",
+    "alt": "Maestro Logo"
+  },
+  {
+    "id": 5,
+    "svg": "/images/payment/mastercard.svg",
+    "alt": "Mastercard Logo"
+  },
+  {
+    "id": 6,
+    "svg": "/images/payment/visa.svg",
+    "alt": "Visa Logo"
+  }
+]

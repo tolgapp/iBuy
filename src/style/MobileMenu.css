@@ -1,0 +1,31 @@
+@media only screen and (min-width: 300px) and (max-width: 860px) {
+    .mobile-links {
+        position: absolute;
+        display: flex;
+        justify-content: space-between;
+        background-color: #fff;
+        height: fit-content;
+        width: 100%;
+        margin-top: 14.8rem;
+        transform: translateX(-2rem);
+        padding: 2rem;
+    }
+    .mobile-links nav {
+        gap: 1.2rem;
+        display: flex;
+        flex-direction: column;
+    }
+    .mobile-links nav a {
+        font-size: 1.4rem;
+        text-decoration: none;
+        color: #000;
+        font-weight: 500;
+    }
+    .mobile-nav-icons-container {
+        gap: 1.2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: center;
+    }
+}

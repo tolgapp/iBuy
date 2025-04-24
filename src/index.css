@@ -1,0 +1,73 @@
+/* Global */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: #242424;
+  background-color: white;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.no-scroll {
+  overflow: hidden; 
+}
+
+/* Home.tsx */
+main {
+  position: relative;
+  background-color: white;
+}
+main .home-h2 {
+  margin: 3rem;
+  text-align: center;
+  font-size: 5rem;
+  color: black;
+  word-spacing: 1rem;
+}
+
+/* standalone h3 - Home.tsx*/
+.all {
+  font-size: 6rem;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  text-align: center;
+  margin: 2rem;
+}
+
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) { 
+
+  .all {
+    font-size: 4rem;
+  }
+
+}
+
+@media only screen and (min-width: 390px) and (max-width: 393px) and (orientation: portrait) {
+  .Toastify__toast {
+    font-size: 1.1rem;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .Toastify__close-button.Toastify__close-button--light {
+    width: 3rem;
+    height: 3rem;
+    background-color: #3498db;
+  }
+  .Toastify__close-button > svg {
+    width: 5rem;
+    height: 6rem;
+  }
+}
