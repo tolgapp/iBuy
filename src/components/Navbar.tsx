@@ -1,9 +1,9 @@
 import { Link, useLocation } from "react-router-dom";
 import menuIcon from "/images/icons/menu.png";
 import closeIcon from "/images/icons/close.png";
-import "../style/Navbar.css";
 import MobileMenu from "./MobileMenu";
 import { useState } from "react";
+import "../style/Navbar.css";
 
 type NavbarProps = {
   isLoggedIn: boolean;

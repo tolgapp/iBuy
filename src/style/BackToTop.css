@@ -11,7 +11,7 @@
   z-index: 1000;
   opacity: 0.7;
   transition: opacity 0.3s ease;
-  border-radius: .1rem;
+  border-radius: 0.1rem;
 }
 
 .back-to-top:hover {
@@ -24,7 +24,15 @@
   height: auto;
 }
 
-
-@media only screen and (min-width: 360px) and (max-width: 445px) and (orientation: portrait) {
-
+@media only screen and (min-width: 360px) and (max-width: 505px) and (orientation: portrait) {
+  .back-to-top {
+    height: 2rem;
+    width: 2rem;
+    padding: 0;
+  }
+  .back-to-top img {
+  transform: rotate(90deg);
+  width: .9rem;
+  height: auto;
+}
 }
