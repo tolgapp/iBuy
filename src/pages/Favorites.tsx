@@ -1,44 +1,48 @@
 import React from "react";
-import productsData from "../data/products.json";
 import ProductCard from "../components/ProductCard";
-import "../style/Favorites.css";
+import "../style/ProductCard.css";
 import ScrollingText from "../components/ScrollingText";
+import { RootState } from "../store/store";
+import { useSelector } from "react-redux";
 
 type FavoriteProps = {
   favoriteProducts: number[];
-  isLoggedIn: boolean;
   onToggleFavorite: (productId: number) => void;
 };
 
 const Favorites: React.FC<FavoriteProps> = ({
   favoriteProducts,
   onToggleFavorite,
-  isLoggedIn,
 }) => {
+  const products = useSelector((state: RootState) => state.products);
+
   const style = {
-    height: favoriteProducts.length > 0 ? "auto" : "45rem",
+    height: favoriteProducts.length > 0 ? "55rem" : "65rem",
   };
 
-  const favProducts = productsData.filter((product) =>
+  const favProducts = products.filter((product) =>
     favoriteProducts.includes(product.id)
   );
 
+
   return (
-    <div style={style} className="favorites-container">
+    <div style={style} className="favorites-container flex flex-col">
       <ScrollingText text={"Your favorites"} />
       {favProducts.length === 0 ? (
         <p className="no-favorites-text">No favorites selected.</p>
       ) : (
-        <div className="favorite-products-container">
-          {favProducts.map((product) => (
-            <ProductCard
-              key={product.id}
-              product={product}
-              isLoggedIn={isLoggedIn}
-              isFavorite={favoriteProducts.includes(product.id)}
-              onToggleFavorite={onToggleFavorite}
-            />
-          ))}
+        <div className="flex p-8">
+          {favProducts.map((product) => {
+            console.log(product.id)
+            return (
+              <ProductCard
+                key={product.id}
+                product={product}
+                isFavorite={favoriteProducts.includes(product.id)}
+                onToggleFavorite={onToggleFavorite}
+              />
+            );
+          })}
         </div>
       )}
     </div>

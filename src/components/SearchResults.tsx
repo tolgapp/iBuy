@@ -8,14 +8,12 @@ type SearchResultsProps = {
   searchQuery: string;
   onToggleFavorite: (productId: number) => void;
   favoriteProducts: number[];  
-  isLoggedIn: boolean;         
 };
 
 const SearchResults: React.FC<SearchResultsProps> = ({
   searchQuery,
   onToggleFavorite,
   favoriteProducts,
-  isLoggedIn,
 }) => {
 
   const filteredProducts = products.filter((product) =>
@@ -33,7 +31,6 @@ const SearchResults: React.FC<SearchResultsProps> = ({
                   product={product}
                   isFavorite={favoriteProducts.includes(product.id)}  
                   onToggleFavorite={onToggleFavorite}
-                  isLoggedIn={isLoggedIn}  
                 />
             ))}
           </div>

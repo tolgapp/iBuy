@@ -1,8 +1,7 @@
-import "../style/AddToCartButton.css"
 
 const AddToCartButton = () => {
   return (
-    <button className="add-to-cart">Add to Cart</button>
+    <button className="border-[.1rem] bg-white p-3.5 text-black cursor-pointer hover:bg-black hover:text-white">Add to Cart</button>
   )
 }
 export default AddToCartButton

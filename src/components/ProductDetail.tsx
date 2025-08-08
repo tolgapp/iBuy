@@ -16,7 +16,7 @@ const ProductDetail = () => {
   const { id } = useParams<{ id: string }>();
   const [mobileStyle, setMobileStyle] = useState(false);
   const [amount, setAmount] = useState<number>(0);
-  const [bigImage, setBigImage] = useState<string>("");
+  const [mainImage, setMainImage] = useState<string>("");
 
   const product = id
     ? products.find((product) => product.id === parseInt(id))
@@ -35,7 +35,7 @@ const ProductDetail = () => {
 
   useEffect(() => {
     if (product) {
-      setBigImage(resolveImagePath(product.images[0]));
+      setMainImage(resolveImagePath(product.images[0]));
     }
   }, [product]);
 
@@ -49,7 +49,7 @@ const ProductDetail = () => {
   }));
 
   const changeMainImage = (e: React.MouseEvent<HTMLImageElement>) => {
-    setBigImage(e.currentTarget.src);
+    setMainImage(e.currentTarget.src);
   };
 
   return (
@@ -70,7 +70,7 @@ const ProductDetail = () => {
             ))}
           </div>
           <div className="big-image">
-            <img src={bigImage} alt={product.description} />
+            <img src={mainImage} alt={product.description} />
           </div>
         </div>
       )}

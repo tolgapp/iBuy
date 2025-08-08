@@ -36,13 +36,13 @@
 
 .image-text {
   position: absolute;
-  bottom: 0.5rem;
-  left: 0.5rem;
   color: white;
-  padding: 2rem;
+  bottom: 0;
+  padding-bottom: 2rem;
+  padding-left: 3rem;
   z-index: 2;
   text-align: left;
-  max-width: 50rem;
+  max-width: 51rem;
 }
 
 .image-text h2 {

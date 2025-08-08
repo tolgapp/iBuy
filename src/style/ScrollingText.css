@@ -2,17 +2,16 @@
   width: 100%;
   overflow: hidden;
   white-space: nowrap;
-  height: 8rem;
+  height: 5rem;
   display: flex;
   align-items: center;
   background-color: black;
 }
 
 .scrolling-text {
-  font-size: 4.8rem;
+  font-size: 3rem;
   font-weight: 800;
-  animation: scroll-left 3s linear 1;
-  white-space: nowrap;
+   white-space: nowrap;
   color: white;
   padding-left: 3rem;
 }

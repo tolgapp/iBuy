@@ -1,10 +1,11 @@
+import "./index.css";
 import { useEffect, useState } from "react";
-import { Routes, Route, useNavigate, Navigate } from "react-router-dom";
-import Home from "./pages/Home";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Shop from "./pages/Shop";
 import NewsBar from "./components/NewsBar";
+import Home from "./pages/Home";
 import Search from "./components/Search";
 import Signup from "./components/Signup";
 import UpdateProfile from "./components/UpdateProfile";
@@ -15,38 +16,54 @@ import SearchResults from "./components/SearchResults";
 import BackToTop from "./components/BackToTop";
 import ScreenSizeWarning from "./components/ScreenSizeWarning";
 import { Analytics } from "@vercel/analytics/react";
-import "./index.css";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllProducts } from "./services/products";
+import { setProducts } from "./store/reducers/productReducer";
+import { RootState } from "./store/store";
+
+// TODO: Changed local products.json and added it to the backend API ✅
+// TODO: Refactoring from useState to Redux Toolkit for better state management
+// TODO: Add Cart functionality with Redux Toolkit for state management
+// TODO: Change from CSS to Tailwind CSS for styling
 
 const App: React.FC = () => {
   const [closeNews, setCloseNews] = useState(false);
   const [isSearchVisible, setIsSearchVisible] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
-  const [userId, setUserId] = useState<string | null>(null);
   const [favoriteProducts, setFavoriteProducts] = useState<number[]>([]);
   const [searchQuery, setSearchQuery] = useState<string>("");
-  const [isMobile, setIsMobile] = useState(false);
 
-  const handleMobileMenu = () => {
-    setIsMobile(!isMobile);
-    document.body.classList.toggle("no-scroll", !isMobile);
-  };
+  const dispatch = useDispatch();
+  const { userId, isLoggedIn } = useSelector((state: RootState) => state.auth);
 
-  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isLoggedIn) {
+       localStorage.setItem("isLoggedIn", "true");
+       localStorage.setItem("userId", userId);
+    }
+  }, [isLoggedIn, userId])
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const data = await getAllProducts();
+        dispatch(setProducts(data));
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
+
+    fetchProducts();
+  }, []);
 
   const handleSearchChange = (query: string) => {
     setSearchQuery(query);
   };
 
   useEffect(() => {
-    const storedUserId = localStorage.getItem("userId");
     const storedFavorites = JSON.parse(
       localStorage.getItem("favorites") || "[]"
     );
-
-    if (storedUserId) {
-      setUserId(storedUserId);
-      setIsLoggedIn(true);
-    }
 
     if (storedFavorites.length > 0) {
       setFavoriteProducts(storedFavorites);
@@ -64,14 +81,6 @@ const App: React.FC = () => {
   function showSearch() {
     setIsSearchVisible((prev) => !prev);
   }
-
-  const handleLogout = () => {
-    localStorage.clear();
-    setFavoriteProducts([]);
-    setUserId(null);
-    setIsLoggedIn(false);
-    navigate("/");
-  };
 
   const toggleFavorite = (productId: number) => {
     setFavoriteProducts((prevFavorites) =>
@@ -92,11 +101,7 @@ const App: React.FC = () => {
           handleSearchChange={handleSearchChange}
         />
       )}
-      <Navbar
-        showSearch={showSearch}
-        isLoggedIn={isLoggedIn}
-        closeNews={closeNews}
-      />
+      <Navbar showSearch={showSearch} closeNews={closeNews} />
       <Routes>
         <Route
           path="/"
@@ -104,7 +109,6 @@ const App: React.FC = () => {
             <Home
               favoriteProducts={favoriteProducts}
               onToggleFavorite={toggleFavorite}
-              isLoggedIn={isLoggedIn}
             />
           }
         />
@@ -114,7 +118,6 @@ const App: React.FC = () => {
             <Shop
               favoriteProducts={favoriteProducts}
               onToggleFavorite={toggleFavorite}
-              isLoggedIn={isLoggedIn}
             />
           }
         />
@@ -126,10 +129,9 @@ const App: React.FC = () => {
               <Favorites
                 favoriteProducts={favoriteProducts}
                 onToggleFavorite={toggleFavorite}
-                isLoggedIn={isLoggedIn}
               />
             ) : (
-              <Signup setIsLoggedIn={setIsLoggedIn} setUserId={setUserId} />
+              <Signup />
             )
           }
         />
@@ -137,27 +139,21 @@ const App: React.FC = () => {
           path="/signup"
           element={
             userId ? (
-              <UpdateProfile userId={userId} onLogout={handleLogout} />
+              <UpdateProfile />
             ) : (
-              <Signup setIsLoggedIn={setIsLoggedIn} setUserId={setUserId} />
+              <Signup />
             )
           }
         />
         <Route
           path="/login"
-          element={
-            userId ? (
-              <Navigate to={"/"} replace />
-            ) : (
-              <Login setIsLoggedIn={setIsLoggedIn} setUserId={setUserId} />
-            )
-          }
+          element={userId ? <Navigate to={"/"} replace /> : <Login />}
         />
         <Route
           path="/update-profile"
           element={
             userId ? (
-              <UpdateProfile userId={userId} onLogout={handleLogout} />
+              <UpdateProfile />
             ) : (
               <Navigate to="/" replace />
             )
@@ -169,7 +165,6 @@ const App: React.FC = () => {
             <SearchResults
               searchQuery={searchQuery}
               onToggleFavorite={toggleFavorite}
-              isLoggedIn={isLoggedIn}
               favoriteProducts={favoriteProducts}
             />
           }

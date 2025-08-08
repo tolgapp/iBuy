@@ -3,20 +3,18 @@ import Slides from "../components/Slider";
 import ImageText from "../components/ImageText";
 import imageAndText from "../data/imageandtext.json";
 import ProductCard from "../components/ProductCard";
-import products from "../data/products.json";
+import { RootState } from "../store/store";
+import { useSelector } from "react-redux";
 import "../index.css";
 
 type HomeProps = {
   favoriteProducts: number[];
-  isLoggedIn: boolean;
   onToggleFavorite: (productId: number) => void;
 };
 
-const Home: React.FC<HomeProps> = ({
-  favoriteProducts,
-  onToggleFavorite,
-  isLoggedIn,
-}) => {
+const Home: React.FC<HomeProps> = ({ favoriteProducts, onToggleFavorite }) => {
+  const products = useSelector((state: RootState) => state.products);
+
   const imageTextComponents = imageAndText.products.map((product, index) => {
     const isReverse = index % 2 !== 0;
     return <ImageText key={index} product={product} reverse={isReverse} />;
@@ -26,20 +24,23 @@ const Home: React.FC<HomeProps> = ({
     location.pathname === "/" ? products.slice(0, 6) : products;
 
   return (
-    <main className="home-container">
+    <main className="relative bg-white">
       <Slides images={imagesData.images} interval={5000} />
-      <div className="product-container">
-        {displayedProducts.map((product) => (
-          <ProductCard
-            key={product.id}
-            product={product}
-            isFavorite={favoriteProducts.includes(product.id)}
-            onToggleFavorite={onToggleFavorite}
-            isLoggedIn={isLoggedIn}
-          />
-        ))}
+      <div className="flex overflow-x-scroll whitespace-nowrap justify-staRT items-center no-scrollbar">
+        <div className="p-8 flex gap-2">
+          {displayedProducts.map((product) => (
+            <ProductCard
+              key={product.id}
+              product={product}
+              isFavorite={favoriteProducts.includes(product.id)}
+              onToggleFavorite={onToggleFavorite}
+            />
+          ))}
+        </div>
       </div>
-      <h3 className="all">We have them all!</h3>
+      <h3 className="text-[6rem] text-center my-8 font-sans">
+        We have them all!
+      </h3>{" "}
       {imageTextComponents}
     </main>
   );

@@ -3,25 +3,22 @@ import { ToastContainer, toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import "../style/Login.css";
-
+import axios from "axios";
+import { useDispatch } from "react-redux";
+import { setAuth } from "../store/reducers/authReducer";
 
 type LoginFormData = {
   email: string;
   password: string;
 };
 
-type LoginProps = {
-  setIsLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
-  setUserId: React.Dispatch<React.SetStateAction<string | null>>;
-};
-
-const Login: React.FC<LoginProps> = ({ setIsLoggedIn, setUserId }) => {
+const Login = () => {
   const [formData, setFormData] = useState<LoginFormData>({
     email: "",
     password: "",
   });
-
-  const VITE_API_URL = import.meta.env.VITE_API_URL
+  const dispatch = useDispatch()
+  const VITE_API_URL = import.meta.env.VITE_API_URL;
 
   const notify = (message: string) => toast.info(message);
 
@@ -45,22 +42,10 @@ const Login: React.FC<LoginProps> = ({ setIsLoggedIn, setUserId }) => {
     }
 
     try {
-      const response = await fetch(`${VITE_API_URL}/api/login`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: formData.email,
-          password: formData.password,
-        }),
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        localStorage.setItem("userId", data.userId);
-        setUserId(data.userId);
-        setIsLoggedIn(true);
+      const response = await axios.post(`${VITE_API_URL}/api/login`, formData);
+      if (response) {
+        const data = response.data;
+        dispatch(setAuth(data))
         notify("Login successful!");
         setFormData({ email: "", password: "" });
       } else {
@@ -72,13 +57,12 @@ const Login: React.FC<LoginProps> = ({ setIsLoggedIn, setUserId }) => {
     }
   };
 
-  useEffect(() => {
-    const storedUserId = localStorage.getItem("userId");
-    if (storedUserId) {
-      setUserId(storedUserId);
-      setIsLoggedIn(true);
-    }
-  }, [setIsLoggedIn, setUserId]);
+useEffect(() => {
+  const storedUserId = localStorage.getItem("userId");
+  if (storedUserId) {
+    dispatch(setAuth({ userId: storedUserId }));
+  }
+}, [dispatch]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -129,8 +113,8 @@ const Login: React.FC<LoginProps> = ({ setIsLoggedIn, setUserId }) => {
             theme="light"
           />
           <div className="redirect-registration-container">
-          <p className="redirect-text">New @iBuy? Sign up and save.</p>
-          <Link to={"/signup"}>Registration</Link>
+            <p className="redirect-text">New @iBuy? Sign up and save.</p>
+            <Link to={"/signup"}>Registration</Link>
           </div>
         </form>
       </div>

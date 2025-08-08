@@ -1,25 +1,24 @@
+import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../store/store";
+import { setLoggedOut } from "../store/reducers/authReducer";
 import "react-toastify/dist/ReactToastify.css";
 import "../style/UpdateProfile.css";
 
 type FormData = {
-  userId: string;
   name: string;
   email: string;
   password: string;
+  userId: string;
 };
 
-type UpdateProfileProps = {
-  userId: string | null;
-  onLogout: () => void;
-};
+const UpdateProfileForm = () => {
+  const { userId } = useSelector((state: RootState) => state.auth);
+  const dispatch = useDispatch();
 
-const UpdateProfileForm: React.FC<UpdateProfileProps> = ({
-  userId,
-  onLogout,
-}) => {
   const [formData, setFormData] = useState<FormData>({
     userId: userId || "",
     name: "",
@@ -32,7 +31,7 @@ const UpdateProfileForm: React.FC<UpdateProfileProps> = ({
 
   useEffect(() => {
     if (!userId) {
-      toast.info("Benutzer-ID fehlt. Bitte melden Sie sich erneut an.");
+      toast.info("User ID is missing. Please log in again.");
       navigate("/login");
     } else {
       setFormData((prevData) => ({
@@ -45,37 +44,29 @@ const UpdateProfileForm: React.FC<UpdateProfileProps> = ({
   useEffect(() => {
     const fetchUserData = async () => {
       if (!userId) {
-        toast.info("Benutzer-ID fehlt. Bitte melden Sie sich erneut an.");
+        toast.info("User ID is missing. Please log in.");
         navigate("/login");
         return;
       }
 
       try {
-        const response = await fetch(
+        const response = await axios.get(
           `${VITE_API_URL}/api/user/profile/${userId}`
         );
-
-        if (response.ok) {
-          const data = await response.json();
-          setFormData((prevData) => ({
-            ...prevData,
-            name: data.name,
-            email: data.email,
-          }));
-        } else {
-          const errorText = await response.text();
-          notify(`Fehler: ${errorText}`);
-        }
+        const data = response.data;
+        setFormData((prevData) => ({
+          ...prevData,
+          name: data.name,
+          email: data.email,
+        }));
       } catch (error) {
-        console.error("Fehler beim Abrufen der Benutzerdaten:", error);
-        notify("Es gab ein Problem beim Abrufen der Benutzerdaten");
+        console.error("Error updating profile:", error);
+        toast.info("Failed to fetch user data.");
       }
     };
 
     fetchUserData();
   }, [userId, navigate]);
-
-  const notify = (message: string) => toast.info(message);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -89,24 +80,18 @@ const UpdateProfileForm: React.FC<UpdateProfileProps> = ({
     e.preventDefault();
 
     try {
-      const response = await fetch(`${VITE_API_URL}/api/update-profile`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        notify("Successfully updated!");
-      } else {
-        const errorText = await response.text();
-        notify(`Fehler: ${errorText}`);
-      }
+      await axios.post(`${VITE_API_URL}/api/update-profile`, formData);
+      toast.info("Profile updated successfully!");
     } catch (error) {
-      console.error(error);
-      notify("Es gab ein Problem beim Senden der Anfrage");
+      console.error("Error updating profile:", error);
+      toast.info("An error occurred while updating the profile.");
     }
+  };
+
+  const onLogout = () => {
+    dispatch(setLoggedOut());
+    localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("userId");
   };
 
   return (
@@ -118,7 +103,6 @@ const UpdateProfileForm: React.FC<UpdateProfileProps> = ({
         </button>
       </div>
       <div className="update-container">
-        <h2>Account Management</h2>
         <form onSubmit={handleSubmit}>
           <div>
             <label>Update your name:</label>
@@ -139,7 +123,7 @@ const UpdateProfileForm: React.FC<UpdateProfileProps> = ({
             />
           </div>
           <div>
-            <label htmlFor="password"> Update your password:</label>
+            <label htmlFor="password">Update your password:</label>
             <input
               type="password"
               name="password"

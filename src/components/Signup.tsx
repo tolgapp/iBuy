@@ -11,12 +11,9 @@ type FormData = {
   verifyPassword: string;
 };
 
-type SignupProps = {
-  setIsLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
-  setUserId: React.Dispatch<React.SetStateAction<string | null>>;
-};
 
-const Signup: React.FC<SignupProps> = () => {
+
+const Signup = () => {
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",

@@ -1,7 +1,19 @@
+@import "tailwindcss";
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+
+
 /* Global */
 * {
-  padding: 0;
-  margin: 0;
+  /* padding: 0;
+  margin: 0; */
   box-sizing: border-box;
 }
 :root {
@@ -22,28 +34,18 @@
   overflow: hidden; 
 }
 
-/* Home.tsx */
-main {
-  position: relative;
-  background-color: white;
-}
-main .home-h2 {
-  margin: 3rem;
-  text-align: center;
-  font-size: 5rem;
-  color: black;
-  word-spacing: 1rem;
+.scroll-text {
+    animation: scroll-left 3s linear 1;
 }
 
-/* standalone h3 - Home.tsx*/
-.all {
-  font-size: 6rem;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  text-align: center;
-  margin: 2rem;
+@keyframes scroll-left {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
-
 
 @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) { 
 
@@ -71,3 +73,5 @@ main .home-h2 {
     height: 6rem;
   }
 }
+
+

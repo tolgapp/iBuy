@@ -1,13 +1,13 @@
-import "../style/ScrollingText.css";
-
 type Scrolling = {
   text: string;
 };
 
 const ScrollingText: React.FC<Scrolling> = ({ text }) => {
   return (
-    <div className="scrolling-text-container">
-      <h3 className="scrolling-text">{text}</h3>
+    <div className="max-w-full overflow-hidden whitespace-nowrap h-20 bg-black items-center flex">
+      <h3 className="scroll-text text-white text-5xl font-black  whitespace-nowrap pl-12">
+        {text}
+      </h3>
     </div>
   );
 };

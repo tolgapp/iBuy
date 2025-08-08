@@ -4,20 +4,22 @@ import closeIcon from "/images/icons/close.png";
 import MobileMenu from "./MobileMenu";
 import { useState } from "react";
 import "../style/Navbar.css";
+import { useSelector } from "react-redux";
+import { RootState } from "../store/store";
 
 type NavbarProps = {
-  isLoggedIn: boolean;
   closeNews: boolean;
   showSearch: () => void;
 };
 
 const Navbar: React.FC<NavbarProps> = ({
-  isLoggedIn,
   showSearch,
   closeNews,
 }) => {
+  
   const [isMobile, setIsMobile] = useState(false);
   const { pathname } = useLocation();
+  const {isLoggedIn} = useSelector((state: RootState) => state.auth);
 
   const isFavorites =
     pathname === "/favorites" ||
@@ -32,7 +34,6 @@ const Navbar: React.FC<NavbarProps> = ({
   return (
     <header>
       <div className="container">
-        {/* Handling Mobile Menu if width < 861 px */}
         <div className="mobileContainer">
           {isMobile ? (
             <img src={closeIcon} alt="burger menu icon" onClick={handleClick} />
@@ -41,7 +42,6 @@ const Navbar: React.FC<NavbarProps> = ({
           )}
           {isMobile && (
             <MobileMenu
-              isLoggedIn={isLoggedIn}
               handleClick={handleClick}
               closeNews={closeNews}
               isMobile={isMobile}
@@ -76,9 +76,14 @@ const Navbar: React.FC<NavbarProps> = ({
                 />
               </Link>
             ) : (
-              <Link to={"/signup"}>
-                <button className="signup-button">Sign up</button>
-              </Link>
+              <>
+                <Link to={"/signup"}>
+                  <button className="signup-button">Sign up</button>
+                </Link>
+                <Link to={"/login"}>
+                  <button className="signup-button">Login</button>
+                </Link>
+              </>
             )}
           </div>
         </nav>

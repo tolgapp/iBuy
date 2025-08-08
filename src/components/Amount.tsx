@@ -1,11 +1,11 @@
-import "../style/Amount.css"
-
 type AmountProps = {
   amount: number;
   setAmount: React.Dispatch<React.SetStateAction<number>>;
 };
 
 const Amount: React.FC<AmountProps> = ({amount, setAmount}) => {
+
+  const buttonStyle = "text-black border-[.1rem] bg-white text-lg px-6 py-4 cursor-pointer hover:bg-black hover:text-white"
 
 
   const increaseAmount = () => {
@@ -17,10 +17,10 @@ const Amount: React.FC<AmountProps> = ({amount, setAmount}) => {
   };
 
   return (
-    <div className="amount-calculator">
-      <button className="increase" onClick={increaseAmount}>+</button>
-      <h3>{amount}</h3>
-      <button className="decrease" onClick={decreaseAmount}>-</button>
+    <div className="flex justify-between items-center gap-2">
+      <button className={buttonStyle} onClick={increaseAmount}>+</button>
+      <h3 className="text-4xl">{amount}</h3>
+      <button className={buttonStyle} onClick={decreaseAmount}>-</button>
     </div>
   );
 };
