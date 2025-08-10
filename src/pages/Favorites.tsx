@@ -1,6 +1,5 @@
 import React from "react";
 import ProductCard from "../components/ProductCard";
-import "../style/ProductCard.css";
 import ScrollingText from "../components/ScrollingText";
 import { RootState } from "../store/store";
 import { useSelector } from "react-redux";
@@ -26,14 +25,14 @@ const Favorites: React.FC<FavoriteProps> = ({
 
 
   return (
-    <div style={style} className="favorites-container flex flex-col">
+    <div style={style} className="flex flex-col">
       <ScrollingText text={"Your favorites"} />
       {favProducts.length === 0 ? (
-        <p className="no-favorites-text">No favorites selected.</p>
+          <p className="text-3xl sm:text-5xl text-center mt-90">No favorites selected.</p>
       ) : (
         <div className="flex p-8">
           {favProducts.map((product) => {
-            console.log(product.id)
+            console.log(product.id);
             return (
               <ProductCard
                 key={product.id}

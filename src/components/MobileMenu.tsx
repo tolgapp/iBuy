@@ -1,10 +1,8 @@
 import { Link } from "react-router-dom";
-import "../style/MobileMenu.css";
 import { useSelector } from "react-redux";
 import { RootState } from "../store/store";
 
 type MobileMenuProps = {
-  isLoggedIn: boolean;
   isMobile: boolean;
   closeNews: boolean;
   handleClick: () => void;
@@ -18,8 +16,14 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
   const { isLoggedIn } = useSelector((state: RootState) => state.auth);
 
   return (
-    <div className={`mobile-links ${closeNews ? "shifted" : ""}`}>
-      <nav>
+    <div
+      className={`absolute flex justify-between w-full border bg-white p-5 mt-[.9rem] ${
+        closeNews ? "shifted" : ""
+      } ${
+        isMobile ? "block" : "hidden"
+      } sm:flex sm:justify-between translate-x-[-1rem]`}
+    >
+      <nav className="z-50 flex flex-col text-xl space-y-4">
         <Link onClick={handleClick} to={"/"}>
           Home
         </Link>
@@ -33,14 +37,14 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
       {!isLoggedIn ? (
         <div className="mobile-nav-icons-container">
           {isMobile && (
-            <Link onClick={handleClick} to={"/login"}>
-              <img src="/images/icons/login.png" alt="login user icon" />
-            </Link>
-          )}
-          {isMobile && (
-            <Link onClick={handleClick} to={"/signup"}>
-              <button className="signup-button">Sign up</button>
-            </Link>
+            <div className="flex flex-col gap-4 items-end">
+              <Link onClick={handleClick} to={"/login"}>
+                <button className="border px-6 py-2 cursor-pointer">Login</button>
+              </Link>
+              <Link onClick={handleClick} to={"/signup"}>
+                <button className="border px-6 py-2 cursor-pointer">Sign up</button>
+              </Link>
+            </div>
           )}
         </div>
       ) : (

@@ -1,16 +1,13 @@
-import "../style/Footer.css";
 import links from "../data/links.json";
 import FooterLinks from "./FooterLinks";
-import { Link } from "react-router-dom";
 import Payments from "./Payments";
+import Logo from "./Logo";
 
 const Footer = () => {
   return (
-    <footer>
-      <h4>
-        <Link to={"/"}>iBuy</Link>
-      </h4>
-      <section className="links-and-payments">
+    <footer className="flex flex-col md:flex-row justify-center items-center bg-teal-600 py-16 px-12">
+      <Logo variant="footer"/>
+      <section className="flex flex-col flex-wrap gap-12">
         <FooterLinks links={links} />
         <Payments />
       </section>

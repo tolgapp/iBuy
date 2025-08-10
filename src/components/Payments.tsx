@@ -1,14 +1,14 @@
 import payment from "../data/payment-methods.json";
-import "../style/Payments.css";
 
 const Payments = () => {
   return (
-    <div className="payments">
-      <h3>Payment methods</h3>
-      <section className="payment-icons">
+    <div className="mt-4 flex flex-col ">
+      <h3 className="my-1.5 text-white text-right text-lg">Payment methods</h3>
+      <section className="flex gap-2 justify-end">
         {payment.map((pay, index) => (
           <img
-          key={index}
+            key={index}
+            className="w-10  payment-border"
             src={pay.svg}
             alt={pay.alt}
             title={pay.alt.replace("Logo", "")}

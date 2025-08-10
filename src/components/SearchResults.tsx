@@ -1,8 +1,8 @@
 import React from "react";
-import products from "../data/products.json";
 import ProductCard from "./ProductCard";
-import "../style/SearchResults.css"
 import { Navigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { RootState } from "../store/store";
 
 type SearchResultsProps = {
   searchQuery: string;
@@ -15,6 +15,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({
   onToggleFavorite,
   favoriteProducts,
 }) => {
+  const products = useSelector((state: RootState) => state.products)
 
   const filteredProducts = products.filter((product) =>
     product.description.toLowerCase().includes(searchQuery.toLowerCase())
@@ -24,7 +25,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({
     <div className="search-results">
       {searchQuery ? (
         filteredProducts.length > 0 ? (
-          <div className="searched">
+          <div className="flex m-8 overflow-x-scroll no-scrollbar min-h-screen">
             {filteredProducts.map((product) => (
                 <ProductCard
                   key={product.id}
@@ -35,8 +36,8 @@ const SearchResults: React.FC<SearchResultsProps> = ({
             ))}
           </div>
         ) : (
-          <div className="no-results-found">
-            <p>No results found for "{searchQuery}"</p>
+          <div className="no-results-found flex items-center justify-center h-1/2">
+            <p className="text-xl font-medium">No results found for "{searchQuery}"</p>
           </div>
         )
       ) : <Navigate to={"/"} replace />}

@@ -1,18 +1,20 @@
 import { useParams } from "react-router-dom";
-import products from "../data/products.json";
 import Amount from "./Amount";
 import { useEffect, useState } from "react";
 import AddToCartButton from "./AddToCartButton";
 import Slides from "./Slider";
-import "../style/ProductDetail.css";
+import { baseURL } from "../services/products";
+import { useSelector } from "react-redux";
+import { RootState } from "../store/store";
 
 const resolveImagePath = (imagePath: string) => {
   return imagePath.startsWith("http://") || imagePath.startsWith("https://")
     ? imagePath
-    : `/${imagePath}`;
+    : `${baseURL}${imagePath}`;
 };
 
 const ProductDetail = () => {
+  const products = useSelector((state: RootState) => state.products);
   const { id } = useParams<{ id: string }>();
   const [mobileStyle, setMobileStyle] = useState(false);
   const [amount, setAmount] = useState<number>(0);
@@ -24,8 +26,9 @@ const ProductDetail = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      setMobileStyle(window.innerWidth <= 884);
+      setMobileStyle(window.innerWidth <= 1295);
     };
+  
 
     handleResize();
     window.addEventListener("resize", handleResize);
@@ -53,18 +56,18 @@ const ProductDetail = () => {
   };
 
   return (
-    <div className="product-detail">
+    <div className="flex gap-5 p-12 max-w-[80rem] mx-auto mb-32">
       {mobileStyle ? (
         <Slides images={images} />
       ) : (
-        <div className="web-container">
-          <div className="product-thumbnails">
+        <div className="flex gap-8">
+          <div className="flex flex-col gap-2.5">
             {product.images.map((image, index) => (
               <img
                 key={index}
                 src={resolveImagePath(image)}
                 alt={`Thumbnail ${index + 1}`}
-                className="thumbnail"
+                className="w-24 cursor-pointer border-4 border-gray-200"
                 onMouseEnter={changeMainImage}
               />
             ))}
@@ -74,10 +77,10 @@ const ProductDetail = () => {
           </div>
         </div>
       )}
-      <div className="product-detail-info">
-        <h2>{product.brand}</h2>
-        <h3>{product.description}</h3>
-        <h4>{product.price} €</h4>
+      <div className="flex flex-col justify-start gap-4 max-w-[30rem] ml-18">
+        <h2 className="text-5xl font-bold">{product.brand}</h2>
+        <h3 className="text-3xl font-medium">{product.description}</h3>
+        <h4 className="text-4xl font-bold">{product.price} €</h4>
         <Amount amount={amount} setAmount={setAmount} />
         <AddToCartButton />
       </div>

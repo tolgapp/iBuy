@@ -2,7 +2,12 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import "../style/Signup.css";
+import {
+  formButton,
+  inputClass,
+  labelClass,
+  signUpAndLoginContainerClass,
+} from "../utils/helper";
 
 type FormData = {
   name: string;
@@ -10,8 +15,6 @@ type FormData = {
   password: string;
   verifyPassword: string;
 };
-
-
 
 const Signup = () => {
   const [formData, setFormData] = useState<FormData>({
@@ -21,7 +24,7 @@ const Signup = () => {
     verifyPassword: "",
   });
 
-  const VITE_API_URL = import.meta.env.VITE_API_URL
+  const VITE_API_URL = import.meta.env.VITE_API_URL;
   const navigate = useNavigate();
   const notify = (message: string) => toast.info(message);
 
@@ -96,14 +99,18 @@ const Signup = () => {
   };
 
   return (
-    <div className="signup">
-      <div className="text-container-signup">
-        <h2>Save products. Save money.</h2>
-        <h3>Join us. It's free.</h3>
+    <div className={` ${signUpAndLoginContainerClass} flex-col sm:flex-row`}>
+      <div className="h-96 sm:flex-1 flex items-center justify-center flex-col sm:min-h-screen text-center">
+        <h2 className="text-6xl font-bold">Save products.</h2>
+        <h2 className="text-6xl font-bold">Save money. </h2>
+        <h3 className="text-4xl font-medium">Join us. It's free.</h3>
       </div>
-      <div className="form-container">
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="name" className="name">
+      <div className="bg-black w-full sm:flex-1 flex flex-col justify-center items-center">
+        <form
+          onSubmit={handleSubmit}
+          className="flex flex-col justify-center mx-auto text-left bg-black h-svh"
+        >
+          <label htmlFor="name" className={labelClass}>
             Name:
           </label>
           <input
@@ -112,8 +119,9 @@ const Signup = () => {
             id="name"
             value={formData.name}
             onChange={handleChange}
+            className={inputClass}
           />
-          <label htmlFor="email" className="email">
+          <label htmlFor="email" className={labelClass}>
             Email:
           </label>
           <input
@@ -122,8 +130,9 @@ const Signup = () => {
             id="email"
             value={formData.email}
             onChange={handleChange}
+            className={inputClass}
           />
-          <label htmlFor="password" className="password">
+          <label htmlFor="password" className={labelClass}>
             Password:
           </label>
           <input
@@ -132,8 +141,9 @@ const Signup = () => {
             id="password"
             value={formData.password}
             onChange={handleChange}
+            className={inputClass}
           />
-          <label htmlFor="verifyPassword" className="password">
+          <label htmlFor="verifyPassword" className={labelClass}>
             Verify password:
           </label>
           <input
@@ -142,8 +152,11 @@ const Signup = () => {
             id="verifyPassword"
             value={formData.verifyPassword}
             onChange={handleChange}
+            className={inputClass}
           />
-          <button type="submit">Sign up</button>
+          <button type="submit" className={formButton}>
+            Sign up
+          </button>
           <ToastContainer
             position="bottom-right"
             autoClose={2700}
@@ -156,9 +169,14 @@ const Signup = () => {
             pauseOnHover
             theme="light"
           />
-          <div className="redirect-to-login-container">
-          <p className="redirect-text">Already have an account? Log in here. </p>
-          <Link to={"/login"}>Login</Link>
+          <div className="text-white">
+            <p className="text-xl">Already have an account? Log in here. </p>
+            <Link
+              to={"/login"}
+              className="text-xl text-[#007bff] font-semibold"
+            >
+              Login
+            </Link>
           </div>
         </form>
       </div>

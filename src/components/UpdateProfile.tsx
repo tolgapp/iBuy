@@ -5,8 +5,8 @@ import { ToastContainer, toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store/store";
 import { setLoggedOut } from "../store/reducers/authReducer";
+import { formButton, inputClass, labelClass } from "../utils/helper";
 import "react-toastify/dist/ReactToastify.css";
-import "../style/UpdateProfile.css";
 
 type FormData = {
   name: string;
@@ -95,44 +95,56 @@ const UpdateProfileForm = () => {
   };
 
   return (
-    <div className="update-profile">
-      <div className="logout-container">
-        <h2>We will miss you!</h2>
-        <button onClick={onLogout} className="logout">
+    <div className="flex flex-col sm:flex-row items-center justify-center min-h-screen">
+      <div className="sm:flex-1 flex items-center justify-center flex-col gap-8 h-[20rem] mt-10 sm:mt-0 mb-10 sm:mb-0 text-center sm:h-full">
+        <h2 className="text-5xl font-semibold sm:text-7xl">
+          We will miss you!
+        </h2>
+        <button
+          onClick={onLogout}
+          className="px-6 py-3 text-xl bg-black text-white cursor-pointer hover:bg-red-700"
+        >
           Logout
         </button>
       </div>
-      <div className="update-container">
-        <form onSubmit={handleSubmit}>
+      <div className="sm:flex-1 flex flex-col items-center justify-center bg-black min-h-screen p-6">
+        <form onSubmit={handleSubmit} className="space-y-5 w-full max-w-md">
           <div>
-            <label>Update your name:</label>
+            <label className={labelClass}>Update your name:</label>
             <input
               type="text"
               name="name"
               value={formData.name}
               onChange={handleInputChange}
+              className={inputClass}
             />
           </div>
           <div>
-            <label>Update your email:</label>
+            <label className={labelClass}>Update your email:</label>
             <input
               type="email"
               name="email"
               value={formData.email}
               onChange={handleInputChange}
+              className={inputClass}
             />
           </div>
           <div>
-            <label htmlFor="password">Update your password:</label>
+            <label htmlFor="password" className={labelClass}>
+              Update your password:
+            </label>
             <input
               type="password"
               name="password"
               id="password"
               value={formData.password}
               onChange={handleInputChange}
+              className={inputClass}
             />
           </div>
-          <button type="submit">Update profile</button>
+          <button type="submit" className={formButton}>
+            Update profile
+          </button>
         </form>
         <ToastContainer
           position="bottom-right"

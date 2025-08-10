@@ -44,8 +44,8 @@ const ProductCard: React.FC<ProductProps> = ({
   };
 
   return (
-    <div className="flex flex-col relative m-4 w-64 sm:w-56 max-[445px]:w-52 group">
-      <div className="relative w-64 sm:w-56 max-[445px]:w-52 h-90 sm:h-90 max-[445px]:h-52">
+    <div className="flex flex-col relative m-4 w-fit group">
+      <div className="relative w-[18rem]">
         <img
           src={resolveImagePath(product.images[0])}
           alt={product.brand}
@@ -75,9 +75,9 @@ const ProductCard: React.FC<ProductProps> = ({
           className="absolute top-4 right-4 w-[1.8rem] sm:w-[1.5rem] max-[850px]:w-[1.5rem] z-10"
         />
       </div>
-      <Link to={`/shop/${product.id}`} className="text-black no-underline">
+      <Link to={`/shop/${product.id}`} className="text-black no-underline  w-full">
         <h3 className="text-lg font-semibold mt-2">{product.brand}</h3>
-        <p className="text-sm">{product.description}</p>
+        <p className="w-full text-sm">{product.description}</p>
         <p className="text-base font-semibold">{product.price} €</p>
       </Link>
     </div>

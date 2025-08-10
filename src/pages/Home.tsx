@@ -26,8 +26,8 @@ const Home: React.FC<HomeProps> = ({ favoriteProducts, onToggleFavorite }) => {
   return (
     <main className="relative bg-white">
       <Slides images={imagesData.images} interval={5000} />
-      <div className="flex overflow-x-scroll whitespace-nowrap justify-staRT items-center no-scrollbar">
-        <div className="p-8 flex gap-2">
+      <div className="flex overflow-x-scroll whitespace-nowrap justify-start items-center no-scrollbar">
+        <div className="p-6 flex gap-2">
           {displayedProducts.map((product) => (
             <ProductCard
               key={product.id}
@@ -38,7 +38,7 @@ const Home: React.FC<HomeProps> = ({ favoriteProducts, onToggleFavorite }) => {
           ))}
         </div>
       </div>
-      <h3 className="text-[6rem] text-center my-8 font-sans">
+      <h3 className="text-4xl font-bold sm:text-[6rem] sm:font-semibold text-center my-8 font-sans">
         We have them all!
       </h3>{" "}
       {imageTextComponents}

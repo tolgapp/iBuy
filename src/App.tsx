@@ -35,7 +35,6 @@ const App: React.FC = () => {
   const dispatch = useDispatch();
   const { userId, isLoggedIn } = useSelector((state: RootState) => state.auth);
 
-
   useEffect(() => {
     if (isLoggedIn) {
        localStorage.setItem("isLoggedIn", "true");
@@ -137,13 +136,7 @@ const App: React.FC = () => {
         />
         <Route
           path="/signup"
-          element={
-            userId ? (
-              <UpdateProfile />
-            ) : (
-              <Signup />
-            )
-          }
+          element={userId ? <UpdateProfile /> : <Signup />}
         />
         <Route
           path="/login"
@@ -151,13 +144,7 @@ const App: React.FC = () => {
         />
         <Route
           path="/update-profile"
-          element={
-            userId ? (
-              <UpdateProfile />
-            ) : (
-              <Navigate to="/" replace />
-            )
-          }
+          element={userId ? <UpdateProfile /> : <Navigate to="/" replace />}
         />
         <Route
           path="/search"

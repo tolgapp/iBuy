@@ -1,16 +1,21 @@
-import "../style/NewsBar.css"
-
 type NewsBarProps = {
-    handleClick: () => void; 
+  handleClick: () => void;
 };
 
-const NewsBar: React.FC<NewsBarProps> = ({handleClick}) => {
-
+const NewsBar: React.FC<NewsBarProps> = ({ handleClick }) => {
   return (
-    <div className="news-bar">
-        <h3>Special offers for members and free delivery for over 20€ orders! Sign up now!</h3>
-        <button className="close-button" onClick={handleClick}>x</button>
+    <div className="relative flex justify-center w-full items-center p-2.5 px-5 bg-[#ff793b]">
+      <h3 className="text-white text-center grow">
+        Special offers for members and free delivery for over 20€ orders! Sign
+        up now!
+      </h3>
+      <button
+        className="text-2xl ml-auto cursor-pointer text-white"
+        onClick={handleClick}
+      >
+        x
+      </button>
     </div>
-  )
-}
-export default NewsBar
+  );
+};
+export default NewsBar;
