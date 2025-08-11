@@ -17,7 +17,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
 
   return (
     <div
-      className={`absolute flex justify-between w-full border bg-white p-5 mt-[.9rem] ${
+      className={`absolute flex justify-between w-full border bg-white p-5 mt-[.9rem] h-42 z-50 ${
         closeNews ? "shifted" : ""
       } ${
         isMobile ? "block" : "hidden"

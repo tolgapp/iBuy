@@ -22,7 +22,7 @@ const Navbar: React.FC<NavbarProps> = ({ showSearch, closeNews }) => {
   };
 
   return (
-    <header className="bg-white p-4 shadow-md relative z-10 ">
+    <header className="bg-white p-4 shadow-md relative z-10">
       <div className="flex lg:justify-between items-center container mx-auto min-w-full">
         <div className="sm:hidden w-full flex justify-between space-x-4">
           {isMobile ? (
@@ -65,7 +65,7 @@ const Navbar: React.FC<NavbarProps> = ({ showSearch, closeNews }) => {
               <img
                 src="/images/icons/search.png"
                 alt="Search"
-                className="w-6 h-6"
+                className="w-6 h-6 cursor-pointer"
               />
             </button>
             {isLoggedIn ? (
@@ -73,25 +73,25 @@ const Navbar: React.FC<NavbarProps> = ({ showSearch, closeNews }) => {
                 <img
                   src="/images/icons/login.png"
                   alt="Profile"
-                  className="w-6 h-6"
+                  className="w-6 h-6 cursor-pointer"
                 />
               </Link>
             ) : (
               <>
                 <Link to="/signup">
-                  <button className="bg-blue-500 text-white py-2 px-4 rounded">
+                  <button className="bg-blue-500 text-white py-2 px-4 rounded cursor-pointer">
                     Sign up
                   </button>
                 </Link>
                 <Link to="/login">
-                  <button className="bg-blue-500 text-white py-2 px-4 rounded">
+                  <button className="bg-blue-500 text-white py-2 px-4 rounded cursor-pointer">
                     Login
                   </button>
                 </Link>
               </>
             )}
           </div>
-        </nav>
+        </nav>  
       </div>
       {isMobile && (
         <MobileMenu

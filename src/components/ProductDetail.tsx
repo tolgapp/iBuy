@@ -56,28 +56,28 @@ const ProductDetail = () => {
   };
 
   return (
-    <div className="flex gap-5 p-12 max-w-[80rem] mx-auto mb-32">
+    <div className="flex flex-col sm:flex-row gap-5 p-12 max-w-[100rem] mx-auto mb-32">
       {mobileStyle ? (
         <Slides images={images} />
       ) : (
-        <div className="flex gap-8">
+        <div className="flex gap-12 max-w-full mx-auto">
           <div className="flex flex-col gap-2.5">
             {product.images.map((image, index) => (
               <img
                 key={index}
                 src={resolveImagePath(image)}
                 alt={`Thumbnail ${index + 1}`}
-                className="w-24 cursor-pointer border-4 border-gray-200"
+                className="max-w-24 cursor-pointer border-4 border-gray-200"
                 onMouseEnter={changeMainImage}
               />
             ))}
           </div>
           <div className="big-image">
-            <img src={mainImage} alt={product.description} />
+            <img src={mainImage} alt={product.description} className="max-w-[40rem]" />
           </div>
         </div>
       )}
-      <div className="flex flex-col justify-start gap-4 max-w-[30rem] ml-18">
+      <div className="flex flex-col sm:justify-start gap-4 max-w-[50rem] mt-3 sm:mt-0 sm:ml-18">
         <h2 className="text-5xl font-bold">{product.brand}</h2>
         <h3 className="text-3xl font-medium">{product.description}</h3>
         <h4 className="text-4xl font-bold">{product.price} €</h4>

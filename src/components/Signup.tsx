@@ -166,14 +166,13 @@ const Signup = () => {
             rtl={false}
             pauseOnFocusLoss
             draggable
-            pauseOnHover
             theme="light"
           />
-          <div className="text-white">
-            <p className="text-xl">Already have an account? Log in here. </p>
+          <div className="text-white flex justify-between">
+            <p className="sm:text-lg">Already have an account? Log in here. </p>
             <Link
               to={"/login"}
-              className="text-xl text-[#007bff] font-semibold"
+              className="sm:text-lg text-[#007bff] font-semibold"
             >
               Login
             </Link>
