@@ -2,7 +2,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store/store";
 import { classicButton, resolveImagePath } from "../utils/helper";
 import { Link } from "react-router-dom";
-import { clearCart, removeFromCart } from "../store/reducers/cartReducer";
+import {
+  CartItem,
+  clearCart,
+  removeFromCart,
+} from "../store/reducers/cartReducer";
 import Amount from "../components/Amount";
 import { useState } from "react";
 
@@ -17,19 +21,19 @@ const Cart = () => {
   const [checkoutSuccess, setCheckoutSuccess] = useState(false);
   const [showMessage, setShowMessage] = useState(false);
 
-    const handleCheckout = () => {
-      dispatch(clearCart());
-      setShowMessage(true);
+  const handleCheckout = () => {
+    dispatch(clearCart());
+    setShowMessage(true);
 
-      setTimeout(() => {
-        setCheckoutSuccess(true);
-      }, 2000);
+    setTimeout(() => {
+      setCheckoutSuccess(true);
+    }, 2000);
 
-      setTimeout(() => {
-        setShowMessage(false);
-        setCheckoutSuccess(false);
-      }, 10000); 
-    };
+    setTimeout(() => {
+      setShowMessage(false);
+      setCheckoutSuccess(false);
+    }, 10000);
+  };
 
   return (
     <div className="max-w-3xl mx-auto p-4 min-h-[50rem] flex flex-col items-center justify-center ">
@@ -59,7 +63,7 @@ const Cart = () => {
             Your Cart ({amount} items)
           </h2>
           <ul className="space-y-6">
-            {items.map((item) => (
+            {items.map((item: CartItem) => (
               <li
                 key={item.productId}
                 className="flex items-center gap-4 border-b pb-4"
@@ -87,7 +91,6 @@ const Cart = () => {
               </li>
             ))}
           </ul>
-
           <div className="pt-4 mt-6">
             <button className={classicButton} onClick={handleCheckout}>
               Checkout
@@ -97,6 +100,5 @@ const Cart = () => {
       )}
     </div>
   );
-
 };
 export default Cart;
