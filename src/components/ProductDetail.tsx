@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import Amount from "./Amount";
 import { useEffect, useState } from "react";
 import AddToCartButton from "./AddToCartButton";
@@ -6,6 +6,7 @@ import Slides from "./Slider";
 import { baseURL } from "../services/products";
 import { useSelector } from "react-redux";
 import { RootState } from "../store/store";
+import { classicButton } from "../utils/helper";
 
 const resolveImagePath = (imagePath: string) => {
   return imagePath.startsWith("http://") || imagePath.startsWith("https://")
@@ -17,7 +18,7 @@ const ProductDetail = () => {
   const products = useSelector((state: RootState) => state.products);
   const { id } = useParams<{ id: string }>();
   const [mobileStyle, setMobileStyle] = useState(false);
-  const [amount, setAmount] = useState<number>(0);
+  const [itemAmount, setItemAmount] = useState<number>(0);
   const [mainImage, setMainImage] = useState<string>("");
 
   const product = id
@@ -28,7 +29,6 @@ const ProductDetail = () => {
     const handleResize = () => {
       setMobileStyle(window.innerWidth <= 1295);
     };
-  
 
     handleResize();
     window.addEventListener("resize", handleResize);
@@ -73,7 +73,11 @@ const ProductDetail = () => {
             ))}
           </div>
           <div className="big-image">
-            <img src={mainImage} alt={product.description} className="max-w-[40rem]" />
+            <img
+              src={mainImage}
+              alt={product.description}
+              className="max-w-[40rem]"
+            />
           </div>
         </div>
       )}
@@ -81,8 +85,11 @@ const ProductDetail = () => {
         <h2 className="text-5xl font-bold">{product.brand}</h2>
         <h3 className="text-3xl font-medium">{product.description}</h3>
         <h4 className="text-4xl font-bold">{product.price} €</h4>
-        <Amount amount={amount} setAmount={setAmount} />
-        <AddToCartButton />
+        <Amount amount={itemAmount} setItemAmount={setItemAmount} />
+        <AddToCartButton product={product} amount={itemAmount} />
+        <Link className={`${classicButton} text-center`} to="/cart">
+          Go to cart
+        </Link>
       </div>
     </div>
   );

@@ -20,6 +20,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllProducts } from "./services/products";
 import { setProducts } from "./store/reducers/productReducer";
 import { RootState } from "./store/store";
+import Cart from "./pages/Cart";
 
 // TODO: Changed local products.json and added it to the backend API ✅
 // TODO: Refactoring from useState to Redux Toolkit for better state management
@@ -37,10 +38,10 @@ const App: React.FC = () => {
 
   useEffect(() => {
     if (isLoggedIn) {
-       localStorage.setItem("isLoggedIn", "true");
-       localStorage.setItem("userId", userId);
+      localStorage.setItem("isLoggedIn", "true");
+      localStorage.setItem("userId", userId);
     }
-  }, [isLoggedIn, userId])
+  }, [isLoggedIn, userId]);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -142,6 +143,7 @@ const App: React.FC = () => {
           path="/login"
           element={userId ? <Navigate to={"/"} replace /> : <Login />}
         />
+        <Route path="/cart" element={<Cart />} />
         <Route
           path="/update-profile"
           element={userId ? <UpdateProfile /> : <Navigate to="/" replace />}

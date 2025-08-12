@@ -16,6 +16,11 @@ type NavbarProps = {
 const Navbar: React.FC<NavbarProps> = ({ showSearch, closeNews }) => {
   const [isMobile, setIsMobile] = useState(false);
   const { isLoggedIn } = useSelector((state: RootState) => state.auth);
+    const amount = useSelector((state: RootState) =>
+      state.cart.items.reduce((total, item) => total + item.quantity, 0)
+    );
+
+    console.log("NAV", amount)
 
   const handleClick = () => {
     setIsMobile((prev) => !prev);
@@ -42,7 +47,7 @@ const Navbar: React.FC<NavbarProps> = ({ showSearch, closeNews }) => {
           )}
         </div>
         <Logo variant="navbar" />
-        <nav className="hidden sm:flex space-x-6 w-full md:items-center md:justify-between px-6">
+        <nav className="hidden sm:flex space-x-6 w-full sm:items-center sm:justify-between px-6">
           <ul className="sm:flex space-x-6 hidden ">
             <li>
               <Link to="/" className={navLinkStyle}>
@@ -59,7 +64,7 @@ const Navbar: React.FC<NavbarProps> = ({ showSearch, closeNews }) => {
                 Favorites
               </Link>
             </li>
-          </ul> 
+          </ul>
           <div className="sm:flex items-center space-x-4 hidden ">
             <button className="p-2 rounded-full" onClick={showSearch}>
               <img
@@ -90,8 +95,22 @@ const Navbar: React.FC<NavbarProps> = ({ showSearch, closeNews }) => {
                 </Link>
               </>
             )}
+            <div className="relative">
+              <Link to="/cart">
+                <img
+                  src="/images/icons/cart.png"
+                  alt="Cart icon "
+                  className="w-7 h-7 cursor-pointer"
+                />
+                {amount > 0 && (
+                  <span className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold border border-white">
+                    {amount}
+                  </span>
+                )}
+              </Link>
+            </div>
           </div>
-        </nav>  
+        </nav>
       </div>
       {isMobile && (
         <MobileMenu

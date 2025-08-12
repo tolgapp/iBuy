@@ -1,8 +1,8 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { baseURL } from "../services/products";
 import { useSelector } from "react-redux";
 import { RootState } from "../store/store";
+import { resolveImagePath } from "../utils/helper";
 
 export type Products = {
   id: number;
@@ -35,12 +35,6 @@ const ProductCard: React.FC<ProductProps> = ({
     } else {
       navigate("/login");
     }
-  };
-
-  const resolveImagePath = (imagePath: string) => {
-    return imagePath.startsWith("http://") || imagePath.startsWith("https://")
-      ? imagePath
-      : `${baseURL}${imagePath}`;
   };
 
   return (
