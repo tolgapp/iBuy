@@ -42,7 +42,7 @@ const Cart = () => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto p-4 sm:min-h-[50rem] flex flex-col items-center justify-center ">
+    <main className="max-w-3xl mx-auto p-4 sm:min-h-[50rem] flex flex-col items-center justify-center ">
       {showMessage ? (
         <div className="mt-8 text-center text-green-600">
           {checkoutSuccess ? (
@@ -107,7 +107,7 @@ const Cart = () => {
           </div>
         </div>
       )}
-    </div>
+    </main>
   );
 };
 export default Cart;

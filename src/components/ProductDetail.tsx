@@ -72,7 +72,7 @@ const ProductDetail = () => {
               />
             ))}
           </div>
-          <div className="big-image">
+          <div>
             <img
               src={mainImage}
               alt={product.description}
@@ -82,9 +82,9 @@ const ProductDetail = () => {
         </div>
       )}
       <div className="flex flex-col sm:justify-start gap-4 max-w-[50rem] mt-3 sm:mt-0 sm:ml-18">
-        <h2 className="text-5xl font-bold">{product.brand}</h2>
-        <h3 className="text-3xl font-medium">{product.description}</h3>
-        <h4 className="text-4xl font-bold">{product.price} €</h4>
+        <h2 className="text-3xl sm:text-5xl font-bold">{product.brand}</h2>
+        <h3 className="text-xl sm:text-3xl font-medium">{product.description}</h3>
+        <h4 className="text-2xl sm:text-4xl font-bold">{product.price} €</h4>
         <Amount amount={itemAmount} setItemAmount={setItemAmount} />
         <AddToCartButton product={product} amount={itemAmount} />
         <Link className={`${classicButton} text-center`} to="/cart">

@@ -21,7 +21,7 @@ export const navLinkStyle =
   "text-lg font-medium text-black hover:underline hover:underline-offset-12";
 
 export const signUpAndLoginContainerClass =
-  "flex items-center justify-center sm:min-h-screen";
+  "flex items-center justify-center min-h-screen";
 
   export const resolveImagePath = (imagePath: string) => {
       return imagePath.startsWith("http://") || imagePath.startsWith("https://")

@@ -50,6 +50,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
               src="/images/icons/login.png"
               title="Profile / Logout"
               alt="login user icon"
+              className="w-10"
             />
           </Link>
         )

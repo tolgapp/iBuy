@@ -71,10 +71,10 @@ useEffect(() => {
 
   return (
     <div className="flex flex-col sm:flex-row bg-white min-h-screen">
-      <div className="sm:flex-1 flex items-center justify-center h-[20rem] sm:min-h-screen">
+      <div className="sm:flex-1 flex items-center justify-center h-[25rem] sm:min-h-screen">
         <h2 className="text-5xl sm:text-7xl font-bold">Welcome back!</h2>
       </div>
-      <div className={`${signUpAndLoginContainerClass} bg-black sm:flex-1 pt-10 pb-20`}>
+      <div className={`${signUpAndLoginContainerClass} bg-black sm:flex-1`}>
         <form onSubmit={handleSubmit} className="flex flex-col px-8">
           <label htmlFor="email" className={labelClass}>
             Email:

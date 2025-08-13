@@ -103,7 +103,6 @@ const Navbar: React.FC<{ showSearch: () => void }> = ({
                 className="w-6 h-6 cursor-pointer"
               />
             </button>
-
             {isLoggedIn ? (
               <Link to="/update-profile">
                 <img
@@ -124,7 +123,6 @@ const Navbar: React.FC<{ showSearch: () => void }> = ({
                     className="w-6 h-6 cursor-pointer"
                   />
                 </button>
-
                 {isUserMenuVisible && (
                   <div
                     ref={userMenuRef}
@@ -133,7 +131,7 @@ const Navbar: React.FC<{ showSearch: () => void }> = ({
                     <Link to="/signup">
                       <button
                         onClick={() => setIsUserMenuVisible(false)}
-                        className="bg-black text-white py-2 px-4 rounded w-full text-center"
+                        className="bg-black text-white py-2 px-4 rounded w-full text-center cursor-pointer"
                       >
                         Sign up
                       </button>
@@ -141,7 +139,7 @@ const Navbar: React.FC<{ showSearch: () => void }> = ({
                     <Link to="/login">
                       <button
                         onClick={() => setIsUserMenuVisible(false)}
-                        className="bg-black text-white py-2 px-4 rounded w-full text-center"
+                        className="bg-black text-white py-2 px-4 rounded w-full text-center cursor-pointer"
                       >
                         Login
                       </button>
@@ -167,12 +165,7 @@ const Navbar: React.FC<{ showSearch: () => void }> = ({
           </div>
         </nav>
       </div>
-      {isMobile && (
-        <MobileMenu
-          handleClick={handleClick}
-          isMobile={isMobile}
-        />
-      )}
+      {isMobile && <MobileMenu handleClick={handleClick} isMobile={isMobile} />}
     </header>
   );
 };

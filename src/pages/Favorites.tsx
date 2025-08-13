@@ -21,14 +21,13 @@ const Favorites: React.FC<FavoriteProps> = ({
 
 
   return (
-    <div style={style} className="flex flex-col">
+    <main style={style} className="flex flex-col">
       <ScrollingText text={"Your favorites"} />
       {favProducts.length === 0 ? (
           <p className="text-3xl sm:text-5xl text-center mt-90">No favorites selected.</p>
       ) : (
-        <div className="flex p-8">
+        <div className="flex p-6">
           {favProducts.map((product) => {
-            console.log(product.id);
             return (
               <ProductCard
                 key={product.id}
@@ -40,7 +39,7 @@ const Favorites: React.FC<FavoriteProps> = ({
           })}
         </div>
       )}
-    </div>
+    </main>
   );
 };
 

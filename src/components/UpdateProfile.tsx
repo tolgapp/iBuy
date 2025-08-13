@@ -90,7 +90,7 @@ const UpdateProfileForm = () => {
 
   return (
     <div className="flex flex-col sm:flex-row items-center justify-center min-h-screen">
-      <div className="sm:flex-1 flex items-center justify-center flex-col gap-8 h-[20rem] mt-10 sm:mt-0 mb-10 sm:mb-0 text-center sm:h-full">
+      <div className="w-full sm:flex-1 flex items-center justify-center flex-col gap-8 h-[20rem] mt-10 sm:mt-0 mb-10 sm:mb-0 text-center sm:h-full">
         <h2 className="text-5xl font-semibold sm:text-7xl">
           We will miss you!
         </h2>
