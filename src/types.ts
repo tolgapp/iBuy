@@ -60,12 +60,10 @@ export type LogoProps = {
 
 export type MobileMenuProps = {
   isMobile: boolean;
-  closeNews: boolean;
   handleClick: () => void;
 };
 
 export type NavbarProps = {
-  closeNews: boolean;
   showSearch: () => void;
 };
 

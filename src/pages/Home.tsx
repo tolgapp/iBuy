@@ -28,7 +28,8 @@ const Home: React.FC<HomeProps> = ({ favoriteProducts, onToggleFavorite }) => {
   return (
     <main className="relative bg-white">
       <Slides images={imagesData.images} interval={5000} />
-      <div className="flex overflow-x-scroll whitespace-nowrap justify-start items-center no-scrollbar">
+      <div className="flex flex-col overflow-x-scroll whitespace-nowrap justify-start items-start no-scrollbar">
+          <h2 className="px-10 pt-8 text-lg font-semibold">Recommended Products</h2>
         <div className="p-6 flex gap-2">
           {isLoading
             ? Array.from({ length: 6 }).map((_, index) => (
@@ -49,7 +50,7 @@ const Home: React.FC<HomeProps> = ({ favoriteProducts, onToggleFavorite }) => {
               ))}
         </div>
       </div>
-      <div className="text-4xl flex items-center justify-center font-bold sm:text-[9rem] sm:font-semibold w-full bg-black text-white p-18">
+      <div className="text-6xl sm:text-4xl flex items-center justify-center font-bold sm:text-[9rem] sm:font-semibold w-full bg-black text-white text-center p-10 sm:p-18">
         We have them all!
       </div>
       {imageTextComponents}

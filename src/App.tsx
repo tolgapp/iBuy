@@ -96,7 +96,7 @@ const App: React.FC = () => {
           handleSearchChange={handleSearchChange}
         />
       )}
-      <Navbar showSearch={showSearch} closeNews={closeNews} />
+      <Navbar showSearch={showSearch}  />
       <Routes>
         <Route
           path="/"

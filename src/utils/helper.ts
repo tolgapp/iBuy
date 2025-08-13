@@ -9,7 +9,7 @@ export const formButton =
   "text-white p-4 text-xl font-bold bg-[#007bff] mt-2 mb-2 min-w-full cursor-pointer hover:bg-[#0056b3] transition-colors duration-300 mx-auto";
 
 export const classicButton =
-  "text-white p-4 text-lg font-semibold bg-black mt-2 mb-2 min-w-96 max-w-[25rem] cursor-pointer hover:bg-gray-600 transition-colors duration-300";
+  "text-white p-4 text-lg font-semibold bg-black mt-2 mb-2  cursor-pointer hover:bg-gray-600 transition-colors duration-300";
 
 export const buttonStyle =
     "text-black border-[.1rem] bg-white text-lg px-6 py-4 cursor-pointer hover:bg-black hover:text-white";

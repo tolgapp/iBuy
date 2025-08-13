@@ -5,16 +5,13 @@ import { MobileMenuProps } from "../types";
 
 const MobileMenu: React.FC<MobileMenuProps> = ({
   isMobile,
-  closeNews,
   handleClick,
 }) => {
   const { isLoggedIn } = useSelector((state: RootState) => state.auth);
 
   return (
     <div
-      className={`absolute flex justify-between w-full border bg-white p-5 mt-[.9rem] h-42 z-50 ${
-        closeNews ? "shifted" : ""
-      } ${
+      className={`absolute flex justify-between w-full border bg-white p-5 mt-[1rem] h-42 z-50 ${
         isMobile ? "block" : "hidden"
       } sm:flex sm:justify-between translate-x-[-1rem]`}
     >
@@ -30,14 +27,18 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
         </Link>
       </nav>
       {!isLoggedIn ? (
-        <div className="mobile-nav-icons-container">
+        <div className="mobile-nav-icons-container z-50">
           {isMobile && (
             <div className="flex flex-col gap-4 items-end">
               <Link onClick={handleClick} to={"/login"}>
-                <button className="border px-6 py-2 cursor-pointer">Login</button>
+                <button className="border px-6 py-2 cursor-pointer">
+                  Login
+                </button>
               </Link>
               <Link onClick={handleClick} to={"/signup"}>
-                <button className="border px-6 py-2 cursor-pointer">Sign up</button>
+                <button className="border px-6 py-2 cursor-pointer">
+                  Sign up
+                </button>
               </Link>
             </div>
           )}

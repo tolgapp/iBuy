@@ -38,11 +38,11 @@ const Amount = ({ productId, amount, setItemAmount, isCart }: AmountProps) => {
 }
 
   const wrapperStyle = isCart
-    ? "flex justify-evenly items-center gap-3 w-48"
+    ? "flex justify-evenly items-center gap-3 w-30"
     : "flex justify-between items-center gap-2";
 
   const buttonClass = isCart ? cartButton : buttonStyle;
-  const quantityTextClass = isCart ? "text-2xl text-center w-8" : "text-4xl";
+  const quantityTextClass = isCart ? "text-2xl text-center w-4" : "text-4xl";
 
   return (
     <div className={wrapperStyle}>
