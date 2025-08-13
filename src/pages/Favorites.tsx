@@ -3,11 +3,7 @@ import ProductCard from "../components/ProductCard";
 import ScrollingText from "../components/ScrollingText";
 import { RootState } from "../store/store";
 import { useSelector } from "react-redux";
-
-type FavoriteProps = {
-  favoriteProducts: number[];
-  onToggleFavorite: (productId: number) => void;
-};
+import { FavoriteProps } from "../types";
 
 const Favorites: React.FC<FavoriteProps> = ({
   favoriteProducts,

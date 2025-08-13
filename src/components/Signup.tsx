@@ -8,13 +8,7 @@ import {
   labelClass,
   signUpAndLoginContainerClass,
 } from "../utils/helper";
-
-type FormData = {
-  name: string;
-  email: string;
-  password: string;
-  verifyPassword: string;
-};
+import { FormData } from "../types";
 
 const Signup = () => {
   const [formData, setFormData] = useState<FormData>({

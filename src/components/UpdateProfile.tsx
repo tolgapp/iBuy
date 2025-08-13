@@ -7,19 +7,13 @@ import { RootState } from "../store/store";
 import { setLoggedOut } from "../store/reducers/authReducer";
 import { formButton, inputClass, labelClass } from "../utils/helper";
 import "react-toastify/dist/ReactToastify.css";
-
-type FormData = {
-  name: string;
-  email: string;
-  password: string;
-  userId: string;
-};
+import { UpdateProfileFormProps } from "../types";
 
 const UpdateProfileForm = () => {
   const { userId } = useSelector((state: RootState) => state.auth);
   const dispatch = useDispatch();
 
-  const [formData, setFormData] = useState<FormData>({
+  const [formData, setFormData] = useState<UpdateProfileFormProps>({
     userId: userId || "",
     name: "",
     email: "",

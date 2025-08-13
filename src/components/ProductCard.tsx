@@ -3,23 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { RootState } from "../store/store";
 import { resolveImagePath } from "../utils/helper";
-
-export type Products = {
-  id: number;
-  images: string[];
-  brand: string;
-  description: string;
-  price: number;
-  info?: string;
-  category: string[] | string;
-};
-
-type ProductProps = {
-  product: Products;
-  isFavorite?: boolean;
-  onToggleFavorite: (id: number) => void;
-  isLoggedIn?: boolean;
-};
+import { ProductProps } from "../types";
 
 const ProductCard: React.FC<ProductProps> = ({
   product,

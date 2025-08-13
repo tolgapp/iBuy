@@ -1,12 +1,7 @@
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { RootState } from "../store/store";
-
-type MobileMenuProps = {
-  isMobile: boolean;
-  closeNews: boolean;
-  handleClick: () => void;
-};
+import { MobileMenuProps } from "../types";
 
 const MobileMenu: React.FC<MobileMenuProps> = ({
   isMobile,

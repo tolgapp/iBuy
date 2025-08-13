@@ -1,8 +1,5 @@
 import { Link } from "react-router-dom";
-
-type LogoProps = {
-  variant?: "navbar" | "footer";
-};
+import { LogoProps } from "../types";
 
 const Logo: React.FC<LogoProps> = ({ variant }) => {
   const baseClass = "font-bold cursor-pointer md:mb-0 flex-1";

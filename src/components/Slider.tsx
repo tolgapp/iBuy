@@ -1,9 +1,5 @@
 import { useEffect, useState } from "react";
-
-type SlideProps = {
-  images: { url: string; text?: string; alt: string; title?: string }[];
-  interval?: number;
-};
+import { SlideProps } from "../types";
 
 const Slides: React.FC<SlideProps> = ({ images, interval = 4000 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);

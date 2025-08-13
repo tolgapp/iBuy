@@ -38,9 +38,9 @@ const Home: React.FC<HomeProps> = ({ favoriteProducts, onToggleFavorite }) => {
           ))}
         </div>
       </div>
-      <h3 className="text-4xl font-bold sm:text-[6rem] sm:font-semibold text-center my-8 font-sans">
+      <div className="text-4xl flex items-center justify-center font-bold sm:text-[9rem] sm:font-semibold w-full bg-black text-white p-18">
         We have them all!
-      </h3>{" "}
+      </div>
       {imageTextComponents}
     </main>
   );

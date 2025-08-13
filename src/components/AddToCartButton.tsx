@@ -1,18 +1,8 @@
 import { useDispatch } from "react-redux";
 import { addToCart } from "../store/reducers/cartReducer";
+import { AddToCartBtnProps } from "../types";
 
-type Props = {
-  product: {
-    id: number;
-    brand: string;
-    description: string;
-    price: number;
-    images: string[];
-  };
-  amount: number;
-};
-
-const AddToCartButton = ({ product, amount }: Props) => {
+const AddToCartButton = ({ product, amount }: AddToCartBtnProps) => {
   const dispatch = useDispatch();
 
   const handleAddToCart = () => {

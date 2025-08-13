@@ -6,11 +6,8 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import { setAuth } from "../store/reducers/authReducer";
 import { formButton, inputClass, labelClass, signUpAndLoginContainerClass } from "../utils/helper";
+import { LoginFormData } from "../types";
 
-type LoginFormData = {
-  email: string;
-  password: string;
-};
 
 const Login = () => {
   const [formData, setFormData] = useState<LoginFormData>({

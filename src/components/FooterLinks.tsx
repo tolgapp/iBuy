@@ -1,16 +1,5 @@
-type FooterLinksProps = {
-    links: FooterLinkGroup[];
-};
+import { FooterLinksProps } from "../types";
 
-type FooterLinkGroup = {
-    icon: string;
-    title: string;
-    links: {
-        id: number;
-        link: string;
-        text: string
-    }[];
-};
 
 const FooterLinks: React.FC<FooterLinksProps> = ({ links }) => {
   return (

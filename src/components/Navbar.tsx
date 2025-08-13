@@ -7,11 +7,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "../store/store";
 import { navLinkStyle } from "../utils/helper";
 import Logo from "./Logo";
-
-type NavbarProps = {
-  closeNews: boolean;
-  showSearch: () => void;
-};
+import { NavbarProps } from "../types";
 
 const Navbar: React.FC<NavbarProps> = ({ showSearch, closeNews }) => {
   const [isMobile, setIsMobile] = useState(false);
@@ -19,8 +15,6 @@ const Navbar: React.FC<NavbarProps> = ({ showSearch, closeNews }) => {
     const amount = useSelector((state: RootState) =>
       state.cart.items.reduce((total, item) => total + item.quantity, 0)
     );
-
-    console.log("NAV", amount)
 
   const handleClick = () => {
     setIsMobile((prev) => !prev);

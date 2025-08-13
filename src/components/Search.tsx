@@ -1,11 +1,6 @@
 import { useRef, useEffect, useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-
-type SearchProps = {
-  showSearch: () => void;
-  handleSearchChange: (query: string) => void;
-  searchQuery: string;
-};
+import { SearchProps } from "../types";
 
 const Search: React.FC<SearchProps> = ({
   showSearch,

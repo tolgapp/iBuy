@@ -46,7 +46,7 @@ const ProductDetail = () => {
     return <div>Product not found</div>;
   }
 
-  const images = product.images.map((image) => ({
+  const images = product.images.map((image: string) => ({
     url: resolveImagePath(image),
     alt: product.description,
   }));
@@ -62,7 +62,7 @@ const ProductDetail = () => {
       ) : (
         <div className="flex gap-12 max-w-full mx-auto">
           <div className="flex flex-col gap-2.5">
-            {product.images.map((image, index) => (
+            {product.images.map((image: string, index: number) => (
               <img
                 key={index}
                 src={resolveImagePath(image)}

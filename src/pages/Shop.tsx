@@ -3,15 +3,9 @@ import { useParams } from "react-router-dom";
 import ShopDetail from "../components/ShopDetail";
 import ProductCard from "../components/ProductCard";
 import ScrollingText from "../components/ScrollingText";
-import { Products } from "../components/ProductCard";
 import { useSelector } from "react-redux";
 import { RootState } from "../store/store";
-
-
-type ShopProps = {
-  favoriteProducts: number[];
-  onToggleFavorite: (productId: number) => void;
-}
+import { Products, ShopProps } from "../types";
 
 const Shop: React.FC<ShopProps> = ({favoriteProducts, onToggleFavorite}) => {
   const products  = useSelector((state: RootState) => state.products);

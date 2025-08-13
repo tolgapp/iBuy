@@ -2,23 +2,9 @@ import { buttonStyle, cartButton } from "../utils/helper";
 import { useDispatch, useSelector } from "react-redux";
 import { updateQuantity } from "../store/reducers/cartReducer";
 import { RootState } from "../store/store";
+import { AmountProps } from "../types";
 
-type Props =
-  | {
-      productId: number;
-      amount?: never;
-      setItemAmount?: never;
-      isCart?: true;
-    }
-  | {
-      productId?: never;
-      amount: number;
-      setItemAmount: React.Dispatch<React.SetStateAction<number>>;
-      isCart?: false;
-    };
-
-
-const Amount = ({ productId, amount, setItemAmount, isCart }: Props) => {
+const Amount = ({ productId, amount, setItemAmount, isCart }: AmountProps) => {
   const dispatch = useDispatch();
 
   const cartItemQuantity = useSelector((state: RootState) =>

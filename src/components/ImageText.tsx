@@ -1,16 +1,5 @@
 import { useState, useEffect } from "react";
-
-type Product = {
-  brandName: string;
-  tagline: string;
-  description: string;
-  url: string;
-};
-
-type ImageTextProps = {
-  product: Product;
-  reverse?: boolean;
-};
+import { ImageTextProps } from "../types";
 
 const ImageText: React.FC<ImageTextProps> = ({ product, reverse = false }) => {
   const [color, setColor] = useState("#fff");

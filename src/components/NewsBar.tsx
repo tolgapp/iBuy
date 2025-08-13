@@ -1,6 +1,4 @@
-type NewsBarProps = {
-  handleClick: () => void;
-};
+import { NewsBarProps } from "../types";
 
 const NewsBar: React.FC<NewsBarProps> = ({ handleClick }) => {
   return (

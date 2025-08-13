@@ -3,12 +3,7 @@ import ProductCard from "./ProductCard";
 import { Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { RootState } from "../store/store";
-
-type SearchResultsProps = {
-  searchQuery: string;
-  onToggleFavorite: (productId: number) => void;
-  favoriteProducts: number[];  
-};
+import { SearchResultsProps } from "../types";
 
 const SearchResults: React.FC<SearchResultsProps> = ({
   searchQuery,
