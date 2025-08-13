@@ -6,6 +6,7 @@ import ProductCard from "../components/ProductCard";
 import { RootState } from "../store/store";
 import { useSelector } from "react-redux";
 import "../index.css";
+import { Skeleton } from "@mui/material";
 
 type HomeProps = {
   favoriteProducts: number[];
@@ -14,6 +15,7 @@ type HomeProps = {
 
 const Home: React.FC<HomeProps> = ({ favoriteProducts, onToggleFavorite }) => {
   const products = useSelector((state: RootState) => state.products);
+  const isLoading = !products || products.length === 0;
 
   const imageTextComponents = imageAndText.products.map((product, index) => {
     const isReverse = index % 2 !== 0;
@@ -28,14 +30,23 @@ const Home: React.FC<HomeProps> = ({ favoriteProducts, onToggleFavorite }) => {
       <Slides images={imagesData.images} interval={5000} />
       <div className="flex overflow-x-scroll whitespace-nowrap justify-start items-center no-scrollbar">
         <div className="p-6 flex gap-2">
-          {displayedProducts.map((product) => (
-            <ProductCard
-              key={product.id}
-              product={product}
-              isFavorite={favoriteProducts.includes(product.id)}
-              onToggleFavorite={onToggleFavorite}
-            />
-          ))}
+          {isLoading
+            ? Array.from({ length: 6 }).map((_, index) => (
+                <Skeleton
+                  key={index}
+                  variant="rectangular"
+                  width={200}
+                  height={300}
+                />
+              ))
+            : displayedProducts.map((product) => (
+                <ProductCard
+                  key={product.id}
+                  product={product}
+                  isFavorite={favoriteProducts.includes(product.id)}
+                  onToggleFavorite={onToggleFavorite}
+                />
+              ))}
         </div>
       </div>
       <div className="text-4xl flex items-center justify-center font-bold sm:text-[9rem] sm:font-semibold w-full bg-black text-white p-18">
