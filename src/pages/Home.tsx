@@ -28,16 +28,17 @@ const Home: React.FC<HomeProps> = ({ favoriteProducts, onToggleFavorite }) => {
   return (
     <main className="relative bg-white">
       <Slides images={imagesData.images} interval={5000} />
+      <h2 className="px-10 pt-8 text-lg font-semibold">Recommended Products</h2>
       <div className="flex flex-col overflow-x-scroll whitespace-nowrap justify-start items-start no-scrollbar">
-          <h2 className="px-10 pt-8 text-lg font-semibold">Recommended Products</h2>
         <div className="p-6 flex gap-2">
           {isLoading
-            ? Array.from({ length: 6 }).map((_, index) => (
+            ? Array.from({ length: 8 }).map((_, index) => (
                 <Skeleton
                   key={index}
                   variant="rectangular"
-                  width={200}
-                  height={300}
+                  width={280}
+                  height={440}
+                  animation={"wave"}
                 />
               ))
             : displayedProducts.map((product) => (

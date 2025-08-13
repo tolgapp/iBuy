@@ -18,16 +18,17 @@ const Navbar: React.FC<{ showSearch: () => void }> = ({
   const amount = useSelector((state: RootState) =>
     state.cart.items.reduce((total, item) => total + item.quantity, 0)
   );
-
+  
   const handleClick = () => {
     setIsMobile((prev) => !prev);
   };
-
+  
   const handleUserMenuClick = () => {
     setIsUserMenuVisible(!isUserMenuVisible);
   };
-
+  
   useEffect(() => {
+    console.log("current", userMenuRef.current)
     const handleClickOutside = (event: MouseEvent) => {
       if (
         userMenuRef.current &&

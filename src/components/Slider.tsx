@@ -35,7 +35,7 @@ const Slides: React.FC<SlideProps> = ({ images, interval = 4000 }) => {
           alt={images[currentIndex].alt}
           className="w-full h-96 sm:h-[46rem] object-cover"
         />
-        <div className="absolute text-white bottom-0 pb-8 pl-9 z-20 text-left max-w-[51rem] flex gap-2 flex-col">
+        <div className="absolute text-white bottom-0 pb-16 sm:pb-8 pl-8 sm:pl-9 z-20 text-left max-w-[51rem] flex gap-2 flex-col">
           <h2 className="text-4xl sm:text-7xl font-bold text-shadow">
             {images[currentIndex].title}
           </h2>
@@ -44,7 +44,7 @@ const Slides: React.FC<SlideProps> = ({ images, interval = 4000 }) => {
       </div>
       {currentIndex !== 0 && (
         <button
-          className="absolute bottom-1 translate-y-[-1rem] right-[60px] w-[1.85rem] h-[1.85rem] bg-black/50 text-white flex items-center justify-center z-[1000] opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black/70  cursor-pointer"
+          className="absolute bottom-1 translate-y-[-1rem] right-[60px] w-[1.85rem] h-[1.85rem] bg-black/50 text-white flex items-center justify-center z-[1000] sm:opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black/70  cursor-pointer"
           onClick={prevButton}
         >
           <img src="/images/icons/arrow-left.png" alt="arrow left icon" />
@@ -52,7 +52,7 @@ const Slides: React.FC<SlideProps> = ({ images, interval = 4000 }) => {
       )}
       {currentIndex !== images.length - 1 && (
         <button
-          className="absolute bottom-1 translate-y-[-1rem] right-[20px] w-[1.85rem] h-[1.85rem] bg-black/50 text-white flex items-center justify-center z-[1000] opacity-0 group-hover:opacity-100  transition-opacity hover:bg-black/70 cursor-pointer"
+          className="absolute bottom-1 translate-y-[-1rem] right-[20px] w-[1.85rem] h-[1.85rem] bg-black/50 text-white flex items-center justify-center z-[1000] sm:opacity-0 group-hover:opacity-100  transition-opacity hover:bg-black/70 cursor-pointer"
           onClick={nextButton}
         >
           <img src="/images/icons/arrow-right.png" alt="arrow right icon" />
