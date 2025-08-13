@@ -17,6 +17,12 @@ const Cart = () => {
   const amount = useSelector((state: RootState) =>
     state.cart.items.reduce((total, item) => total + item.quantity, 0)
   );
+  const totalPrice = useSelector((state: RootState) =>
+    state.cart.items.reduce(
+      (total, item) => total + item.price * item.quantity,
+      0
+    )
+  );
 
   const [checkoutSuccess, setCheckoutSuccess] = useState(false);
   const [showMessage, setShowMessage] = useState(false);
@@ -59,7 +65,7 @@ const Cart = () => {
         </div>
       ) : (
         <div className="h-[52rem] flex flex-col">
-          <h2 className="text-2xl font-bold mb-3 mt-20">
+          <h2 className="text-2xl font-bold mb-6 mt-20">
             Your Cart ({amount} items)
           </h2>
           <ul className="space-y-6">
@@ -81,7 +87,7 @@ const Cart = () => {
                   <p className="text-base font-bold">{item.price} €</p>
                   <p className="text-sm">Quantity: {item.quantity}</p>
                 </div>
-                <Amount productId={item.productId} />
+                <Amount productId={item.productId} isCart />
                 <button
                   className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 cursor-pointer"
                   onClick={() => dispatch(removeFromCart(item.productId))}
@@ -91,8 +97,11 @@ const Cart = () => {
               </li>
             ))}
           </ul>
-          <div className="pt-4 mt-6">
-            <button className={classicButton} onClick={handleCheckout}>
+          <div className="pt-4 mt-6 flex flex-col items-end w-full">
+            <h2 className="text-2xl font-medium mb-6 text-right">
+              Total: {totalPrice.toFixed(2)} €
+            </h2>
+            <button className={`${classicButton}`} onClick={handleCheckout}>
               Checkout
             </button>
           </div>

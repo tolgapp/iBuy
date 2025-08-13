@@ -1,4 +1,3 @@
-import { useLocation } from "react-router-dom";
 import { buttonStyle, cartButton } from "../utils/helper";
 import { useDispatch, useSelector } from "react-redux";
 import { updateQuantity } from "../store/reducers/cartReducer";
@@ -9,16 +8,18 @@ type Props =
       productId: number;
       amount?: never;
       setItemAmount?: never;
+      isCart?: true;
     }
   | {
       productId?: never;
       amount: number;
       setItemAmount: React.Dispatch<React.SetStateAction<number>>;
+      isCart?: false;
     };
 
-const Amount = ({ productId, amount, setItemAmount }: Props) => {
+
+const Amount = ({ productId, amount, setItemAmount, isCart }: Props) => {
   const dispatch = useDispatch();
-  const { pathname } = useLocation();
 
   const cartItemQuantity = useSelector((state: RootState) =>
     productId !== undefined
@@ -26,10 +27,10 @@ const Amount = ({ productId, amount, setItemAmount }: Props) => {
       : undefined
   );
 
-  const quantity = pathname === "/cart" ? cartItemQuantity ?? 0 : amount ?? 0;
+  const quantity = isCart ? cartItemQuantity ?? 0 : amount ?? 0;
 
   const increaseAmount = () => {
-    if (pathname === "/cart" && productId !== undefined) {
+    if (isCart && productId !== undefined) {
       dispatch(updateQuantity({ productId, quantity: quantity + 1 }));
     } else if (setItemAmount) {
       setItemAmount((prevAmount) => prevAmount + 1);
@@ -37,26 +38,35 @@ const Amount = ({ productId, amount, setItemAmount }: Props) => {
   };
 
   const decreaseAmount = () => {
-    if (quantity < 1) return;
-
-    if (pathname === "/cart" && productId !== undefined) {
-      dispatch(updateQuantity({ productId, quantity: quantity - 1 }));
-    } else if (setItemAmount) {
+    if (isCart) {
+      if (quantity <= 1) return; 
+      if (productId !== undefined) {
+        dispatch(updateQuantity({ productId, quantity: quantity - 1 }));
+      }
+    } else {
+      if (quantity <= 0) return; 
+      if (setItemAmount) {
       setItemAmount((prevAmount) => prevAmount - 1);
     }
   };
+}
 
-  const wrapperStyle =
-    pathname === "/cart"
-      ? "flex justify-evenly items-center gap-3 w-48"
-      : "flex justify-between items-center gap-2";
+  const wrapperStyle = isCart
+    ? "flex justify-evenly items-center gap-3 w-48"
+    : "flex justify-between items-center gap-2";
 
-  const buttonClass = pathname === "/cart" ? cartButton : buttonStyle;
-  const quantityTextClass = pathname === "/cart" ? "text-2xl text-center w-8" : "text-4xl";
+  const buttonClass = isCart ? cartButton : buttonStyle;
+  const quantityTextClass = isCart ? "text-2xl text-center w-8" : "text-4xl";
 
   return (
     <div className={wrapperStyle}>
-      <button className={buttonClass} onClick={decreaseAmount}>
+      <button
+        className={`${buttonClass} ${
+          isCart && quantity <= 1 ? "opacity-50 cursor-not-allowed" : ""
+        }`}
+        onClick={decreaseAmount}
+        disabled={isCart && quantity <= 1}
+      >
         -
       </button>
       <h3 className={quantityTextClass}>{quantity}</h3>
@@ -66,5 +76,6 @@ const Amount = ({ productId, amount, setItemAmount }: Props) => {
     </div>
   );
 };
+
 
 export default Amount;

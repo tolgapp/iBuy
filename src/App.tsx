@@ -22,11 +22,6 @@ import { setProducts } from "./store/reducers/productReducer";
 import { RootState } from "./store/store";
 import Cart from "./pages/Cart";
 
-// TODO: Changed local products.json and added it to the backend API ✅
-// TODO: Refactoring from useState to Redux Toolkit for better state management
-// TODO: Add Cart functionality with Redux Toolkit for state management
-// TODO: Change from CSS to Tailwind CSS for styling
-
 const App: React.FC = () => {
   const [closeNews, setCloseNews] = useState(false);
   const [isSearchVisible, setIsSearchVisible] = useState(false);
