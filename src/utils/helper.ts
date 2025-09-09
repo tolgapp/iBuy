@@ -12,10 +12,10 @@ export const classicButton =
   "text-white p-4 text-lg font-semibold bg-black mt-2 mb-2  cursor-pointer hover:bg-gray-600 transition-colors duration-300";
 
 export const buttonStyle =
-    "text-black border-[.1rem] bg-white text-lg px-6 py-4 cursor-pointer hover:bg-black hover:text-white";
+  "text-black border-[.1rem] bg-white text-lg px-6 py-4 cursor-pointer hover:bg-black hover:text-white";
 
 export const cartButton =
-    "text-black border-[.1rem] bg-white text-lg px-2 cursor-pointer hover:bg-black hover:text-white";
+  "text-black border-[.1rem] bg-white text-lg px-2 cursor-pointer hover:bg-black hover:text-white";
 
 export const navLinkStyle =
   "text-lg font-medium text-black hover:underline hover:underline-offset-12";
@@ -23,8 +23,8 @@ export const navLinkStyle =
 export const signUpAndLoginContainerClass =
   "flex items-center justify-center min-h-screen";
 
-  export const resolveImagePath = (imagePath: string) => {
-      return imagePath.startsWith("http://") || imagePath.startsWith("https://")
-        ? imagePath
-        : `${baseURL}${imagePath}`;
-    };
+export const resolveImagePath = (imagePath: string) => {
+  return imagePath.startsWith("http://") || imagePath.startsWith("https://")
+    ? imagePath
+    : `${baseURL}${imagePath}`;
+};

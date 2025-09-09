@@ -43,7 +43,7 @@ const Navbar: React.FC<{ showSearch: () => void }> = ({
   }, []);
 
   return (
-    <header className="bg-white p-4 shadow-md relative z-10">
+    <header className="bg-white p-4 shadow-md relative z-10 ">
       <div className="flex lg:justify-between items-center container mx-auto min-w-full">
         <div className="sm:hidden w-full flex justify-between space-x-4">
           {isMobile ? (

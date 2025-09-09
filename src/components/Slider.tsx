@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { SlideProps } from "../types";
+import { SliderProps } from "../types";
 
-const Slides: React.FC<SlideProps> = ({ images, interval = 4000 }) => {
+const Slider: React.FC<SliderProps> = ({ images, interval = 4000 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [slideInterval, setSlideInterval] = useState(interval);
 
@@ -39,27 +39,25 @@ const Slides: React.FC<SlideProps> = ({ images, interval = 4000 }) => {
           <h2 className="text-4xl sm:text-7xl font-bold text-shadow">
             {images[currentIndex].title}
           </h2>
-          <p className="text-2xl sm:text-3xl text-shadow">{images[currentIndex].text}</p>
+          <p className="text-2xl sm:text-3xl text-shadow">
+            {images[currentIndex].text}
+          </p>
         </div>
       </div>
-      {currentIndex !== 0 && (
-        <button
-          className="absolute bottom-1 translate-y-[-1rem] right-[60px] w-[1.85rem] h-[1.85rem] bg-black/50 text-white flex items-center justify-center z-[1000] sm:opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black/70  cursor-pointer"
-          onClick={prevButton}
-        >
-          <img src="/images/icons/arrow-left.png" alt="arrow left icon" />
-        </button>
-      )}
-      {currentIndex !== images.length - 1 && (
-        <button
-          className="absolute bottom-1 translate-y-[-1rem] right-[20px] w-[1.85rem] h-[1.85rem] bg-black/50 text-white flex items-center justify-center z-[1000] sm:opacity-0 group-hover:opacity-100  transition-opacity hover:bg-black/70 cursor-pointer"
-          onClick={nextButton}
-        >
-          <img src="/images/icons/arrow-right.png" alt="arrow right icon" />
-        </button>
-      )}
+      <button
+        className="absolute top-1/2 left-2 translate-y-[-1rem] w-[1.85rem] h-[1.85rem] bg-black/30 text-white flex items-center justify-center z-[1000] sm:opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black/70  cursor-pointer"
+        onClick={prevButton}
+      >
+        <img src="/images/icons/arrow-left.png" alt="arrow left icon" />
+      </button>
+      <button
+        className="absolute top-1/2 translate-y-[-1rem] right-2 w-[1.85rem] h-[1.85rem] bg-black/30 text-white flex items-center justify-center z-[1000] sm:opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black/70 cursor-pointer"
+        onClick={nextButton}
+      >
+        <img src="/images/icons/arrow-right.png" alt="arrow right icon" />
+      </button>
     </div>
   );
 };
 
-export default Slides;
+export default Slider;

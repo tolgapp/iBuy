@@ -111,7 +111,7 @@ export type FormData = {
   verifyPassword: string;
 };
 
-export type SlideProps = {
+export type SliderProps = {
   images: { url: string; text?: string; alt: string; title?: string }[];
   interval?: number;
 };
