@@ -5,3 +5,9 @@ export const getAllProducts = async () => {
     const response = await axios.get(`${baseURL}/products`);
     return response.data;
 }
+
+export const resolveImagePath = (imagePath: string) => {
+  return imagePath.startsWith("http://") || imagePath.startsWith("https://")
+    ? imagePath
+    : `${baseURL}${imagePath}`;
+};

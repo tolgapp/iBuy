@@ -60,7 +60,7 @@ const Search: React.FC<SearchProps> = ({
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[100] h-[2.7rem] w-[70rem] flex flex-col items-center justify-center
          "
       >
-        <div className="relative w-full flex items-center justify-center md:w-[95%] sm:w-[95%]">
+        <div className="relative w-1/4 sm:w-[80%] flex items-center justify-center md:w-[95%]">
           <input
             type="text"
             placeholder="Search - e.g. Apple"

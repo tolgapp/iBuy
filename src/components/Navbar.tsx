@@ -61,7 +61,14 @@ const Navbar: React.FC<{ showSearch: () => void }> = ({
               onClick={handleClick}
             />
           )}
-          <div className="relative sm:hidden">
+          <div className="relative flex items-center gap-2 sm:hidden">
+            <button className="rounded-full" onClick={showSearch}>
+              <img
+                src="/images/icons/search.png"
+                alt="Search"
+                className="w-6 h-6 cursor-pointer"
+              />
+            </button>
             <Link to="/cart">
               <img
                 src="/images/icons/cart.png"

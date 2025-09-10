@@ -3,16 +3,10 @@ import Amount from "./Amount";
 import { useEffect, useState } from "react";
 import AddToCartButton from "./AddToCartButton";
 import Slides from "./Slider";
-import { baseURL } from "../services/products";
 import { useSelector } from "react-redux";
 import { RootState } from "../store/store";
 import { classicButton } from "../utils/helper";
-
-const resolveImagePath = (imagePath: string) => {
-  return imagePath.startsWith("http://") || imagePath.startsWith("https://")
-    ? imagePath
-    : `${baseURL}${imagePath}`;
-};
+import { resolveImagePath } from "../services/products";
 
 const ProductDetail = () => {
   const products = useSelector((state: RootState) => state.products);
