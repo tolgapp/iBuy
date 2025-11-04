@@ -17,6 +17,7 @@ const Cart = () => {
   const amount = useSelector((state: RootState) =>
     state.cart.items.reduce((total, item) => total + item.quantity, 0)
   );
+  
   const totalPrice = useSelector((state: RootState) =>
     state.cart.items.reduce(
       (total, item) => total + item.price * item.quantity,

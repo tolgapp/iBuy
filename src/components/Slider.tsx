@@ -45,13 +45,13 @@ const Slider: React.FC<SliderProps> = ({ images, interval = 4000 }) => {
         </div>
       </div>
       <button
-        className="absolute top-1/2 left-2 translate-y-[-1rem] w-[1.85rem] h-[1.85rem] bg-black/30 text-white flex items-center justify-center z-[1000] sm:opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black/70  cursor-pointer"
+        className="absolute top-1/2 left-2 translate-y-[-1rem] w-[1.85rem] h-[1.85rem] bg-black/30 text-white flex items-center justify-center z-[10] sm:opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black/70  cursor-pointer"
         onClick={prevButton}
       >
         <img src="/images/icons/arrow-left.png" alt="arrow left icon" />
       </button>
       <button
-        className="absolute top-1/2 translate-y-[-1rem] right-2 w-[1.85rem] h-[1.85rem] bg-black/30 text-white flex items-center justify-center z-[1000] sm:opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black/70 cursor-pointer"
+        className="absolute top-1/2 translate-y-[-1rem] right-2 w-[1.85rem] h-[1.85rem] bg-black/30 text-white flex items-center justify-center z-[10] sm:opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black/70 cursor-pointer"
         onClick={nextButton}
       >
         <img src="/images/icons/arrow-right.png" alt="arrow right icon" />
